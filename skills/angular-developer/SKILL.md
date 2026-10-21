@@ -153,3 +153,8 @@ When working with Angular tooling, consult the following references:
 - `tdd-workflow` — test-driven development workflow applicable to Angular components and services
 - `security-review` — security checklist for web applications including Angular-specific concerns
 - `frontend-patterns` — general frontend patterns for context on React/Next.js approaches
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
