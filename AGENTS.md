@@ -11,7 +11,7 @@
 
 | Path | Responsibility |
 |---|---|
-| `skills/` | 79 skills; instructions and optional resources |
+| `skills/` | 140 skills; instructions and optional resources |
 | `agents/` | 73 role definitions |
 | `commands/` | 97 command definitions |
 | `hooks/` | Executable SessionStart hook; other Markdown is guidance |

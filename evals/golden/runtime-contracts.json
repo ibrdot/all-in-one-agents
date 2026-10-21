@@ -1,0 +1,305 @@
+{
+  "kind": "offline executable contracts, NOT live agent quality benchmark",
+  "cases": [
+    {
+      "id": "persistent-retrieval-and-delete",
+      "category": "retrieval-evidence-cost",
+      "description": "Persistent retrieval and delete",
+      "node": "tests/test_runtime_core.py::test_persistent_retrieval_and_delete"
+    },
+    {
+      "id": "embedding-dimensions",
+      "category": "retrieval-evidence-cost",
+      "description": "Embedding dimensions",
+      "node": "tests/test_runtime_core.py::test_embedding_dimensions"
+    },
+    {
+      "id": "semantic-routing-budget-abstention",
+      "category": "retrieval-evidence-cost",
+      "description": "Semantic routing budget abstention",
+      "node": "tests/test_runtime_core.py::test_semantic_routing_budget_abstention"
+    },
+    {
+      "id": "routing-requires-costs",
+      "category": "retrieval-evidence-cost",
+      "description": "Routing requires costs",
+      "node": "tests/test_runtime_core.py::test_routing_requires_costs"
+    },
+    {
+      "id": "evidence-tampering-and-escape",
+      "category": "retrieval-evidence-cost",
+      "description": "Evidence tampering and escape",
+      "node": "tests/test_runtime_core.py::test_evidence_tampering_and_escape"
+    },
+    {
+      "id": "cost-selection",
+      "category": "retrieval-evidence-cost",
+      "description": "Cost selection",
+      "node": "tests/test_runtime_core.py::test_cost_selection"
+    },
+    {
+      "id": "invalid-prices",
+      "category": "retrieval-evidence-cost",
+      "description": "Invalid prices",
+      "node": "tests/test_runtime_core.py::test_invalid_prices"
+    },
+    {
+      "id": "debate-stages",
+      "category": "debate-evaluation",
+      "description": "Debate stages",
+      "node": "tests/test_runtime_council_eval.py::test_debate_stages"
+    },
+    {
+      "id": "provider-failure-is-not-consensus",
+      "category": "debate-evaluation",
+      "description": "Provider failure is not consensus",
+      "node": "tests/test_runtime_council_eval.py::test_provider_failure_is_not_consensus"
+    },
+    {
+      "id": "critique-failure-blocks-completion",
+      "category": "debate-evaluation",
+      "description": "Critique failure blocks completion",
+      "node": "tests/test_runtime_council_eval.py::test_critique_failure_blocks_completion"
+    },
+    {
+      "id": "synthesis-failure",
+      "category": "debate-evaluation",
+      "description": "Synthesis failure",
+      "node": "tests/test_runtime_council_eval.py::test_synthesis_failure"
+    },
+    {
+      "id": "golden-regression-detection",
+      "category": "debate-evaluation",
+      "description": "Golden regression detection",
+      "node": "tests/test_runtime_council_eval.py::test_golden_regression_detection"
+    },
+    {
+      "id": "missing-answer-fails",
+      "category": "debate-evaluation",
+      "description": "Missing answer fails",
+      "node": "tests/test_runtime_council_eval.py::test_missing_answer_fails"
+    },
+    {
+      "id": "no-assertions-rejected",
+      "category": "debate-evaluation",
+      "description": "No assertions rejected",
+      "node": "tests/test_runtime_council_eval.py::test_no_assertions_rejected"
+    },
+    {
+      "id": "improvement-does-not-rewrite",
+      "category": "debate-evaluation",
+      "description": "Improvement does not rewrite",
+      "node": "tests/test_runtime_council_eval.py::test_improvement_does_not_rewrite"
+    },
+    {
+      "id": "no-failure-no-rewrite",
+      "category": "debate-evaluation",
+      "description": "No failure no rewrite",
+      "node": "tests/test_runtime_council_eval.py::test_no_failure_no_rewrite"
+    },
+    {
+      "id": "http-adapter",
+      "category": "http-integration",
+      "description": "Http adapter",
+      "node": "tests/test_runtime_integration.py::test_http_adapter"
+    },
+    {
+      "id": "http-errors-redacted",
+      "category": "http-integration",
+      "description": "Http errors redacted",
+      "node": "tests/test_runtime_integration.py::test_http_errors_redacted"
+    },
+    {
+      "id": "provider-missing-key",
+      "category": "http-integration",
+      "description": "Provider missing key",
+      "node": "tests/test_runtime_integration.py::test_provider_missing_key"
+    },
+    {
+      "id": "budget-reserves-before-call",
+      "category": "http-integration",
+      "description": "Budget reserves before call",
+      "node": "tests/test_runtime_integration.py::test_budget_reserves_before_call"
+    },
+    {
+      "id": "connected-routing-memory-and-evidence",
+      "category": "http-integration",
+      "description": "Connected routing memory and evidence",
+      "node": "tests/test_runtime_integration.py::test_connected_routing_memory_and_evidence"
+    },
+    {
+      "id": "agent-insufficient-budget-no-provider",
+      "category": "http-integration",
+      "description": "Agent insufficient budget no provider",
+      "node": "tests/test_runtime_integration.py::test_agent_insufficient_budget_no_provider"
+    },
+    {
+      "id": "improvement-evaluated-then-explicit-promotion",
+      "category": "http-integration",
+      "description": "Improvement evaluated then explicit promotion",
+      "node": "tests/test_runtime_integration.py::test_improvement_evaluated_then_explicit_promotion"
+    },
+    {
+      "id": "improvement-blocks-regression-and-stale-write",
+      "category": "http-integration",
+      "description": "Improvement blocks regression and stale write",
+      "node": "tests/test_runtime_integration.py::test_improvement_blocks_regression_and_stale_write"
+    },
+    {
+      "id": "index-rejects-symlink",
+      "category": "orchestration-safety",
+      "description": "Index rejects symlink",
+      "node": "tests/test_runtime_hardening.py::test_index_rejects_symlink"
+    },
+    {
+      "id": "index-rejects-missing-description",
+      "category": "orchestration-safety",
+      "description": "Index rejects missing description",
+      "node": "tests/test_runtime_hardening.py::test_index_rejects_missing_description"
+    },
+    {
+      "id": "candidate-tampering-rejected",
+      "category": "orchestration-safety",
+      "description": "Candidate tampering rejected",
+      "node": "tests/test_runtime_hardening.py::test_candidate_tampering_rejected"
+    },
+    {
+      "id": "rollback-does-not-overwrite-later-work",
+      "category": "orchestration-safety",
+      "description": "Rollback does not overwrite later work",
+      "node": "tests/test_runtime_hardening.py::test_rollback_does_not_overwrite_later_work"
+    },
+    {
+      "id": "candidate-needs-comparable-evaluations",
+      "category": "orchestration-safety",
+      "description": "Candidate needs comparable evaluations",
+      "node": "tests/test_runtime_hardening.py::test_candidate_needs_comparable_evaluations"
+    },
+    {
+      "id": "cli-requires-explicit-network-consent",
+      "category": "orchestration-safety",
+      "description": "Cli requires explicit network consent",
+      "node": "tests/test_runtime_hardening.py::test_cli_requires_explicit_network_consent"
+    },
+    {
+      "id": "agent-council-is-connected",
+      "category": "orchestration-safety",
+      "description": "Agent council is connected",
+      "node": "tests/test_runtime_hardening.py::test_agent_council_is_connected"
+    },
+    {
+      "id": "empty-model-reply-never-completes",
+      "category": "orchestration-safety",
+      "description": "Empty model reply never completes",
+      "node": "tests/test_runtime_hardening.py::test_empty_model_reply_never_completes"
+    },
+    {
+      "id": "index-embedding-space-is-preserved",
+      "category": "orchestration-safety",
+      "description": "Index embedding space is preserved",
+      "node": "tests/test_runtime_hardening.py::test_index_embedding_space_is_preserved"
+    },
+    {
+      "id": "provider-rejects-unbounded-timeout",
+      "category": "orchestration-safety",
+      "description": "Provider rejects unbounded timeout",
+      "node": "tests/test_runtime_hardening.py::test_provider_rejects_unbounded_timeout"
+    },
+    {
+      "id": "provider-rejects-zero-output-cap",
+      "category": "orchestration-safety",
+      "description": "Provider rejects zero output cap",
+      "node": "tests/test_runtime_hardening.py::test_provider_rejects_zero_output_cap"
+    },
+    {
+      "id": "invalid-evaluator-scores-block-promotion",
+      "category": "orchestration-safety",
+      "description": "Invalid evaluator scores block promotion",
+      "node": "tests/test_runtime_hardening.py::test_invalid_evaluator_scores_block_promotion"
+    },
+    {
+      "id": "unchanged-candidate-is-not-improvement",
+      "category": "orchestration-safety",
+      "description": "Unchanged candidate is not improvement",
+      "node": "tests/test_runtime_hardening.py::test_unchanged_candidate_is_not_improvement"
+    },
+    {
+      "id": "improvement-requires-attributed-failures",
+      "category": "orchestration-safety",
+      "description": "Improvement requires attributed failures",
+      "node": "tests/test_runtime_hardening.py::test_improvement_requires_attributed_failures"
+    },
+    {
+      "id": "rollback-requires-approval",
+      "category": "orchestration-safety",
+      "description": "Rollback requires approval",
+      "node": "tests/test_runtime_hardening.py::test_rollback_requires_approval"
+    },
+    {
+      "id": "cross-path-promotion-is-refused",
+      "category": "orchestration-safety",
+      "description": "Cross path promotion is refused",
+      "node": "tests/test_runtime_hardening.py::test_cross_path_promotion_is_refused"
+    },
+    {
+      "id": "candidate-requires-strict-improvement",
+      "category": "orchestration-safety",
+      "description": "Candidate requires strict improvement",
+      "node": "tests/test_runtime_hardening.py::test_candidate_requires_strict_improvement"
+    },
+    {
+      "id": "budget-rejects-invalid-reservation",
+      "category": "orchestration-safety",
+      "description": "Budget rejects invalid reservation",
+      "node": "tests/test_runtime_hardening.py::test_budget_rejects_invalid_reservation"
+    },
+    {
+      "id": "memory-metadata-survives-restart",
+      "category": "orchestration-safety",
+      "description": "Memory metadata survives restart",
+      "node": "tests/test_runtime_hardening.py::test_memory_metadata_survives_restart"
+    },
+    {
+      "id": "no-memory-capture-without-explicit-save",
+      "category": "orchestration-safety",
+      "description": "No memory capture without explicit save",
+      "node": "tests/test_runtime_hardening.py::test_no_memory_capture_without_explicit_save"
+    },
+    {
+      "id": "pass-and-capture",
+      "category": "workflow-evidence",
+      "description": "Pass and capture",
+      "node": "tests/test_workflow_gate.py::test_pass_and_capture"
+    },
+    {
+      "id": "failure",
+      "category": "workflow-evidence",
+      "description": "Failure",
+      "node": "tests/test_workflow_gate.py::test_failure"
+    },
+    {
+      "id": "expected-red-then-green",
+      "category": "workflow-evidence",
+      "description": "Expected red then green",
+      "node": "tests/test_workflow_gate.py::test_expected_red_then_green"
+    },
+    {
+      "id": "timeout",
+      "category": "workflow-evidence",
+      "description": "Timeout",
+      "node": "tests/test_workflow_gate.py::test_timeout"
+    },
+    {
+      "id": "missing-binary",
+      "category": "workflow-evidence",
+      "description": "Missing binary",
+      "node": "tests/test_workflow_gate.py::test_missing_binary"
+    },
+    {
+      "id": "bounded-report",
+      "category": "workflow-evidence",
+      "description": "Bounded report",
+      "node": "tests/test_workflow_gate.py::test_bounded_report"
+    }
+  ]
+}

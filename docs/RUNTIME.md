@@ -46,8 +46,72 @@ under your own retention policy. Prompt instructions are not a security boundary
 
 ## Remaining roadmap
 
-Real embedding/provider adapters and live model validation; a curated 50-task
-benchmark (not 50 duplicated fixtures); measured model-quality routing; weekly
-benchmark scheduling; human-reviewed improvement promotion; document-stack
-end-to-end examples; native host sessions; official marketplace submission;
-commercial service commitments. None is claimed complete by this foundation.
+See [the explicit blueprint status](BLUEPRINT-STATUS.md). The connected runtime
+below supersedes the earlier missing-adapter/scheduler notes; live model quality,
+real-world golden tasks, official distribution and service commitments remain.
+
+## Connected execution (new)
+
+`python3 -m runtime --help` exposes a real network adapter and connected pipeline.
+No network call happens on import. Credentials are read from the named environment
+variable, never from a command-line token. HTTPS, bounded timeout/response size,
+no redirects, and disabled environment proxies protect the transport boundary.
+Truncated/refused completions fail rather than silently becoming complete answers.
+
+The endpoint and embedding model must be chosen explicitly. Configure your key in
+your local environment or secret manager; do not paste it into a chat or commit.
+`PROVIDER_BASE_URL` must be your reviewed HTTPS endpoint including its API prefix.
+
+```sh
+python3 -m runtime --base-url "$PROVIDER_BASE_URL" --embedding-model "$EMBEDDING_MODEL" \
+  --allow-network index --skills skills --database skills-v1.db
+python3 -m runtime --base-url "$PROVIDER_BASE_URL" --embedding-model "$EMBEDDING_MODEL" \
+  --allow-network run --database skills-v1.db --models models.json \
+  --task 'Review validation boundaries' --budget 0.10 --output .aio/run-001
+```
+
+`models.json` is a list with `id`, `capabilities` (e.g. `text`),
+`input_per_million` and `output_per_million`. Supply current explicit provider
+prices; no fictional model IDs or prices ship as defaults. Indexing makes one
+embedding request per skill. Task execution adds another embedding request.
+**Embedding spend is not included in the chat estimate budget.** Review this
+separately before enabling network access. Indexing publishes a new database only
+on full success; partial indexes are discarded.
+
+`--memory existing.db` retrieves explicitly stored memory. The callable API exposes
+`Memory.put/delete`; task execution never automatically stores private task text.
+`--debate-models model-a model-b --judge judge-model` enables critique council.
+All named models must have supplied capabilities/prices. Failed/blocked calls
+retain their conservative reservations because billing status is uncertain.
+
+Input byte counts are conservative loading estimates, not tokenizer usage. The
+provider output cap and run estimate must match. Estimates are not a hard billing
+limit or measured quality/difficulty routing. Provider callables must enforce
+their own network timeout and output limits. The adapter currently discards usage;
+actual billing reconciliation remains work to do.
+
+Each new output directory contains `answer.txt`, `report.json`, and `manifest.json`.
+The returned report additionally includes the evidence verification result; the
+manifest verifies captured bytes, not truth, provenance or model reasoning quality.
+No externally trusted signature protects the manifest. Treat transcripts as private.
+
+## Reviewed improvement and repeatable contracts
+
+`runtime.improvement.improve` asks a caller-selected generator for a changed skill,
+repeats before/after evaluation (minimum two), rejects unstable scores, requires
+strict improvement and no reported regression, and optionally runs a held-out
+non-regression evaluator. `promote(..., approved=True)` checks content hashes and
+requires explicit review. `rollback` refuses to overwrite subsequent edits. Stop
+concurrent writers: these hash guards are not cross-process locking. Receipts and
+proposals contain original skill text; store them privately. Scores do not prove
+independent review or safe content. Review frontmatter and rebuild the semantic
+index after every promoted change.
+
+```sh
+python3 -m runtime.benchmark --baseline evals/golden/baseline.json --output .aio/benchmark.json
+```
+
+The 50 golden contracts execute actual assertion-bearing tests, not 50 invented
+responses. The weekly workflow runs offline, needs no model secrets, and uploads
+its report. It is a software-regression benchmark, **not** a general agent-quality
+benchmark. See [blueprint status](BLUEPRINT-STATUS.md) for exact remaining work.

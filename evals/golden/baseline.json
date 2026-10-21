@@ -1,0 +1,359 @@
+{
+  "kind": "offline runtime contract benchmark",
+  "suite_sha256": "675c408ea909a515790d9f92516ec7f7f2303e192bcb97933cf859b8832b6c98",
+  "total": 50,
+  "passed": 50,
+  "regressions": [],
+  "results": [
+    {
+      "id": "persistent-retrieval-and-delete",
+      "node": "tests/test_runtime_core.py::test_persistent_retrieval_and_delete",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.324
+    },
+    {
+      "id": "embedding-dimensions",
+      "node": "tests/test_runtime_core.py::test_embedding_dimensions",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.316
+    },
+    {
+      "id": "semantic-routing-budget-abstention",
+      "node": "tests/test_runtime_core.py::test_semantic_routing_budget_abstention",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.323
+    },
+    {
+      "id": "routing-requires-costs",
+      "node": "tests/test_runtime_core.py::test_routing_requires_costs",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.317
+    },
+    {
+      "id": "evidence-tampering-and-escape",
+      "node": "tests/test_runtime_core.py::test_evidence_tampering_and_escape",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.318
+    },
+    {
+      "id": "cost-selection",
+      "node": "tests/test_runtime_core.py::test_cost_selection",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.318
+    },
+    {
+      "id": "invalid-prices",
+      "node": "tests/test_runtime_core.py::test_invalid_prices",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.371
+    },
+    {
+      "id": "debate-stages",
+      "node": "tests/test_runtime_council_eval.py::test_debate_stages",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.323
+    },
+    {
+      "id": "provider-failure-is-not-consensus",
+      "node": "tests/test_runtime_council_eval.py::test_provider_failure_is_not_consensus",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.325
+    },
+    {
+      "id": "critique-failure-blocks-completion",
+      "node": "tests/test_runtime_council_eval.py::test_critique_failure_blocks_completion",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.316
+    },
+    {
+      "id": "synthesis-failure",
+      "node": "tests/test_runtime_council_eval.py::test_synthesis_failure",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.316
+    },
+    {
+      "id": "golden-regression-detection",
+      "node": "tests/test_runtime_council_eval.py::test_golden_regression_detection",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.369
+    },
+    {
+      "id": "missing-answer-fails",
+      "node": "tests/test_runtime_council_eval.py::test_missing_answer_fails",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.318
+    },
+    {
+      "id": "no-assertions-rejected",
+      "node": "tests/test_runtime_council_eval.py::test_no_assertions_rejected",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.316
+    },
+    {
+      "id": "improvement-does-not-rewrite",
+      "node": "tests/test_runtime_council_eval.py::test_improvement_does_not_rewrite",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.316
+    },
+    {
+      "id": "no-failure-no-rewrite",
+      "node": "tests/test_runtime_council_eval.py::test_no_failure_no_rewrite",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.316
+    },
+    {
+      "id": "http-adapter",
+      "node": "tests/test_runtime_integration.py::test_http_adapter",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.868
+    },
+    {
+      "id": "http-errors-redacted",
+      "node": "tests/test_runtime_integration.py::test_http_errors_redacted",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.326
+    },
+    {
+      "id": "provider-missing-key",
+      "node": "tests/test_runtime_integration.py::test_provider_missing_key",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.366
+    },
+    {
+      "id": "budget-reserves-before-call",
+      "node": "tests/test_runtime_integration.py::test_budget_reserves_before_call",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.316
+    },
+    {
+      "id": "connected-routing-memory-and-evidence",
+      "node": "tests/test_runtime_integration.py::test_connected_routing_memory_and_evidence",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.368
+    },
+    {
+      "id": "agent-insufficient-budget-no-provider",
+      "node": "tests/test_runtime_integration.py::test_agent_insufficient_budget_no_provider",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.368
+    },
+    {
+      "id": "improvement-evaluated-then-explicit-promotion",
+      "node": "tests/test_runtime_integration.py::test_improvement_evaluated_then_explicit_promotion",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.368
+    },
+    {
+      "id": "improvement-blocks-regression-and-stale-write",
+      "node": "tests/test_runtime_integration.py::test_improvement_blocks_regression_and_stale_write",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.37
+    },
+    {
+      "id": "index-rejects-symlink",
+      "node": "tests/test_runtime_hardening.py::test_index_rejects_symlink",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.322
+    },
+    {
+      "id": "index-rejects-missing-description",
+      "node": "tests/test_runtime_hardening.py::test_index_rejects_missing_description",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.318
+    },
+    {
+      "id": "candidate-tampering-rejected",
+      "node": "tests/test_runtime_hardening.py::test_candidate_tampering_rejected",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.321
+    },
+    {
+      "id": "rollback-does-not-overwrite-later-work",
+      "node": "tests/test_runtime_hardening.py::test_rollback_does_not_overwrite_later_work",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.318
+    },
+    {
+      "id": "candidate-needs-comparable-evaluations",
+      "node": "tests/test_runtime_hardening.py::test_candidate_needs_comparable_evaluations",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.417
+    },
+    {
+      "id": "cli-requires-explicit-network-consent",
+      "node": "tests/test_runtime_hardening.py::test_cli_requires_explicit_network_consent",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.418
+    },
+    {
+      "id": "agent-council-is-connected",
+      "node": "tests/test_runtime_hardening.py::test_agent_council_is_connected",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.319
+    },
+    {
+      "id": "empty-model-reply-never-completes",
+      "node": "tests/test_runtime_hardening.py::test_empty_model_reply_never_completes",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.32
+    },
+    {
+      "id": "index-embedding-space-is-preserved",
+      "node": "tests/test_runtime_hardening.py::test_index_embedding_space_is_preserved",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.316
+    },
+    {
+      "id": "provider-rejects-unbounded-timeout",
+      "node": "tests/test_runtime_hardening.py::test_provider_rejects_unbounded_timeout",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.318
+    },
+    {
+      "id": "provider-rejects-zero-output-cap",
+      "node": "tests/test_runtime_hardening.py::test_provider_rejects_zero_output_cap",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.318
+    },
+    {
+      "id": "invalid-evaluator-scores-block-promotion",
+      "node": "tests/test_runtime_hardening.py::test_invalid_evaluator_scores_block_promotion",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.318
+    },
+    {
+      "id": "unchanged-candidate-is-not-improvement",
+      "node": "tests/test_runtime_hardening.py::test_unchanged_candidate_is_not_improvement",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.367
+    },
+    {
+      "id": "improvement-requires-attributed-failures",
+      "node": "tests/test_runtime_hardening.py::test_improvement_requires_attributed_failures",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.316
+    },
+    {
+      "id": "rollback-requires-approval",
+      "node": "tests/test_runtime_hardening.py::test_rollback_requires_approval",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.322
+    },
+    {
+      "id": "cross-path-promotion-is-refused",
+      "node": "tests/test_runtime_hardening.py::test_cross_path_promotion_is_refused",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.366
+    },
+    {
+      "id": "candidate-requires-strict-improvement",
+      "node": "tests/test_runtime_hardening.py::test_candidate_requires_strict_improvement",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.366
+    },
+    {
+      "id": "budget-rejects-invalid-reservation",
+      "node": "tests/test_runtime_hardening.py::test_budget_rejects_invalid_reservation",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.366
+    },
+    {
+      "id": "memory-metadata-survives-restart",
+      "node": "tests/test_runtime_hardening.py::test_memory_metadata_survives_restart",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.368
+    },
+    {
+      "id": "no-memory-capture-without-explicit-save",
+      "node": "tests/test_runtime_hardening.py::test_no_memory_capture_without_explicit_save",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.367
+    },
+    {
+      "id": "pass-and-capture",
+      "node": "tests/test_workflow_gate.py::test_pass_and_capture",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.317
+    },
+    {
+      "id": "failure",
+      "node": "tests/test_workflow_gate.py::test_failure",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.316
+    },
+    {
+      "id": "expected-red-then-green",
+      "node": "tests/test_workflow_gate.py::test_expected_red_then_green",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.367
+    },
+    {
+      "id": "timeout",
+      "node": "tests/test_workflow_gate.py::test_timeout",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.366
+    },
+    {
+      "id": "missing-binary",
+      "node": "tests/test_workflow_gate.py::test_missing_binary",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.366
+    },
+    {
+      "id": "bounded-report",
+      "node": "tests/test_workflow_gate.py::test_bounded_report",
+      "passed": true,
+      "reason": null,
+      "seconds": 0.367
+    }
+  ]
+}

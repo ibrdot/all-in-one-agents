@@ -172,3 +172,11 @@ Good first issues `good-first-issue` label ke saath milenge - naya contributor h
 ## Executable runtime foundation
 
 Persistent vector retrieval, budgeted skill routing, evidence hashes, capability-based model selection, peer-critique councils, and regression scoring: see [runtime contracts and runnable demo](docs/RUNTIME.md). Real provider integration and live-model benchmarks remain separate validation work.
+
+### Executable blueprint progress
+
+The [connected runtime](docs/RUNTIME.md) now includes explicit HTTP chat/embedding
+adapters, semantic indexing, memory retrieval, budgeted debate and reviewed skill
+improvement. [Blueprint status](docs/BLUEPRINT-STATUS.md) separates executable
+contracts from unproven model-quality and marketplace claims. The weekly benchmark
+runs 50 distinct offline runtime contracts, not a live intelligence leaderboard.

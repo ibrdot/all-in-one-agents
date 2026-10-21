@@ -28,3 +28,12 @@ agent run --skills ./skills --prompt "$(yq .prompt evals/scenarios/brainstorming
 
 Assertions use MUST / MUST NOT language — a scenario fails on the first
 violated assertion.
+
+## Executable runtime contracts
+
+Run `python3 -m runtime.benchmark --baseline evals/golden/baseline.json --output .aio/benchmark.json`.
+The 50 named contracts in `golden/runtime-contracts.json` run separate pytest
+assertions for retrieval, evidence, cost, HTTP, council, improvement and gates.
+They are offline software checks, not 50 real-world model-quality evaluations.
+Baseline fingerprints reject silent suite changes; rebaseline deliberately only
+after reviewing changes. CI runs weekly and preserves report artifacts.
