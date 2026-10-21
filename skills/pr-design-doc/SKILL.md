@@ -172,3 +172,8 @@ cleanup or branch deletion does not break access.
 - ❌ Publishing a private-repository design doc through htmlpreview, GitHub Pages, or another
   public host. Use the private/local preview path in the craft reference. Use GitHub Pages
   only with explicit user authorization after verifying private Pages access control.
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
