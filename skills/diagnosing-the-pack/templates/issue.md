@@ -20,19 +20,19 @@ than editing their words.>
 
 | Field | Value | Provenance / supporting evidence |
 |-------|-------|-------------------------------|
-| Superpowers version | <version> (<sha or "not a checkout">) | <historical evidence / unverified snapshot / current observation / unknown>; <location> |
+| Skill Pack version | <version> (<sha or "not a checkout">) | <historical evidence / unverified snapshot / current observation / unknown>; <location> |
 | Harness (Claude Code, Cursor, etc.) | <harness> | <label>; <location> |
 | Harness version | <version> | <label>; <location> |
 | Your model + version | <model ids seen> | <label>; <location> |
 | All plugins installed | <list> | <label>; <location> |
 | OS + shell | <os version>, <shell> | <label>; <location> |
 
-## Is this a Superpowers issue or a platform issue?
+## Is this a Skill Pack issue or a platform issue?
 
-- [ ] I confirmed this issue does not occur without Superpowers installed
+- [ ] I confirmed this issue does not occur without Skill Pack installed
 
-How I verified that this issue does not reproduce without Superpowers:
-<"Not tried", or what your partner ran without superpowers and what
+How I verified that this issue does not reproduce without Skill Pack:
+<"Not tried", or what your partner ran without skillpack and what
 happened, with the transcript path if there is one. Tick the box above
 only when a transcript shows the problem did not recur.>
 
@@ -61,10 +61,10 @@ rewritten as `transcript line <n>`.>
 
 Session id(s): <ids>. Delivered local archive: <path, redaction level <level>
 | none built>. Attached bundle: <no claim; attach only after approval>.
-Superpowers involvement per the diagnosis report: <possible | likely>, with
+Skill Pack involvement per the diagnosis report: <possible | likely>, with
 evidence at <transcript lines>. This report does not propose a fix.
 
 ---
-Filed with the `diagnosing-superpowers` skill. The filing model and
+Filed with the `diagnosing-skillpack` skill. The filing model and
 harness are under "Who's filing"; the diagnosed session's model, harness,
 versions, and plugins are in the Environment table.

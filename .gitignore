@@ -8,7 +8,7 @@ __pycache__/
 node_modules/
 
 # Agent runtime scratch
-.superpowers/
+.skillpack/
 .aio/
 .DS_Store
 
