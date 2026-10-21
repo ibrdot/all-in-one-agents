@@ -32,3 +32,8 @@ Chunk it: land a working slice, push, continue. Five honest small commits beat o
 - Fake or backdated history
 - Committing secrets, tokens, or generated junk
 - `git add -A` without checking what got staged
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
