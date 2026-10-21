@@ -33,3 +33,8 @@ When the plan is wrong (missing file, changed API, better route discovered):
 ## Finish
 
 All tasks checked → hand off to `requesting-code-review`, then `finishing-a-development-branch`.
+
+## Done when
+
+- The skill's scripts run without errors on their documented inputs
+- The output matches the format the skill promises
