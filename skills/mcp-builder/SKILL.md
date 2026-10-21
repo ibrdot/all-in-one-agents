@@ -233,3 +233,8 @@ Load these resources as needed during development:
   - XML format specifications
   - Example questions and answers
   - Running an evaluation with the provided scripts
+
+## Done when
+
+- The skill's scripts run without errors on their documented inputs
+- The output matches the format the skill promises
