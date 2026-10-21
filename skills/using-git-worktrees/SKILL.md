@@ -35,3 +35,8 @@ cd ../<project>-<feature>
 ## When done
 
 Hand off to `finishing-a-development-branch` — it handles merge/PR/discard and worktree cleanup. Never `rm -rf` a worktree; use `git worktree remove`.
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
