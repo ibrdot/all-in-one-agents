@@ -243,6 +243,11 @@ Then run **`agent-self-evaluation`** — rate your own output on 5 axes: accurac
 | Close out a work cycle | `retro` |
 | Turn notes into a spec | `to-spec` |
 | Split a spec into tickets | `to-tickets` |
+| Idea to deployed service | `zero-to-production` |
+| Inherited legacy codebase | `legacy-rescue` |
+| Review AI-written code | `ai-code-audit` |
+| Spend too high / growing | `cost-optimization` |
+| Big refactor, short deadline | `speed-run-refactor` |
 | New issue needs routing | `triage` |
 | Lost in an unfamiliar repo | `wayfinder` |
 | Guided multi-step task setup | `wizard` |

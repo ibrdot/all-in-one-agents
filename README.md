@@ -8,7 +8,7 @@
 
 [![Tests](https://github.com/ibrdot/all-in-one-agents/actions/workflows/ci.yml/badge.svg)](https://github.com/ibrdot/all-in-one-agents/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/ibrdot/all-in-one-agents?style=flat-square&color=8b5cf6)](https://github.com/ibrdot/all-in-one-agents/releases)
-[![Skills](https://img.shields.io/badge/skills-121-2563eb?style=flat-square)](INDEX.md)
+[![Skills](https://img.shields.io/badge/skills-126-2563eb?style=flat-square)](INDEX.md)
 [![Agents](https://img.shields.io/badge/agents-73-0ea5e9?style=flat-square)](INDEX.md)
 [![Commands](https://img.shields.io/badge/commands-97-64748b?style=flat-square)](INDEX.md)
 [![License](https://img.shields.io/badge/license-MIT-16a34a?style=flat-square)](LICENSE)
@@ -26,7 +26,7 @@ Most skill collections are a pile of prompts. This is a **system**: an orchestra
 kernel, hash-checked multi-file editing, test-first loops, and explicit verification
 - wired for 12 agent harnesses and proven by 66 regression tests.
 
-> **121 skills · 73 agents · 97 commands · 12 harnesses · 1 philosophy**
+> **126 skills · 73 agents · 97 commands · 12 harnesses · 1 philosophy**
 
 ## 🧭 What it solves
 
@@ -124,7 +124,7 @@ Concrete multi-edit commands and migration scenarios: [coding workflow guide](do
 
 | Path | Contents |
 |---|---|
-| [`skills/`](skills/) | 121 skills, each with a `SKILL.md` entrypoint |
+| [`skills/`](skills/) | 126 skills, each with a `SKILL.md` entrypoint |
 | [`agents/`](agents/) | 73 agent definitions |
 | [`commands/`](commands/) | 97 slash commands |
 | [`hooks/`](hooks/) | Executable SessionStart hook and written guidance |
