@@ -371,3 +371,8 @@ Reference documentation is in the `reference/` directory adjacent to this SKILL.
 
 Reference material for this skill is vendored locally under `skills/videodb/reference/`.
 Use the local copies above instead of following external repository links at runtime.
+
+## Done when
+
+- The skill's scripts run without errors on their documented inputs
+- The output matches the format the skill promises
