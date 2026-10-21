@@ -180,3 +180,11 @@ adapters, semantic indexing, memory retrieval, budgeted debate and reviewed skil
 improvement. [Blueprint status](docs/BLUEPRINT-STATUS.md) separates executable
 contracts from unproven model-quality and marketplace claims. The weekly benchmark
 runs 50 distinct offline runtime contracts, not a live intelligence leaderboard.
+
+### Objective tasks and executable documents
+
+[50 coding/infra microtasks](docs/OBJECTIVE-EVALUATION.md) now support explicit
+provider generation, separate replay grading, and source-labeled calibration.
+The document pipeline generates and reopens DOCX/XLSX/PDF/PPTX in CI. Neither
+reference calibration nor offline contract tests are advertised as live model
+performance. See the [measured inventory](docs/MEASURED-INVENTORY.md) for counts.

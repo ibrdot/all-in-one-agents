@@ -16,9 +16,11 @@ SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 TARGET=""
 DRY_RUN=0
+FORCE=0
 for arg in "$@"; do
   case "$arg" in
     --dry-run) DRY_RUN=1 ;;
+    --force) FORCE=1 ;;
     -h|--help) sed -n '2,12p' "${BASH_SOURCE[0]}"; exit 0 ;;
     --*) echo "Unknown option: $arg" >&2; exit 2 ;;
     *) [ -z "$TARGET" ] || { echo "Only one target is allowed" >&2; exit 2; }; TARGET="$arg" ;;
@@ -34,6 +36,45 @@ case "$TARGET" in
   factory)  DEST="$HOME/.factory" ;;
   *)        DEST="$TARGET" ;;
 esac
+
+# Preflight ALL destinations before any copy. Refuse symlink trees rather than
+# following a pre-existing entry into an unrelated location. This is not a lock:
+# do not install concurrently with an untrusted writer.
+python3 - "$DEST" <<'SAFE'
+from pathlib import Path
+import os, sys
+root = Path(sys.argv[1]).absolute()
+for parent in [root, *root.parents]:
+    if parent.is_symlink():
+        sys.exit(f"refusing symlinked destination: {parent}")
+for component in ('skills', 'agents', 'commands', 'hooks'):
+    path = root / component
+    if path.is_symlink(): sys.exit(f"refusing symlinked component: {path}")
+    if path.exists() and not path.is_dir(): sys.exit(f"component is not a directory: {path}")
+    if path.exists():
+        for current, dirs, files in os.walk(path, followlinks=False):
+            for name in dirs + files:
+                entry = Path(current) / name
+                if entry.is_symlink(): sys.exit(f"refusing symlinked install entry: {entry}")
+SAFE
+
+# Refuse silent loss of modified installed content. Identical re-installs work;
+# replacement of changed files requires an explicit --force from the operator.
+python3 - "$SRC" "$DEST" "$FORCE" "$DRY_RUN" <<'CONFLICTS'
+from pathlib import Path
+import sys
+source, target, force, dry = Path(sys.argv[1]), Path(sys.argv[2]), sys.argv[3]=='1', sys.argv[4]=='1'
+conflicts=[]
+for component in ('skills','agents','commands'):
+    for item in (source/component).rglob('*'):
+        if not item.is_file(): continue
+        existing=target/item.relative_to(source)
+        if existing.exists() and (not existing.is_file() or existing.read_bytes()!=item.read_bytes()):
+            conflicts.append(str(existing))
+if conflicts:
+    print('Files requiring replacement:', *conflicts, sep='\n', file=sys.stderr)
+    if not force and not dry: sys.exit('refusing modified installed files; back up changes and use --force to replace')
+CONFLICTS
 
 # Validate configuration before copying any files. Never partially install on
 # malformed settings, and reject symlinked settings to avoid writing elsewhere.
@@ -122,12 +163,14 @@ if dry_run:
     print(rendered)
 else:
     os.makedirs(os.path.dirname(settings_path) or ".", exist_ok=True)
+    previous_mode = os.stat(settings_path).st_mode & 0o777 if os.path.exists(settings_path) else 0o600
     fd, temporary = tempfile.mkstemp(prefix=".aio-settings-", dir=os.path.dirname(settings_path))
     try:
         with os.fdopen(fd, "w", encoding="utf-8") as f:
             f.write(rendered)
             f.flush()
             os.fsync(f.fileno())
+        os.chmod(temporary, previous_mode)
         os.replace(temporary, settings_path)
     finally:
         if os.path.exists(temporary):

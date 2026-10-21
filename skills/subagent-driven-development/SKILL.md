@@ -70,3 +70,11 @@ Rules:
 ## Applied case
 
 See [worked case and failure analysis](references/worked-case.md) for concrete experiments, acceptance checks, and recovery rules.
+
+## Host-aware execution and two-stage review
+
+Read [dispatch and review protocol](references/dispatch-and-review.md) for exact
+briefs, specification-vs-quality review, remediation and handoff receipts.
+Host tool permissions take precedence over the default worker-write pattern:
+when delegation is read-only, the parent implements and workers independently
+review. Do not simulate unavailable worker capabilities or misattribute work.

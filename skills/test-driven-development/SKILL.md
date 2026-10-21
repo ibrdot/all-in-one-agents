@@ -63,3 +63,9 @@ The test stays forever as the guard that the bug can never return silently.
 ## Applied case
 
 See [worked case and failure analysis](references/worked-case.md) for concrete experiments, acceptance checks, and recovery rules.
+
+## Integration acceptance matrix
+
+Read [behavioral test design](references/behavioral-testing.md) for negative
+cases, real boundary tests, fixture limitations, side effects and the distinction
+between contract checks, model quality and native visual verification.

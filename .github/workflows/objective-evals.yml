@@ -1,0 +1,27 @@
+name: Objective grader calibration and document round trips
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pytest==8.4.2 -r requirements-documents.txt
+      - name: Execute document, grading, installer and generation regressions
+        run: python3 -m pytest tests/test_documents_e2e.py tests/test_taskbench.py tests/test_live_taskbench.py tests/test_install_safety.py -q
+      - name: Calibrate fifty objective task graders (not model performance)
+        run: python3 -m runtime.taskbench --responses evals/tasks/reference-responses.json --source reference-calibration --output .aio/calibration --allow-code-execution
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: objective-grader-calibration
+          path: .aio/calibration

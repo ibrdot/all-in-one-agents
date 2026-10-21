@@ -62,3 +62,10 @@ After 3 dead hypotheses, step back: re-read the actual error (not your summary o
 ## Applied case
 
 See [worked case and failure analysis](references/worked-case.md) for concrete experiments, acceptance checks, and recovery rules.
+
+## Reproducible experiment records
+
+Use the [experiment ledger and real boundary cases](references/experiment-log.md)
+for metadata parsing, state contamination and installer failures. Distinguish
+reproducer evidence from a hypothetical diagnosis; never turn access failure
+into a clean verification claim.

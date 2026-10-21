@@ -74,3 +74,12 @@ python3 -m pytest tests/ -q
 For Claude Code, inspect the SessionStart output and confirm bootstrap context
 is present. For other harnesses, verify their own loading mechanism independently.
 See [coding workflows](CODING-WORKFLOWS.md) for safe multi-file changes.
+
+## Protect existing local edits
+
+Installer preflight rejects symlinked destination trees before any copy. Identical
+reinstallation remains idempotent. If installed files differ from the incoming
+pack, installation stops and lists conflicts; back up local changes and use
+`--force` only when replacement is intended. `--dry-run` lists conflicts without
+writing. Run installation without concurrent untrusted writers; preflight is
+not a cross-process lock.
