@@ -39,3 +39,8 @@ Rules: implement as specified; run the verify command; return the
 
 - Two subagents on overlapping files at once (use `dispatching-parallel-agents` qualification first)
 - Accepting "done" without the verify output
+
+## Done when
+
+- The skill's scripts run without errors on their documented inputs
+- The output matches the format the skill promises
