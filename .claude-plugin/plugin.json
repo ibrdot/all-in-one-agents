@@ -1,16 +1,12 @@
 {
   "name": "all-in-one-agents",
   "version": "1.0.0",
-  "description": "Installable agent skill framework \u2014 81 skills, 73 agents, 97 commands with an orchestration kernel, enforcement hooks, and TDD-first methodology.",
+  "description": "Installable agent skill framework — 70 skills, 73 agents, 97 commands, with a SessionStart kernel injection hook and TDD-first methodology.",
   "entrypoint": "skills/using-all-in-one-agents/SKILL.md",
   "skills": "skills/",
   "agents": "agents/",
   "commands": "commands/",
-  "hooks": [
-    "hooks/SessionStart.md",
-    "hooks/Stop.md",
-    "hooks/PostToolUse.md"
-  ],
+  "hooks": "./hooks/hooks.json",
   "repository": "https://github.com/ibrdot/all-in-one-agents",
   "license": "MIT",
   "marketplace": {

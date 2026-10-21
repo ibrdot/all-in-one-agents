@@ -1,6 +1,6 @@
 # Installation — per harness
 
-Pick your harness. Every path ends with the kernel loaded and hooks armed.
+Pick your harness. Every path ends with the kernel injected at session start.
 
 ## Claude Code
 
@@ -10,7 +10,7 @@ cd all-in-one-agents
 ./install.sh            # installs to ~/.claude
 ```
 
-Then add the SessionStart hook to `~/.claude/settings.json` (the installer prints the exact snippet). Marketplace manifest: `.claude-plugin/plugin.json`.
+The installer merges the SessionStart hook into `~/.claude/settings.json` automatically (idempotent; unrelated keys preserved). Preview it with `./install.sh claude --dry-run`. Marketplace manifest: `.claude-plugin/plugin.json`.
 
 ## OpenCode
 
