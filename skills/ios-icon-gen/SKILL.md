@@ -156,3 +156,8 @@ Browse all: <https://icon-sets.iconify.design/>
 - Using default colors when the project has a defined color palette
 - Generating at wrong sizes (check existing icons first)
 - Committing generated icons without visual verification
+
+## Done when
+
+- The skill's scripts run without errors on their documented inputs
+- The output matches the format the skill promises
