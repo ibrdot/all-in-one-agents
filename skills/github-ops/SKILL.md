@@ -160,3 +160,8 @@ Before completing any GitHub operations task:
 - CI failures have been investigated (not just re-run)
 - releases include accurate changelogs
 - security alerts are acknowledged and tracked
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
