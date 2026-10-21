@@ -1,55 +1,119 @@
 #!/usr/bin/env python3
-"""Token spend report from JSONL usage logs.
-
-Reads lines like {"model":"gpt-4o","input":1200,"output":300,"route":"chat"}
-(one JSON object per line, extra keys ignored) and prints spend by model and
-route plus the top cost centers. Prices in $/1M tokens - edit PRICING for your
-providers. Exit code 0 always; designed for cron + CI.
-
-Usage: token_cost_report.py [logfile.jsonl ...]   (default: stdin)
+"""Report JSONL token costs using explicit user-supplied USD/1M token prices.
+Record: {"model":"my-model","input":100,"output":20,"route":"chat"}
+Prices: {"my-model":{"input":"2.50","output":"10.00"}}
+Exit 0: success, 1: total exceeds budget, 2: invalid input/configuration.
+No network, default prices, inferred prices, or silently skipped records.
 """
-import json, sys
-from collections import defaultdict
+import argparse
+from contextlib import nullcontext
+from decimal import Decimal, InvalidOperation
+import json
+from pathlib import Path
+import sys
 
-# $ per 1M tokens. Update to match your provider price sheet.
-PRICING = {
-    "gpt-4o": (2.50, 10.00), "gpt-4o-mini": (0.15, 0.60),
-    "claude-sonnet-4-5": (3.00, 15.00), "claude-haiku-4": (0.80, 4.00),
-    "claude-opus-4": (15.00, 75.00), "gemini-2.0-flash": (0.10, 0.40),
-}
-DEFAULT = (1.00, 4.00)  # unknown model: conservative estimate
+MILLION = Decimal(1000000)
 
-def main():
-    in_tok, out_tok, calls = defaultdict(int), defaultdict(int), defaultdict(int)
-    route_cost = defaultdict(float)
-    for path in ([sys.argv[1]] if len(sys.argv) > 1 else ["-"]):
-        fh = sys.stdin if path == "-" else open(path)
-        for line in fh:
-            line = line.strip()
-            if not line: continue
-            try: rec = json.loads(line)
-            except json.JSONDecodeError: continue
-            model = rec.get("model", "unknown")
-            inp, out = int(rec.get("input", 0)), int(rec.get("output", 0))
-            pin, pout = PRICING.get(model, DEFAULT)
-            cost = inp / 1e6 * pin + out / 1e6 * pout
-            in_tok[model] += inp; out_tok[model] += out; calls[model] += 1
-            route_cost[rec.get("route", "unrouted")] += cost
-    if not calls:
-        print("no usage records found"); return
-    print(f"{'model':24}{'calls':>8}{'in tok':>12}{'out tok':>12}{'cost $':>10}")
-    total = 0.0
-    for m in sorted(calls, key=lambda m: calls[m] * sum(PRICING.get(m, DEFAULT)), reverse=True):
-        pin, pout = PRICING.get(m, DEFAULT)
-        c = in_tok[m] / 1e6 * pin + out_tok[m] / 1e6 * pout
-        total += c
-        print(f"{m:24}{calls[m]:>8}{in_tok[m]:>12}{out_tok[m]:>12}{c:>10.2f}")
-    print(f"{'TOTAL':24}{sum(calls.values()):>8}{sum(in_tok.values()):>12}{sum(out_tok.values()):>12}{total:>10.2f}")
-    print("\ncost by route:")
-    for r, c in sorted(route_cost.items(), key=lambda kv: -kv[1]):
-        pct = 100 * c / total if total else 0
-        flag = "  <-- top lever" if pct >= 40 else ""
-        print(f"  {r:30}${c:10.2f}  {pct:5.1f}%{flag}")
 
-if __name__ == "__main__":
-    main()
+def amount(value, label):
+    if isinstance(value, bool):
+        raise ValueError(f'{label}: expected finite nonnegative decimal')
+    try:
+        number = Decimal(str(value))
+    except InvalidOperation:
+        raise ValueError(f'{label}: expected finite nonnegative decimal') from None
+    if not number.is_finite() or number < 0:
+        raise ValueError(f'{label}: expected finite nonnegative decimal')
+    return number
+
+
+def load_prices(path):
+    data = json.loads(Path(path).read_text(encoding='utf-8'))
+    if not isinstance(data, dict) or not data:
+        raise ValueError('pricing must be a nonempty model-to-prices object')
+    result = {}
+    for model, rates in data.items():
+        if not model or not isinstance(rates, dict) or set(rates) != {'input', 'output'}:
+            raise ValueError(f'pricing for {model!r}: require input and output rates only')
+        result[model] = (amount(rates['input'], 'input price'), amount(rates['output'], 'output price'))
+    return result
+
+
+def validate_record(rec, prices):
+    if not isinstance(rec, dict):
+        raise ValueError('record must be an object')
+    model = rec.get('model')
+    if not isinstance(model, str) or model not in prices:
+        raise ValueError(f'model {model!r} missing from pricing configuration')
+    for field in ('input', 'output'):
+        if type(rec.get(field)) is not int or rec[field] < 0:
+            raise ValueError(f'{field}: require nonnegative integer token count')
+    route = rec.get('route', 'unrouted')
+    if not isinstance(route, str) or not route:
+        raise ValueError('route must be a nonempty string')
+    return model, route
+
+
+def report(paths, prices):
+    models, routes, calls, total = {}, {}, 0, Decimal(0)
+    for path in paths:
+        context = nullcontext(sys.stdin) if path == '-' else open(path, encoding='utf-8')
+        with context as stream:
+            for number, line in enumerate(stream, 1):
+                if not line.strip():
+                    continue
+                try:
+                    rec = json.loads(line)
+                    model, route = validate_record(rec, prices)
+                except (ValueError, TypeError) as exc:
+                    raise ValueError(f'{path}: line {number}: {exc}') from None
+                pin, pout = prices[model]
+                cost = (rec['input'] * pin + rec['output'] * pout) / MILLION
+                row = models.setdefault(model, dict(model=model, calls=0, input=0, output=0, cost=Decimal(0)))
+                row['calls'] += 1
+                row['input'] += rec['input']
+                row['output'] += rec['output']
+                row['cost'] += cost
+                routes[route] = routes.get(route, Decimal(0)) + cost
+                total += cost
+                calls += 1
+    model_rows = []
+    for row in sorted(models.values(), key=lambda r: (-r['cost'], r['model'])):
+        model_rows.append({**{k: v for k, v in row.items() if k != 'cost'}, 'cost_usd': format(row['cost'], '.6f')})
+    return dict(calls=calls, total_usd=format(total, '.6f'), models=model_rows,
+                routes=[dict(route=k, cost_usd=format(v, '.6f')) for k, v in sorted(routes.items(), key=lambda kv: (-kv[1], kv[0]))]), total
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('files', nargs='*', help='JSONL files; defaults to stdin')
+    parser.add_argument('--pricing', required=True, help='Explicit USD/1M prices JSON file')
+    parser.add_argument('--budget', help='Fail with exit 1 if total exceeds this USD amount')
+    parser.add_argument('--format', choices=['text', 'json'], default='text')
+    args = parser.parse_args(argv)
+    try:
+        if args.files.count('-') > 1:
+            raise ValueError('stdin may only be read once')
+        prices = load_prices(args.pricing)
+        budget = amount(args.budget, 'budget') if args.budget is not None else None
+        result, total = report(args.files or ['-'], prices)
+    except (OSError, UnicodeError, ValueError, TypeError, InvalidOperation) as exc:
+        print(f'cost report error: {exc}', file=sys.stderr)
+        return 2
+    result['budget_exceeded'] = budget is not None and total > budget
+    if args.format == 'json':
+        print(json.dumps(result, indent=2))
+    else:
+        print('USD rates supplied by caller; verify pricing and log completeness.')
+        for row in result['models']:
+            print(f"{row['model']}: {row['calls']} calls, ${row['cost_usd']}")
+        print(f"TOTAL: {result['calls']} calls, ${result['total_usd']}")
+        for row in result['routes']:
+            print(f"  route {row['route']}: ${row['cost_usd']}")
+        if result['budget_exceeded']:
+            print('Budget exceeded')
+    return 1 if result['budget_exceeded'] else 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

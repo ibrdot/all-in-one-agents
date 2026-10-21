@@ -29,6 +29,27 @@ Check every AI-generated diff for these, in order:
 
 This is not a reason to reject AI-assisted code. It is the review posture that lets you merge it with a straight face.
 
-## Tooling
+## Executable tooling
 
-Run `git diff -U0 main | python3 skills/ai-code-audit/scripts/audit_diff.py` (or pass files) to auto-flag swallowed exceptions, test-gaming asserts, string-built SQL, and eval/exec. It exits nonzero so CI can block on findings; every hit still gets human eyes.
+```sh
+# Python: AST inspection, including multiline exception handlers and SQL calls
+python3 skills/ai-code-audit/scripts/audit_diff.py service.py
+
+# Diff: added-line heuristics with actual destination line numbers
+# Use the real comparison branch or commit for your repository.
+git diff -U0 main | python3 skills/ai-code-audit/scripts/audit_diff.py
+
+# Structured output for automation
+python3 skills/ai-code-audit/scripts/audit_diff.py --format json service.py
+python3 skills/ai-code-audit/scripts/audit_diff.py --format sarif service.py > audit.sarif
+```
+
+Exit codes: 0 = no review hints; 1 = findings to review; 2 = input or parse failure.
+Missing files and invalid Python fail closed. Python file mode ignores comments
+and string contents, and inspects direct dynamic SQL passed to query methods.
+It does not trace variables, aliases, wrappers, or cross-file data flow.
+Diff and non-Python modes are intentionally narrower line heuristics: they may
+miss multiline constructs or match strings. Use full Python files for AST checks.
+
+This tool is not a complete security scanner or an AI-authorship detector.
+It does not label legitimate assertions or mock expectations as proof of bad tests.

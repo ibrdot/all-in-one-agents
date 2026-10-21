@@ -1,0 +1,2 @@
+{"model":"example-model","input":1000000,"output":500000,"route":"chat"}
+{"model":"example-model","input":500000,"output":0,"route":"summarize"}

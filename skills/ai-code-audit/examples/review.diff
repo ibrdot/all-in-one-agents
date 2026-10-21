@@ -1,0 +1,5 @@
+--- a/service.py
++++ b/service.py
+@@ -40,0 +41,2 @@
++value = eval(user_input)
++print(value)

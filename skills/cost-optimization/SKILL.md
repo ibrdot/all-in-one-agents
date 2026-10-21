@@ -33,6 +33,28 @@ Work this list top-down; each level typically beats everything below it:
 - Add a cost check to review for anything that multiplies work with user count ([thinking-margin-of-safety](../thinking-margin-of-safety/SKILL.md)).
 - Re-measure after each change and write down what moved. Savings that cannot be shown are savings that did not happen.
 
-## Tooling
+## Executable tooling
 
-Run `python3 skills/cost-optimization/scripts/token_cost_report.py usage.jsonl` for an instant per-model, per-route spend report with the top lever flagged. Point it at your LLM gateway's JSONL logs (see the script header for the format).
+Supply your own verified price sheet, in USD per million input/output tokens.
+No model prices are bundled or guessed. The example uses fictional prices.
+
+```sh
+python3 skills/cost-optimization/scripts/token_cost_report.py \
+  --pricing skills/cost-optimization/examples/pricing.example.json \
+  skills/cost-optimization/examples/usage.jsonl
+
+# Multiple files, machine-readable report, and CI budget enforcement
+python3 skills/cost-optimization/scripts/token_cost_report.py \
+  --pricing prices.json --format json --budget 50 day1.jsonl day2.jsonl
+```
+
+JSONL records require `model`, nonnegative integer `input` and `output` counts,
+and optionally a nonempty `route`. Every model needs an explicit price entry.
+Decimal arithmetic avoids binary floating-point billing drift. Malformed logs,
+unknown models, missing files, and invalid pricing return exit 2 without a partial
+success report. Exit 1 means total cost exceeds the budget; equal is allowed.
+Exit 0 means valid input within budget (or no budget requested).
+
+This estimates only the token categories present in the schema. Cached inputs,
+batch discounts, tools, taxes, and other charges are not inferred. Keep logs free
+of prompt contents and secrets; token counts and routing labels are sufficient.
