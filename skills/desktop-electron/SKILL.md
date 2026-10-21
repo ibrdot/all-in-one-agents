@@ -18,3 +18,8 @@ Preserve desktop startup reliability and packaging invariants across development
 ## Reference
 
 - **`references/guide.md`** — Cold-start coordination, loading feedback, node_modules stripping, universal runtime layout, macOS development branding, and bundled Node/npm/npx behavior.
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
