@@ -24,7 +24,7 @@
 
 Most skill collections are a pile of prompts. This is a **system**: an orchestration
 kernel, hash-checked multi-file editing, test-first loops, and explicit verification
-- ships cross-agent adapters with 158 passing local regression tests; runtime compatibility varies by host.
+- ships cross-agent adapters with 185 passing local regression tests; runtime compatibility varies by host.
 
 > **140 skills · 73 agents · 97 commands · cross-agent adapters · 1 philosophy**
 
@@ -129,7 +129,7 @@ Concrete multi-edit commands and migration scenarios: [coding workflow guide](do
 | [`commands/`](commands/) | 97 slash commands |
 | [`hooks/`](hooks/) | Executable SessionStart hook and written guidance |
 | [`docs/`](docs/) | Setup, workflows, methodology, provenance |
-| [`tests/`](tests/) | 158 structural and behavioral regression tests |
+| [`tests/`](tests/) | 185 structural and behavioral regression tests |
 | [`evals/`](evals/) | 7 behavioral evaluation scenarios |
 | [`examples/experimental/`](examples/experimental/) | Opt-in experimental skills |
 
@@ -168,3 +168,7 @@ Original material is under [LICENSE](LICENSE).
 - **Contribute:** [CONTRIBUTING.md](CONTRIBUTING.md) - naya skill PR ka format, tests, aur review process wahan hai
 
 Good first issues `good-first-issue` label ke saath milenge - naya contributor ho to wahan se shuru karo.
+
+## Executable runtime foundation
+
+Persistent vector retrieval, budgeted skill routing, evidence hashes, capability-based model selection, peer-critique councils, and regression scoring: see [runtime contracts and runnable demo](docs/RUNTIME.md). Real provider integration and live-model benchmarks remain separate validation work.
