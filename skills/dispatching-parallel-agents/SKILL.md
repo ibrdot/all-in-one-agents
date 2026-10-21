@@ -40,3 +40,8 @@ Launch one subagent per qualified task. Each subagent receives:
 ## Failure handling
 
 One failed branch never blocks the others from landing. Merge the green ones, loop the failed one back through `systematic-debugging`.
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
