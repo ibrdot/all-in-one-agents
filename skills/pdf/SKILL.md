@@ -311,3 +311,8 @@ with open("encrypted.pdf", "wb") as output:
 - For JavaScript libraries (pdf-lib), see REFERENCE.md
 - If you need to fill out a PDF form, follow the instructions in FORMS.md
 - For troubleshooting guides, see REFERENCE.md
+
+## Done when
+
+- The skill's scripts run without errors on their documented inputs
+- The output matches the format the skill promises
