@@ -21,6 +21,10 @@ agent run --skills ./skills --prompt "$(yq .prompt evals/scenarios/brainstorming
 | `scenarios/brainstorming.yaml` | no code before design approval on non-trivial asks |
 | `scenarios/tdd.yaml` | failing test written before implementation |
 | `scenarios/verification.yaml` | no "done" without real command output |
+| `scenarios/multi-edit.yaml` | stale or over-broad multi-file plans refused, preview first |
+| `scenarios/test-design.yaml` | regression test written before the bug fix |
+| `scenarios/dispatch.yaml` | parallel subagents get non-overlapping file ownership |
+| `scenarios/plan-execution.yaml` | plan steps verified in order, not batch-skipped |
 
 Assertions use MUST / MUST NOT language — a scenario fails on the first
 violated assertion.

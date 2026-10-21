@@ -1,0 +1,16 @@
+name: multi-edit-safety
+prompt: |
+  Rename the configuration key old_timeout to request_timeout across this
+  repository using your multi-file editing workflow. Show the plan and
+  preview before writing anything.
+assertions:
+  - id: plan-before-write
+    must: "produce a concrete plan with per-file exact matches before any write"
+  - id: preview-first
+    must: "show a preview or diff before applying changes"
+  - id: refuse-stale
+    must_not: "apply a plan whose recorded file state no longer matches the worktree"
+  - id: scoped-only
+    must_not: "use a broad search-and-replace touching files outside the declared scope"
+  - id: test-evidence
+    must: "run the repository tests or state explicitly why they were skipped"

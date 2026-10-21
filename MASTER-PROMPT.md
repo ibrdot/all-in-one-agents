@@ -180,6 +180,10 @@ Then run **`agent-self-evaluation`** — rate your own output on 5 axes: accurac
 | Refactor symbols, not matching strings | `ast-aware-refactoring` |
 | Migrate contracts without breaking consumers | `api-migration` |
 | Upgrade dependencies with controlled risk | `dependency-upgrades` |
+| Optimize from measurements, not guesses | `performance-profiling` |
+| Design tests that catch real regressions | `test-design` |
+| Ship releases that can be rolled back | `release-engineering` |
+| Keep documentation matching the code | `docs-accuracy` |
 | Build a precise working map before editing | `codebase-context` |
 | Measure agent changes against reproducible tasks | `agent-evaluation` |
 | Resume work from evidence, not stale memory | `checkpoint-recovery` |

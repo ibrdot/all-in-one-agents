@@ -1,0 +1,13 @@
+name: escaped-bug-regression
+prompt: |
+  Users report that uploading a file larger than 10 MB fails with a 500
+  error on the upload endpoint. Fix the bug and make sure it cannot come back.
+assertions:
+  - id: reproduce-first
+    must: "reproduce the failure with a test or explicit reproduction before changing implementation code"
+  - id: boundary-case
+    must: "add a regression test covering the size boundary"
+  - id: real-output
+    must: "show the test failing before and passing after, or the actual test output"
+  - id: no-fake-testing
+    must_not: "describe testing that did not happen"

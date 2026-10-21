@@ -6,7 +6,10 @@
 
 Understand the task. Plan the change. Edit with care. Verify with evidence.
 
-[Start here](docs/GETTING-STARTED.md) | [Skill catalog](INDEX.md) | [Installation](docs/INSTALL.md) | [Coding workflows](docs/CODING-WORKFLOWS.md) | [Contributing](CONTRIBUTING.md)
+[![Tests](https://github.com/ibrdot/all-in-one-agents/actions/workflows/ci.yml/badge.svg)](https://github.com/ibrdot/all-in-one-agents/actions/workflows/ci.yml)
+![Skills](https://img.shields.io/badge/skills-83-2563eb) ![Agents](https://img.shields.io/badge/agents-73-0ea5e9) ![Commands](https://img.shields.io/badge/commands-97-64748b) ![License](https://img.shields.io/badge/license-MIT-16a34a)
+
+[Start here](docs/GETTING-STARTED.md) | [Skill catalog](INDEX.md) | [Installation](docs/INSTALL.md) | [Coding workflows](docs/CODING-WORKFLOWS.md) | [Evals](evals/README.md) | [Contributing](CONTRIBUTING.md)
 
 </div>
 
@@ -14,7 +17,7 @@ Understand the task. Plan the change. Edit with care. Verify with evidence.
 
 ## Built for real repository work
 
-A reusable library of **79 skills, 73 agents, 97 commands** with an orchestration
+A reusable library of **83 skills, 73 agents, 97 commands** with an orchestration
 kernel, safe multi-file editing, test-first workflows, and explicit verification.
 Use the parts your harness supports; a manifest alone does not guarantee runtime compatibility.
 
@@ -25,6 +28,10 @@ Use the parts your harness supports; a manifest alone does not guarantee runtime
 | Rename symbols or APIs | [ast-aware-refactoring](skills/ast-aware-refactoring/SKILL.md) | Syntax-aware tools, fixtures, and consumer checks |
 | Migrate contracts | [api-migration](skills/api-migration/SKILL.md) | Compatibility, deployment order, rollback evidence |
 | Upgrade dependencies | [dependency-upgrades](skills/dependency-upgrades/SKILL.md) | Controlled lockfile and runtime changes |
+| Speed up a slow path | [performance-profiling](skills/performance-profiling/SKILL.md) | Profiled, measured, revertible optimization |
+| Make tests bite | [test-design](skills/test-design/SKILL.md) | Behavior-asserted, non-flaky regression coverage |
+| Cut a release | [release-engineering](skills/release-engineering/SKILL.md) | Clean build, staged rollout, rollback path |
+| Trust the docs | [docs-accuracy](skills/docs-accuracy/SKILL.md) | Every documented command actually runs |
 | Act on review feedback | [receiving-code-review](skills/receiving-code-review/SKILL.md) | Verify suggestions before implementing them |
 | Compare agent behavior | [agent-evaluation](skills/agent-evaluation/SKILL.md) | Reproducible fixtures and independent scoring |
 | Resume interrupted work | [checkpoint-recovery](skills/checkpoint-recovery/SKILL.md) | Reconcile current files with recorded evidence |
@@ -86,13 +93,13 @@ For concrete multi-edit commands and migration scenarios, follow
 
 | Path | Contents |
 |---|---|
-| [skills/](skills/) | 79 skills, each with a `SKILL.md` entrypoint |
+| [skills/](skills/) | 83 skills, each with a `SKILL.md` entrypoint |
 | [agents/](agents/) | 73 agent definitions |
 | [commands/](commands/) | 97 slash commands |
 | [hooks/](hooks/) | Executable SessionStart hook and written guidance |
 | [docs/](docs/) | Setup, workflows, methodology, and provenance |
 | [tests/](tests/) | Structural and behavioral regression tests |
-| [evals/](evals/) | Behavioral evaluation scenarios |
+| [evals/](evals/) | 7 behavioral evaluation scenarios |
 | [examples/experimental/](examples/experimental/) | 11 opt-in experimental skills |
 
 ## Validate a checkout

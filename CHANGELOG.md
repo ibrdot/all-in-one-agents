@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- Add four engineering skills: performance profiling, test design, release
+  engineering, and documentation accuracy (83 skills total).
+- Add multi-edit-safety and escaped-bug-regression behavioral scenarios.
+- Refresh README with inventory badges and workflow table coverage.
+
+## Unreleased
+
 - Add seven original coding workflows: multi-file editing, AST-aware refactoring,
   API migration, dependency upgrades, codebase context, agent evaluation, and recovery.
 - Import receiving-code-review from a pinned MIT-licensed upstream with notices.
