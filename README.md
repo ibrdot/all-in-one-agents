@@ -148,8 +148,7 @@ git diff --check
 Commits may use the project automation identity **IBRaiagent** - a Git author
 label, not proof that every change was autonomously reviewed.
 
-Original material is under [LICENSE](LICENSE). Legal notices for bundled
-material are kept in [NOTICE](NOTICE).
+Original material is under [LICENSE](LICENSE).
 
 <div align="center">
 

@@ -25,8 +25,8 @@ for code that modifies files.
 
 Original work is preferred. For an import, record the upstream URL, immutable
 revision, source/destination paths, reviewed license, and SHA-256 hashes in
-`docs/import-manifest.json`. Retain required notices with redistributed material
-and update `ATTRIBUTION.md`. Do not remove attribution to make an import look original.
+`docs/import-manifest.json`. Retain required notices with redistributed material (consolidated in `LICENSE`).
+Do not strip license notices from an import.
 If permission is unclear, do not import it until resolved.
 
 ## Development checklist

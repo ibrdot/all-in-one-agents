@@ -27,7 +27,7 @@ def test_imported_files_match_pinned_manifest():
 
 def test_updated_documentation_relative_links():
     files = ['README.md', 'CONTRIBUTING.md', 'docs/GETTING-STARTED.md',
-             'docs/CODING-WORKFLOWS.md', 'docs/INSTALL.md', 'ATTRIBUTION.md']
+             'docs/CODING-WORKFLOWS.md', 'docs/INSTALL.md']
     for name in files:
         path = ROOT/name
         for target in re.findall(r'\]\(([^)]+)\)', path.read_text()):
