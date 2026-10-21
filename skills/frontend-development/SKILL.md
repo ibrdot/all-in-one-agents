@@ -19,3 +19,8 @@ Apply Canvas-specific React, TypeScript, internationalization, state ownership, 
 ## Reference
 
 - **`references/guide.md`** — i18n and magic-string rules, generated files, mock mode, loading/performance budgets, lazy imports, query-key and lint constraints, plus feature-specific state and UI invariants.
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
