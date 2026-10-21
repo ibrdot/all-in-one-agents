@@ -1,6 +1,10 @@
 # All-in-One Agents
 
+![validate](https://github.com/ibrdot/all-in-one-agents/actions/workflows/validate.yml/badge.svg)
+
 The strongest all-in-one AI agent skill pack — **72 skills, 71 agents, 97 commands** unified into a single repository.
+
+📖 **[INDEX.md](INDEX.md)** — full categorized catalog · 🛠 **[docs/INSTALL.md](docs/INSTALL.md)** — install guide for every harness
 
 ## Structure
 
