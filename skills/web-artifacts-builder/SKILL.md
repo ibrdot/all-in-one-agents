@@ -71,3 +71,7 @@ To test/visualize the artifact, use available tools (including other Skills or b
 ## Reference
 
 - **shadcn/ui components**: https://ui.shadcn.com/docs/components
+## Done when
+
+- The skill's scripts run without errors on their documented inputs
+- The output matches the format the skill promises
