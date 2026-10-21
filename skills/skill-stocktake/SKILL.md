@@ -244,3 +244,8 @@ Obtain via Bash: `date -u +%Y-%m-%dT%H:%M:%SZ`. Never use a date-only approximat
 - Evaluation is blind: the same checklist applies to all skills regardless of origin (ECC, self-authored, auto-extracted)
 - Archive / delete operations always require explicit user confirmation
 - No verdict branching by skill origin
+
+## Done when
+
+- The skill's scripts run without errors on their documented inputs
+- The output matches the format the skill promises
