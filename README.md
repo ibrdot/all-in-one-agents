@@ -1,12 +1,12 @@
 # All-in-One Agents
 
-The strongest all-in-one AI agent skill pack — **363 skills, 71 agents, 97 commands** unified into a single repository.
+The strongest all-in-one AI agent skill pack — **72 skills, 71 agents, 97 commands** unified into a single repository.
 
 ## Structure
 
 ```
 all-in-one-agents/
-├── skills/     363 ready-to-use skills (each with SKILL.md + scripts + references)
+├── skills/     72 full-featured skills (each with SKILL.md + scripts + references + assets)
 ├── agents/     71 specialized agent definitions
 └── commands/   97 slash commands
 ```
@@ -40,7 +40,7 @@ skills/<skill-name>/
 
 | Collection | Count |
 |------------|-------|
-| Skills     | 363   |
+| Skills     | 72    |
 | Agents     | 71    |
 | Commands   | 97    |
 | Files      | 1200+ |
