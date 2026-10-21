@@ -28,3 +28,7 @@ Check every AI-generated diff for these, in order:
 ## What this is not
 
 This is not a reason to reject AI-assisted code. It is the review posture that lets you merge it with a straight face.
+
+## Tooling
+
+Run `git diff -U0 main | python3 skills/ai-code-audit/scripts/audit_diff.py` (or pass files) to auto-flag swallowed exceptions, test-gaming asserts, string-built SQL, and eval/exec. It exits nonzero so CI can block on findings; every hit still gets human eyes.

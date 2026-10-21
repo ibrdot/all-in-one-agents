@@ -36,3 +36,7 @@ Inherited a codebase with no docs, no tests, and three departed authors? The mis
 - Never mix "understand" commits with "change" commits.
 - Leave the campground cleaner: any file you touch gets one small improvement (test, name, comment removal) - one, not fifty.
 - Write down everything you learn in [context-and-decisions](../context-and-decisions/SKILL.md). The next inheritor is future you.
+
+## Tooling
+
+Run `python3 skills/legacy-rescue/scripts/repo_map.py` for a churn-x-complexity hotspot ranking - the top 20 files are where characterization tests go first and casual edits go never.

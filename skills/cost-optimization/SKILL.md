@@ -32,3 +32,7 @@ Work this list top-down; each level typically beats everything below it:
 - Budget alerts per service, not just account-wide, so regressions page the owner of the code, not the owner of the credit card.
 - Add a cost check to review for anything that multiplies work with user count ([thinking-margin-of-safety](../thinking-margin-of-safety/SKILL.md)).
 - Re-measure after each change and write down what moved. Savings that cannot be shown are savings that did not happen.
+
+## Tooling
+
+Run `python3 skills/cost-optimization/scripts/token_cost_report.py usage.jsonl` for an instant per-model, per-route spend report with the top lever flagged. Point it at your LLM gateway's JSONL logs (see the script header for the format).
