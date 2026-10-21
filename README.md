@@ -26,7 +26,7 @@ Most skill collections are a pile of prompts. This is a **system**: an orchestra
 kernel, hash-checked multi-file editing, test-first loops, and explicit verification
 - wired for 12 agent harnesses and proven by 66 regression tests.
 
-> **133 skills · 73 agents · 97 commands · 12 harnesses · 1 philosophy**
+> **114 skills · 73 agents · 97 commands · 12 harnesses · 1 philosophy**
 
 ## 🧭 What it solves
 
@@ -124,7 +124,7 @@ Concrete multi-edit commands and migration scenarios: [coding workflow guide](do
 
 | Path | Contents |
 |---|---|
-| [`skills/`](skills/) | 133 skills, each with a `SKILL.md` entrypoint |
+| [`skills/`](skills/) | 114 skills, each with a `SKILL.md` entrypoint |
 | [`agents/`](agents/) | 73 agent definitions |
 | [`commands/`](commands/) | 97 slash commands |
 | [`hooks/`](hooks/) | Executable SessionStart hook and written guidance |

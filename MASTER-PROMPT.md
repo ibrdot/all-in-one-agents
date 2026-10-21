@@ -169,7 +169,6 @@ Then run **`agent-self-evaluation`** — rate your own output on 5 axes: accurac
 | Long session / compaction | `using-all-in-one-agents` |
 | Framework itself misbehaves | `diagnosing-the-pack` |
 | Deep phase-loop guidance | `pack-kernel` |
-| Identity re-anchor needed | `the-oath` |
 | Session state must survive | `ck` |
 
 ### Engineering & DevOps
@@ -207,7 +206,6 @@ Then run **`agent-self-evaluation`** — rate your own output on 5 axes: accurac
 | Regression fear in large repo | `module-regression` |
 | Repo looks unmaintained | `repo-polish` |
 | Commit hygiene | `commit-craft` |
-| Terminal / session chores | `terminal-opener` |
 
 ### Meta & Learning
 
@@ -219,13 +217,11 @@ Then run **`agent-self-evaluation`** — rate your own output on 5 axes: accurac
 | Inventory the pack | `skill-stocktake` |
 | Extract cross-cutting rules | `rules-distill` |
 | Skill compliance check | `skill-comply` |
-| Same mistake repeating | `continuous-learning` |
 | Process improvement | `continuous-learning-v2` |
 | Multi-model critique needed | `council-multi-model` |
 | Repeated domain terms | `context-and-decisions` |
 | Agent grading itself | `agent-self-evaluation` |
 | Test strategy with humans | `test-collaboration` |
-| Taste / quality bar question | `taste` |
 | Review a branch or WIP diff | `code-review` |
 | New module, structure unclear | `codebase-design` |
 | Bug report, reproduce first | `diagnosing-bugs` |
@@ -285,26 +281,11 @@ Then run **`agent-self-evaluation`** — rate your own output on 5 axes: accurac
 | PDF file | `pdf` |
 | Spreadsheet | `xlsx` |
 | PowerPoint deck | `pptx` |
-| Animation-rich HTML slides | `frontend-slides` |
-| Generative art | `algorithmic-art` |
-| Visual design | `canvas-design` |
-| Theme / style artifacts | `theme-factory` |
-| iOS app icons | `ios-icon-gen` |
-| Manim explainer video | `manim-video` |
-| Remotion React video | `remotion-video-creation` |
-| Video editing pipeline | `video-editing` |
-| Video library / search | `videodb` |
-| Style pack from reference | `taste-distillation` |
-| Apply a distilled style pack | `taste-application` |
-| Slack-optimized GIF | `slack-gif-creator` |
-| Brand identity discovery | `brand-discovery` |
-| Brand voice work | `brand-voice` |
 
 ### Comms & Governance
 
 | You notice... | Load |
 |---|---|
-| Internal announcement / memo | `internal-comms` |
 | Docs governance / freshness | `docs-governance` |
 | PR needs a design doc | `pr-design-doc` |
 

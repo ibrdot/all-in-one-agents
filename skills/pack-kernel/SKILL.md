@@ -18,7 +18,7 @@ No phase may be skipped. Each phase names the skill that drives it.
 
 ### Phase 1 — UNDERSTAND
 Before writing anything: restate the goal, ask the 3–6 questions whose answers change the design, list constraints.
-→ drivers: `brainstorming`, `context-and-decisions`, `brand-discovery`
+→ drivers: `brainstorming`, `context-and-decisions`
 **Gate:** you can say in one sentence what "done" looks like. If not — keep asking.
 
 ### Phase 2 — PLAN
