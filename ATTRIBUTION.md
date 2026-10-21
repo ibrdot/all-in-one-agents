@@ -52,3 +52,29 @@ Everything not listed above — including `taste`, `taste-application`,
 commit `b739a8af570e10a95898f2bdf6cec97467fa6c12` (MIT). Its upstream license is retained alongside the skill.
 File-level SHA-256 hashes are recorded in [docs/import-manifest.json](docs/import-manifest.json).
 The seven coding workflow skills added with this change are original to this pack.
+
+## Matt Pocock skills (2026-10-21 import)
+
+- Upstream: https://github.com/mattpocock/skills
+- License: MIT, Copyright (c) 2026 Matt Pocock (upstream notice reproduced in `NOTICE`)
+- What is derived here: the following skills were imported and lightly adapted
+  (descriptions trimmed, personal-name references removed):
+  `code-review`, `codebase-design`, `diagnosing-bugs`, `domain-modeling`,
+  `grill-with-docs`, `implement`, `implement-spec`,
+  `improve-codebase-architecture`, `pr`, `prototype`, `research`, `retro`,
+  `to-spec`, `to-tickets`, `triage`, `wayfinder`, `wizard`, `tdd`,
+  `git-guardrails` (upstream `git-guardrails-claude-code`), `setup-pre-commit`.
+- Skills deliberately not imported: `ask-matt`, `setup-matt-pocock-skills`,
+  and everything under upstream `skills/in-progress/`.
+
+## TJ Boudreaux thinking skills (2026-10-21 import)
+
+- Upstream: https://github.com/tjboudreaux/cc-thinking-skills
+- License: MIT, Copyright (c) 2025 TJ Boudreaux (upstream notice reproduced in `NOTICE`)
+- What is derived here: the 28 `thinking-*` skills were imported unchanged.
+
+## Additional Anthropic imports (2026-10-21)
+
+- `skills/doc-coauthoring` and `skills/discernment-nudge` imported from
+  https://github.com/anthropics/skills (see the "Anthropic published skills"
+  section above for license caveats).

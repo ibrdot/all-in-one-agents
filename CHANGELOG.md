@@ -1,3 +1,14 @@
+## [1.1.0] - 2026-10-21
+
+### Added
+- 20 new engineering-workflow skills: code-review, codebase-design, diagnosing-bugs, domain-modeling, grill-with-docs, implement, implement-spec, improve-codebase-architecture, pr, prototype, research, retro, to-spec, to-tickets, triage, wayfinder, wizard, tdd, git-guardrails, setup-pre-commit
+- 28 new thinking-* reasoning skills (first-principles, ooda, pre-mortem, red-team, and more)
+- doc-coauthoring and discernment-nudge for collaborative drafting and judgment checks
+
+### Changed
+- Skill count 83 -> 133; routing map, INDEX catalog, and README regenerated
+- README redesigned with badge row, collapsible catalogs, and per-harness details
+- Upstream attribution recorded in ATTRIBUTION.md and NOTICE
 # Changelog
 
 ## Unreleased

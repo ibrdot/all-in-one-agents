@@ -226,6 +226,56 @@ Then run **`agent-self-evaluation`** — rate your own output on 5 axes: accurac
 | Agent grading itself | `agent-self-evaluation` |
 | Test strategy with humans | `test-collaboration` |
 | Taste / quality bar question | `taste` |
+| Review a branch or WIP diff | `code-review` |
+| New module, structure unclear | `codebase-design` |
+| Bug report, reproduce first | `diagnosing-bugs` |
+| Model a business domain | `domain-modeling` |
+| Stress-test a design doc | `grill-with-docs` |
+| Execute a scoped task | `implement` |
+| Implement from a written spec | `implement-spec` |
+| Refactor for structure | `improve-codebase-architecture` |
+| Open or polish a pull request | `pr` |
+| Spike before committing | `prototype` |
+| Investigate before deciding | `research` |
+| Close out a work cycle | `retro` |
+| Turn notes into a spec | `to-spec` |
+| Split a spec into tickets | `to-tickets` |
+| New issue needs routing | `triage` |
+| Lost in an unfamiliar repo | `wayfinder` |
+| Guided multi-step task setup | `wizard` |
+| Red-green-refactor cycle | `tdd` |
+| Protect main / force-push risk | `git-guardrails` |
+| Add pre-commit hooks | `setup-pre-commit` |
+| Draft a document together | `doc-coauthoring` |
+| Check judgment before acting | `discernment-nudge` |
+| Reasoning aid: bounded rationality | `thinking-bounded-rationality` |
+| Reasoning aid: circle of competence | `thinking-circle-of-competence` |
+| Reasoning aid: cynefin | `thinking-cynefin` |
+| Reasoning aid: effectuation | `thinking-effectuation` |
+| Reasoning aid: first principles | `thinking-first-principles` |
+| Reasoning aid: five whys plus | `thinking-five-whys-plus` |
+| Reasoning aid: jobs to be done | `thinking-jobs-to-be-done` |
+| Reasoning aid: kepner tregoe | `thinking-kepner-tregoe` |
+| Reasoning aid: lindy effect | `thinking-lindy-effect` |
+| Reasoning aid: map territory | `thinking-map-territory` |
+| Reasoning aid: margin of safety | `thinking-margin-of-safety` |
+| Reasoning aid: model combination | `thinking-model-combination` |
+| Reasoning aid: model router | `thinking-model-router` |
+| Reasoning aid: ooda | `thinking-ooda` |
+| Reasoning aid: opportunity cost | `thinking-opportunity-cost` |
+| Reasoning aid: pre mortem | `thinking-pre-mortem` |
+| Reasoning aid: probabilistic | `thinking-probabilistic` |
+| Reasoning aid: red team | `thinking-red-team` |
+| Reasoning aid: reversibility | `thinking-reversibility` |
+| Reasoning aid: scientific method | `thinking-scientific-method` |
+| Reasoning aid: second order | `thinking-second-order` |
+| Reasoning aid: socratic | `thinking-socratic` |
+| Reasoning aid: steel manning | `thinking-steel-manning` |
+| Reasoning aid: systems | `thinking-systems` |
+| Reasoning aid: theory of constraints | `thinking-theory-of-constraints` |
+| Reasoning aid: thought experiment | `thinking-thought-experiment` |
+| Reasoning aid: triz | `thinking-triz` |
+| Reasoning aid: via negativa | `thinking-via-negativa` |
 
 ### Documents & Media
 

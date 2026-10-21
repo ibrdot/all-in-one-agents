@@ -1,6 +1,26 @@
-# Release Notes — v1.0.0
+# Release Notes — v1.1.0
 
-**all-in-one-agents v1.0.0** — from skill catalog to installable framework.
+**all-in-one-agents v1.1.0** — the pack goes from 83 to 133 skills.
+
+## Highlights
+
+- 🧠 **50 new skills** — 133 total: full engineering workflow (spec to PR), 28 on-demand reasoning models, and document co-authoring
+- 🔀 **Stronger coding core** — code-review with parallel standards/spec axes, refactoring plans, bug reproduction, git guardrails
+- 🧩 **Reasoning on tap** — first-principles, OODA, pre-mortem, red-team, systems, TRIZ, and 22 more thinking skills
+- 📚 **Docs & catalog refreshed** — INDEX, routing map, and counts regenerated; all tests green (66/66)
+- 🪝 Same install, same 12 harnesses, same orchestration kernel
+
+## Upgrade
+
+```bash
+git pull && ./install.sh claude
+```
+
+Nothing breaks: all v1.0.0 skills, agents, and commands keep their names.
+
+---
+
+# Release Notes — v1.0.0
 
 ## Highlights
 

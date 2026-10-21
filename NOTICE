@@ -30,3 +30,21 @@ Anthropic published skills
 The document skills (pptx, docx, xlsx, pdf) are vendored from Anthropic's
 published agent skills. See the upstream repository for its current license
 terms before commercial redistribution.
+
+Matt Pocock skills
+------------------
+Copyright (c) 2026 Matt Pocock
+
+MIT License. The skills `code-review`, `codebase-design`, `diagnosing-bugs`,
+`domain-modeling`, `grill-with-docs`, `implement`, `implement-spec`,
+`improve-codebase-architecture`, `pr`, `prototype`, `research`, `retro`,
+`to-spec`, `to-tickets`, `triage`, `wayfinder`, `wizard`, `tdd`,
+`git-guardrails`, and `setup-pre-commit` are adapted from
+https://github.com/mattpocock/skills.
+
+TJ Boudreaux thinking skills
+----------------------------
+Copyright (c) 2025 TJ Boudreaux
+
+MIT License. The `thinking-*` skills are imported from
+https://github.com/tjboudreaux/cc-thinking-skills.
