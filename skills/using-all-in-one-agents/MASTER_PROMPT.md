@@ -174,7 +174,7 @@ When you notice any of these, load the matching skill BEFORE acting.
 | "Just a quick fix" urge | `delivery-gate` (slow down) |
 | TDD red/green/refactor | `test-driven-development` |
 | Pre-merge review needed | `requesting-code-review` |
-| Receiving review feedback | (companion: `receiving-code-review`) |
+| Receiving review feedback | `requesting-code-review` (review protocol applies both ways) |
 | Branch cleanup / merge / PR | `finishing-a-development-branch` |
 | Clean git commits | `commit-craft` |
 | Hard "done" gate before claim | `verification-before-completion` |
@@ -189,7 +189,8 @@ When you notice any of these, load the matching skill BEFORE acting.
 | Validate pack integrity | `skill-pack-manager` + `skill-stocktake` |
 | Extract cross-cutting rules | `rules-distill` |
 | Visualize skill compliance | `skill-comply` |
-| Continuous learning hooks | `continuous-learning-v2` |
+| Continuous learning hooks | `continuous-learning` + `continuous-learning-v2` |
+| Deep phase-loop guidance | `pack-kernel` |
 
 ## Documents & Media
 | You notice... | Load |
