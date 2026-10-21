@@ -1,0 +1,99 @@
+# Commands
+
+- **/aside** — Answer a quick side question without interrupting or losing context from the current task. Resume work automatically after answering.
+- **/astra-review** — Send Claude-written code to GPT-6-Astra (ChatGPT, via Codex CLI) for an independent cross-provider review, then fix what it finds.
+- **/auto-update** — Pull the latest ECC repo changes and reinstall the current managed targets.
+- **/build-fix** — Detect the project build system and incrementally fix build/type errors with minimal safe changes.
+- **/checkpoint** — Create, verify, or list workflow checkpoints after running verification checks.
+- **/code-review** — Code review — local uncommitted changes or GitHub PR (pass PR number/URL for PR mode). Use for a step-by-step PRP-style checklist review; fo
+- **/cost-report** — Generate a local Claude Code cost report from the ECC cost-tracker metrics log. Use for a terminal summary or CSV export of tracked spend; t
+- **/cpp-build** — Fix C++ build errors, CMake issues, and linker problems incrementally. Invokes the cpp-build-resolver agent for minimal, surgical fixes.
+- **/cpp-review** — Comprehensive C++ code review for memory safety, modern C++ idioms, concurrency, and security. Invokes the cpp-reviewer agent.
+- **/cpp-test** — Enforce TDD workflow for C++. Write GoogleTest tests first, then implement. Verify coverage with gcov/lcov.
+- **/ecc-guide** — Navigate ECC's current agents, skills, commands, hooks, install profiles, and docs from the live repository surface. This is the slash-comma
+- **/epic-claim** — Claim an epic issue, stamp coordination state, and sync local ownership.
+- **/epic-decompose** — Break an epic into task children without creating task branches.
+- **/epic-publish** — Publish a validated epic update back to the issue and local cache.
+- **/epic-review** — Mark epic review requested, approved, or changes requested.
+- **/epic-sync** — Sync epic issue bodies, labels, and local coordination snapshots from GitHub.
+- **/epic-unblock** — Sweep blocked epic issues and reopen anything whose dependencies are closed.
+- **/epic-validate** — Validate epic readiness, dependencies, and coordination policy.
+- **/evolve** — Analyze instincts and suggest or generate evolved structures
+- **/fastapi-review** — Review a FastAPI application for architecture, async correctness, dependency injection, Pydantic schemas, security, performance, and testabi
+- **/feature-dev** — Guided feature development with codebase understanding and architecture focus
+- **/flutter-build** — Fix Dart analyzer errors and Flutter build failures incrementally. Invokes the dart-build-resolver agent for minimal, surgical fixes.
+- **/flutter-review** — Review Flutter/Dart code for idiomatic patterns, widget best practices, state management, performance, accessibility, and security. Invokes 
+- **/flutter-test** — Run Flutter/Dart tests, report failures, and incrementally fix test issues. Covers unit, widget, golden, and integration tests.
+- **/gan-build** — Run a generator/evaluator build loop for implementation tasks with bounded iterations and scoring.
+- **/gan-design** — Run a generator/evaluator design loop for frontend or visual work with bounded iterations and scoring.
+- **/go-build** — Fix Go build errors, go vet warnings, and linter issues incrementally. Invokes the go-build-resolver agent for minimal, surgical fixes.
+- **/go-review** — Comprehensive Go code review for idiomatic patterns, concurrency safety, error handling, and security. Invokes the go-reviewer agent.
+- **/go-test** — Enforce TDD workflow for Go. Write table-driven tests first, then implement. Verify 80%+ coverage with go test -cover.
+- **/gradle-build** — Fix Gradle build errors for Android and KMP projects
+- **/harness-audit** — Run a deterministic repository harness audit and return a prioritized scorecard. Use for a deterministic overall repo-readiness scorecard; f
+- **/hookify-configure** — Enable or disable hookify rules interactively
+- **/hookify-help** — Get help with the hookify system
+- **/hookify-list** — List all configured hookify rules
+- **/hookify** — Create hooks to prevent unwanted behaviors from conversation analysis or explicit instructions. Use to generate a new hook rule file from co
+- **/instinct-export** — Export instincts from project/global scope to a file
+- **/instinct-import** — Import instincts from file or URL into project/global scope
+- **/instinct-status** — Show learned instincts (project + global) with confidence
+- **/jira** — Retrieve a Jira ticket, analyze requirements, update status, or add comments. Uses the jira-integration skill and MCP or REST API.
+- **/kotlin-build** — Fix Kotlin/Gradle build errors, compiler warnings, and dependency issues incrementally. Invokes the kotlin-build-resolver agent for minimal,
+- **/kotlin-review** — Comprehensive Kotlin code review for idiomatic patterns, null safety, coroutine safety, and security. Invokes the kotlin-reviewer agent.
+- **/kotlin-test** — Enforce TDD workflow for Kotlin. Write Kotest tests first, then implement. Verify 80%+ coverage with Kover.
+- **/learn-eval** — Extract reusable patterns from the session, self-evaluate quality before saving, and determine the right save location (Global vs Project).
+- **/learn** — Extract reusable patterns from the current session and save them as candidate skills or guidance. Use to review a session on demand and pers
+- **/loop-start** — Prepare a managed autonomous loop pattern with safety defaults and explicit stop conditions, then print the commands to launch and monitor i
+- **/loop-status** — Inspect active loop state, progress, failure signals, and recommended intervention.
+- **/marketing-campaign** — Plan and execute a full marketing campaign. Accepts a product brief and returns positioning, landing page copy, email sequence, social posts
+- **/model-route** — Recommend the best model tier for the current task based on complexity, risk, and budget.
+- **/multi-backend** — Run a backend-focused multi-model workflow for APIs, algorithms, data, and business logic.
+- **/multi-execute** — Execute a multi-model implementation plan while preserving Claude as the only filesystem writer.
+- **/multi-frontend** — Run a frontend-focused multi-model workflow for components, layouts, animation, and UI polish.
+- **/multi-plan** — Create a multi-model (Codex + Antigravity) implementation plan without modifying production code. Requires the external ccg-workflow runtime
+- **/multi-workflow** — Run a full multi-model development workflow with research, planning, execution, optimization, and review.
+- **/orch-add-feature** — Orchestrate building a brand-new feature end to end — research, plan, TDD, review, gated commit. Wrapper that kicks off the orch-add-feature
+- **/orch-build-mvp** — Orchestrate bootstrapping a working MVP from a design/spec doc — ingest, slice, scaffold, TDD, review, gated commit (reuses the GAN harness)
+- **/orch-change-feature** — Orchestrate altering an existing, working feature to new desired behavior — update tests to the new spec, change impl, review, gated commit.
+- **/orch-fix-defect** — Orchestrate fixing a bug — reproduce it as a failing regression test, fix to green, review, gated commit. Wrapper for the orch-fix-defect sk
+- **/orch-refine-code** — Orchestrate a behavior-preserving refactor — confirm tests green, restructure without changing behavior, keep green, review, gated commit. W
+- **/orch-review** — Run the orch-review native Workflow over a diff (local changes or a GitHub PR) and report blocking vs advisory findings. Surface for the orc
+- **/plan-canvas** — Open a plan or HTML artifact in the browser Plan Canvas for annotate-and-approve review. This is a thin slash-command entrypoint over the pl
+- **/plan-prd** — Generate a lean, problem-first PRD and hand off to /plan for implementation planning.
+- **/plan** — Restate requirements, assess risks, and create step-by-step implementation plan. WAIT for user CONFIRM before touching any code. Use for a s
+- **/pm2** — Analyze a project and generate PM2 service commands for detected frontend, backend, or database services.
+- **/pr** — Create a GitHub PR from current branch with unpushed commits — discovers templates, analyzes changes, pushes
+- **/project-init** — Detect a project's stack and produce a dry-run ECC onboarding plan using the repository's install manifests and stack mappings. Use to onboa
+- **/projects** — List known projects and their instinct statistics
+- **/promote** — Promote project-scoped instincts to global scope
+- **/prp-commit** — Quick commit with natural language file targeting — describe what to commit in plain English
+- **/prp-implement** — Execute an implementation plan with rigorous validation loops
+- **/prp-plan** — Create comprehensive feature implementation plan with codebase analysis and pattern extraction
+- **/prp-pr** — Alias of /pr for the PRP workflow series. Use when creating a pull request mid-PRP workflow; otherwise use /pr.
+- **/prp-prd** — Interactive PRD generator - problem-first, hypothesis-driven product spec with back-and-forth questioning
+- **/prune** — Delete pending instincts older than 30 days that were never promoted. Thin CLI wrapper for continuous-learning-v2's instinct-cli.py prune co
+- **/python-review** — Comprehensive Python code review for PEP 8 compliance, type hints, security, and Pythonic idioms. Invokes the python-reviewer agent.
+- **/quality-gate** — Run the ECC formatter quality gate for a single file and report remediation steps.
+- **/react-build** — Fix React build failures (Vite, webpack, Next.js, CRA, Parcel, esbuild, Bun) incrementally — JSX/TSX compile errors, hydration mismatches, s
+- **/react-review** — Comprehensive React/JSX code review for hook correctness, render performance, server/client component boundaries, accessibility, and React-s
+- **/react-test** — Enforce TDD workflow for React. Write React Testing Library tests first (behavior-focused, accessibility-first), then implement components. 
+- **/refactor-clean** — Safely identify and remove dead code with verification after each change.
+- **/resume-session** — Load the most recent session file from ~/.claude/session-data/ and resume work with full context from where the last session ended.
+- **/review-pr** — Comprehensive PR review using specialized agents (code-reviewer, comment-analyzer, pr-test-analyzer, silent-failure-hunter, type-design-anal
+- **/rust-build** — Fix Rust build errors, borrow checker issues, and dependency problems incrementally. Invokes the rust-build-resolver agent for minimal, surg
+- **/rust-review** — Comprehensive Rust code review for ownership, lifetimes, error handling, unsafe usage, and idiomatic patterns. Invokes the rust-reviewer age
+- **/rust-test** — Enforce TDD workflow for Rust. Write tests first, then implement. Verify 80%+ coverage with cargo-llvm-cov.
+- **/santa-loop** — Adversarial dual-review convergence loop — two independent model reviewers must both approve before code ships. Use for the CLI-driven versi
+- **/save-session** — Save current session state to a dated file in ~/.claude/session-data/ so work can be resumed in a future session with full context.
+- **/security-scan** — Run AgentShield against agent, hook, MCP, permission, and secret surfaces. This is the slash-command entrypoint for that audit; prefer the s
+- **/sessions** — Manage Claude Code session history, aliases, and session metadata.
+- **/setup-pm** — Configure your preferred package manager (npm/pnpm/yarn/bun)
+- **/skill-create** — Analyze local git history to extract coding patterns and generate SKILL.md files. Local version of the Skill Creator GitHub App. Use to gene
+- **/skill-health** — Show skill portfolio health dashboard with charts and analytics. Use for the quantitative usage/success-rate dashboard; for a qualitative co
+- **/skill-host-compat** — Lint ECC skills for Codex/Cursor-safe frontmatter and Claude-only substitutions before a skill PR.
+- **/test-coverage** — Analyze coverage, identify gaps, and generate missing tests toward the target threshold.
+- **/token-card** — Render a token-usage stat card from local agent session logs and commit it to the repo. Invokes the token-card skill.
+- **/update-codemaps** — Scan project structure and generate token-lean architecture codemaps.
+- **/update-docs** — Sync documentation from source-of-truth files such as scripts, schemas, routes, and exports.
+- **/vue-review** — Comprehensive Vue.js code review for Composition API correctness, reactivity, composable patterns, template security, accessibility, and Vue
