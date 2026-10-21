@@ -2,11 +2,6 @@
 name: pr
 description: "Open, polish, or review a pull request: title, body, diff hygiene, and merge readiness checks."
 metadata:
-  credits:
-    skill: show-me
-    author: Dex Horthy
-    organisation: Humanlayer
-    url: "https://github.com/humanlayer/skills/blob/main/plugins/show-me/skills/show-me/SKILL.md"
 ---
 
 Use this template for writing the PR body:
