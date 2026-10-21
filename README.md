@@ -17,6 +17,10 @@ cd all-in-one-agents
 
 The installer wires skills + agents + commands **and** a SessionStart hook so the kernel survives context compaction. Plugin manifests included for 12 harnesses (Claude Code, Cursor, Codex, Gemini, OpenCode, Copilot CLI, Devin, Hermes, Muse, Kimi Code, Pi, Antigravity) — see `docs/INSTALL.md`.
 
+### Quick start (no install)
+
+Can't use hooks or installers? Paste **[MASTER-PROMPT.md](MASTER-PROMPT.md)** into your agent's system prompt / `CLAUDE.md` / `.cursorrules` — the full methodology (5-phase loop, 7 hard rules, 55-entry routing table, anti-patterns, oath) in one portable document.
+
 ## What's inside — the core workflow
 
 Seven skills form the backbone; the rest of the pack plugs into it:
