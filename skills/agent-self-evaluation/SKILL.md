@@ -180,3 +180,8 @@ FAIL: "Score: 3. I don't like Python decorators."
 - `agent-eval` — Head-to-head comparison of different coding agents on benchmark tasks
 - `verification-loop` — Systematic verification of outputs against expected results
 - `security-review` — Security-focused code review checklist
+
+## Done when
+
+- The skill's scripts run without errors on their documented inputs
+- The output matches the format the skill promises
