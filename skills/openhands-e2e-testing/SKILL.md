@@ -18,3 +18,8 @@ Use the correct test layer and preserve the security and production-fidelity bou
 ## Reference
 
 - **`references/guide.md`** — Live and mock-LLM architecture, Docker mode, local commands, CI/reporting security, artifact debugging, common failure patterns, and general testing rules.
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
