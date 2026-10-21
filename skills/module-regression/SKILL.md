@@ -97,3 +97,8 @@ Invoke `module-regression` through the host's skill entry point, such as `$modul
 - Fewer than three modules, or no cross-module references, and no prior cross-module break: do not create a ledger.
 - First “A broke B” incident: establish the ledger that day.
 - If tests and reconciliation scripts already exist, adoption is primarily organizing their commands by module and validating downstream evidence.
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
