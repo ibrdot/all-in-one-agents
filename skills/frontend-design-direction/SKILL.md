@@ -2,7 +2,7 @@
 name: frontend-design-direction
 description: Set an ECC-specific frontend design direction for production UI work. Use when building or improving websites, dashboards, applications, components, landing pages, visual tools, or any web UI that needs stronger product-specific design judgment.
 metadata:
-  origin: community
+
 ---
 
 # Frontend Design Direction

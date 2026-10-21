@@ -24,8 +24,16 @@ for name in sorted(os.listdir(SKILLS)):
     fm = m.group(1)
     if not re.search(r"^name:\s*\S", fm, re.M):
         errors.append(f"{name}: frontmatter missing 'name'")
-    if not re.search(r"^description:\s*\S", fm, re.M):
+    dm = re.search(r"^description:\s*(.*)$", fm, re.M)
+    if not dm:
         errors.append(f"{name}: frontmatter missing 'description'")
+    else:
+        val = dm.group(1).strip()
+        if val in ("|", ">", "|-", ">-", "|+", ">+"):
+            block = re.search(r"^description:.*\n((?:[ \t]+\S.*\n?)+)", fm, re.M)
+            val = block.group(1) if block else ""
+        if len(val.strip().strip('"')) < 40:
+            errors.append(f"{name}: description too short (<40 chars)")
 
 print(f"validated {count} skills")
 if errors:
