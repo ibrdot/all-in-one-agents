@@ -88,3 +88,8 @@ Return:
 - `video-editing` for final polish
 - `remotion-video-creation` for motion-heavy post-processing or compositing
 - `content-engine` when the animation is part of a broader launch
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
