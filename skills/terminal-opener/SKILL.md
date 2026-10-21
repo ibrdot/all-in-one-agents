@@ -53,3 +53,8 @@ Run `--detect --json` without a command to probe terminal availability. Follow
 the returned `action` when the adapter is missing or unsupported. Use WezTerm
 for the current adapter; treat other requested terminals as unsupported plans,
 not as commands to execute.
+
+## Done when
+
+- The skill's scripts run without errors on their documented inputs
+- The output matches the format the skill promises
