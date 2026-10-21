@@ -2,7 +2,7 @@
 import glob, json, os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MANIFESTS = sorted(glob.glob(os.path.join(ROOT, ".*-plugin", "*.json"))) + [
+MANIFESTS = sorted(p for p in glob.glob(os.path.join(ROOT, ".*-plugin", "*.json")) if os.path.basename(p) != "marketplace.json") + [
     os.path.join(ROOT, ".gemini", "extension.json"),
     os.path.join(ROOT, ".pi", "plugin.json"),
     os.path.join(ROOT, "gemini-extension.json"),
