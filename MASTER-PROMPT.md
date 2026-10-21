@@ -243,6 +243,20 @@ Then run **`agent-self-evaluation`** — rate your own output on 5 axes: accurac
 | Close out a work cycle | `retro` |
 | Turn notes into a spec | `to-spec` |
 | Split a spec into tickets | `to-tickets` |
+| UI accessibility pass | `accessibility-wcag` |
+| Design or version an API | `api-design-patterns` |
+| Login, sessions, tokens | `authentication-patterns` |
+| AWS architecture decisions | `aws-cloud-patterns` |
+| Build or fix CI/CD | `ci-cd-pipelines` |
+| Slow queries, DB bottleneck | `database-optimization` |
+| Dockerfile work | `docker-best-practices` |
+| GraphQL schema / resolvers | `graphql-design` |
+| K8s deploy or debugging | `kubernetes-operations` |
+| Ship LLM features | `llm-integration` |
+| Service split decisions | `microservices-design` |
+| Postgres tuning | `postgres-optimization` |
+| Redis cache/queue patterns | `redis-patterns` |
+| Realtime features | `websocket-realtime` |
 | Idea to deployed service | `zero-to-production` |
 | Inherited legacy codebase | `legacy-rescue` |
 | Review AI-written code | `ai-code-audit` |
