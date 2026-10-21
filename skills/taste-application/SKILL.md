@@ -350,3 +350,8 @@ export FAL_KEY=...            # only needed for the stages that call fal
 
 Every network call is stubbed under `TASTE_FORGE_DRY_RUN=1` or `--dry-run`, so
 the plan, prompts, track layout and manifest can be inspected without spending.
+
+## Done when
+
+- The skill's scripts run without errors on their documented inputs
+- The output matches the format the skill promises
