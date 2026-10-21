@@ -328,3 +328,8 @@ Otherwise → not TDD
 ```
 
 No exceptions without your human partner's permission.
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
