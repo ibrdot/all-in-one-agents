@@ -35,7 +35,7 @@ First stable release. The pack is now an installable framework, not a catalog.
 - **Orchestration core**: `using-all-in-one-agents` bootstrap + `pack-kernel` phase loop (UNDERSTAND → PLAN → EXECUTE → VERIFY → DELIVER)
 - **Enforcement hooks**: SessionStart (compaction recovery), Stop (delivery gate), PostToolUse (verification gate)
 - **Core workflow skills**: writing-plans, using-git-worktrees, finishing-a-development-branch, dispatching-parallel-agents, verification-before-completion
-- **Plugin manifests** for 16 harnesses: Claude Code, Cursor, Codex, Gemini, OpenCode, Copilot CLI, Devin, Hermes, Muse, Kimi Code, Pi, Antigravity, Grok, Qwen, Factory Droid, and any custom target
+- **Plugin manifests** for 15 harnesses (+ any custom install target): Claude Code, Cursor, Codex, Gemini, OpenCode, Copilot CLI, Devin, Hermes, Muse, Kimi Code, Pi, Antigravity, Grok, Qwen, Factory Droid, and any custom target
 - **Test suite** (11 tests) + behavioral evals (3 scenarios) + CodeQL
 - One-command installer (`install.sh`) with hook wiring
 - Versioning infra: package.json, bump script, pre-commit config

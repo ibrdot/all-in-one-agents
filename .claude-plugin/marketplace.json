@@ -1,0 +1,17 @@
+{
+  "name": "ibrdot-all-in-one-agents",
+  "owner": {
+    "name": "ibrdot",
+    "url": "https://github.com/ibrdot/all-in-one-agents"
+  },
+  "plugins": [
+    {
+      "name": "all-in-one-agents",
+      "source": "./",
+      "description": "140 skills, 73 agents, 97 commands: the complete engineering workflow for AI coding agents.",
+      "version": "1.0.0",
+      "category": "engineering",
+      "keywords": ["skills", "agents", "tdd", "code-review", "verification"]
+    }
+  ]
+}
