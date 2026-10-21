@@ -270,3 +270,8 @@ prerequisite; never substitute a mock and call it a pass.
 
 See [references/adaptation.md](references/adaptation.md) for where these ideas
 come from and what was deliberately left out.
+
+## Done when
+
+- The skill's scripts run without errors on their documented inputs
+- The output matches the format the skill promises
