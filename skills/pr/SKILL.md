@@ -1,165 +1,63 @@
 ---
 name: pr
 description: "Open, polish, or review a pull request: title, body, diff hygiene, and merge readiness checks."
-metadata:
 ---
 
-Use this template for writing the PR body:
+# Pull Request
 
-```markdown
-## Summary
+A PR body is a briefing for two readers: the reviewer now, and the archaeologist in six months. Write for both.
 
-<diagram, diff-sketch, or tree>
+## Body structure
 
-## Evidence
+### 1. What and why (three sentences max)
 
-- **Before:** <screenshot/output/failing test run>
-  **After:** <screenshot/output/passing test run>
+- What changed, in the user's own domain vocabulary.
+- Why now: the bug, the requirement, or the follow-up this unblocks.
+- One-line scope statement: what this PR deliberately does NOT touch.
 
-## Merge Danger
+### 2. The shape of the change
 
-**Door:** <one-way or two-way>
+Pick the smallest view that carries the point. One visual, not five:
 
-<optional: description>
+| Change type | Show it as |
+|---|---|
+| Algorithm or caching logic | Short pseudocode |
+| Runtime control flow | Call tree |
+| New module or file layout | Shallow file tree with one-line responsibilities |
+| Component or data flow | Mermaid sequence/flow diagram |
+| Local change inside existing shape | Targeted diff (only the lines that moved) |
+| Everything new | One complete code block, copyable |
 
-**Blast Radius:** <one-word description>
+A diff whose surrounding context the reviewer does not already know is not a diff; it is a puzzle. When in doubt, show the whole block.
 
-<optional: potential ramifications of merge>
-```
+### 3. Evidence
 
-## Sections
+The change works, shown not claimed:
 
-Skip all preambles and keep prose brief. Use the user's domain language from `GLOSSARY.md`.
+- **Visual change:** before/after screenshots.
+- **Behavior change:** the test that failed and now passes, or the exact command output before and after.
+- **No user-visible change:** what you verified instead (typecheck, unit tests, dry run).
 
-### Summary
+"Should work" is not evidence. Run the thing; see [verification-before-completion](../verification-before-completion/SKILL.md).
 
-Pick the smallest view that makes the key point clear.
+### 4. Risk
 
-- Show logic or an algorithm as pseudocode:
+Two questions, answered plainly:
 
-```text
-on(save)
-  if content is unchanged
-    return cached result
-  write new content
-  return fresh result
-```
+- **Reversibility:** if this turns out wrong tomorrow, is reverting a five-minute chore or a data migration? Flag anything that is hard to undo: destructive operations, schema changes, contract breaks.
+- **Blast radius:** who else depends on this? Downstream consumers, other surfaces, load-bearing callers. Name them.
 
-- Show runtime control flow as a call tree:
+## Diff hygiene
 
-```text
-submitForm
-  createSession
-    persistPrompt
-    launchAgent
-  navigateToSession
-```
+Before opening:
 
-- Show UI structure as a component tree, including state and module boundaries that matter:
+- Commits are atomic and tell a story; rebase away "fix typo 2".
+- No unrelated formatting churn. It buries real changes and angers reviewers.
+- No commented-out code, no debug prints, no TODOs without tickets.
 
-```text
-<SessionPage> (apps/example/src/routes/session.tsx)
-  useSessionEvents()
-  <SessionToolbar>
-    <RunSkillButton> (packages/ui)
-```
+## Reviewing someone else's PR
 
-- Show file responsibility or a broad refactor as a shallow file tree:
-
-```text
-src/
-├── commands/       # parses user actions
-├── sessions/       # owns session state
-└── transport/      # sends API requests
-```
-
-- Show component interaction, control flow, or data flow with Mermaid:
-
-```mermaid
-sequenceDiagram
-    participant User
-    participant UI
-    participant Daemon
-    User->>UI: choose command
-    UI->>Daemon: send expanded prompt
-    Daemon-->>UI: stream result
-```
-
-- Use `diff` when the point is what changes and the surrounding shape already exists. Match the diff shape to the topic.
-
-For a component change:
-
-```diff
- <SessionPage>
-   useSessionEvents()
-   <SessionToolbar>
-+    <RunSkillButton />
-   <SessionTimeline>
-+    <SkillResultCard />
-```
-
-For a file-layout change:
-
-```diff
- src/
- ├── commands/
-+│   └── show-me.ts       # expands the slash command
- ├── sessions/
--└── transport.ts
-+└── transport/
-+    ├── client.ts
-+    └── stream.ts
-```
-
-For a call-tree or call-stack change:
-
-```diff
- submitForm
-   createSession
-     persistPrompt
-+    expandSkillMention
-     launchAgent
--  navigateToSession
-+  navigateToSession
-+    subscribeToEvents
-```
-
-For a state or control-flow change:
-
-```diff
- on(save)
--  write content
-+  if content is unchanged
-+    return cached result
-+  write new content
-+  invalidate cache
-```
-
-- Show the whole block when most of it is new, when omitted context would hide ownership or order, or when the user needs a copyable target shape:
-
-```ts
-function expandSkill(command: string): string {
-  const skillName = command.slice(1);
-  return `use the ${skillName} skill`;
-}
-```
-
-#### Guidance
-
-Place each visual next to the short text it supports. Keep only the calls, files, props, states, and boundaries needed to answer the user's current question or the options to resolve the current discussion point.
-
-You may use one of these, you may use several, it is unlikely you will use all of them. Use your judgement and don't overwhelm the user.
-
-### Evidence
-
-Concrete evidence that the change works. Show a before and after.
-
-Screenshots are S-tier - when the environment is set up for it and the change is visual.
-
-Execution-based evidence is A-tier. Test results, console output. Show the exact test that now fails and passes, using pseudocode.
-
-### Merge Danger
-
-Describe whether it's a one-way or two-way door. You can walk back through two-way doors, but not one-way doors. A PR that is cheap to roll back is lower risk. Changes that involve destructive actions or hard-to-reverse decisions are one-way doors.
-
-The blast radius is the potential impact or scope of the changes introduced by this PR. Consider all possibilities. Examples are layout shift, breakages for consumers, mobile responsiveness, etc.
+- Read the "what and why" first and restate the intent to yourself before looking at any diff line.
+- Comment on the code, not the coder; propose, do not command.
+- Distinguish blocking (correctness, security) from nits (style) explicitly, and block only for blocking.
+- For receiving review feedback instead of giving it, see [receiving-code-review](../receiving-code-review/SKILL.md).
