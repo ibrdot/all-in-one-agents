@@ -35,3 +35,8 @@ Say so plainly: "Task not done — verification failed at X." Then loop back thr
 ## If you cannot verify
 
 (e.g. no test harness exists) — say what you checked instead (manual run, type-check, diff review) and flag the residual risk explicitly. Never silently downgrade the standard.
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
