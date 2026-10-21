@@ -30,3 +30,8 @@ When the agent misbehaves, debug the process before the code.
 ## Evidence rule
 
 Quote the transcript line, the skill file, or the hook config that proves the diagnosis. "The agent probably..." is not a diagnosis.
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
