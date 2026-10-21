@@ -1,0 +1,18 @@
+repos:
+  - repo: local
+    hooks:
+      - id: validate-skills
+        name: validate skills
+        entry: python3 scripts/validate.py
+        language: system
+        pass_filenames: false
+      - id: smoke-test
+        name: smoke test skill scripts
+        entry: python3 scripts/smoke_test.py
+        language: system
+        pass_filenames: false
+      - id: pytest
+        name: pytest
+        entry: python3 -m pytest tests/ -q
+        language: system
+        pass_filenames: false

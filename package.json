@@ -1,0 +1,11 @@
+{
+  "name": "all-in-one-agents",
+  "version": "1.0.0",
+  "description": "Installable agent skill framework — 70 skills, 73 agents, 97 commands with an orchestration kernel and enforcement hooks.",
+  "license": "MIT",
+  "repository": "https://github.com/ibrdot/all-in-one-agents",
+  "scripts": {
+    "test": "python3 -m pytest tests/ -q",
+    "validate": "python3 scripts/validate.py && python3 scripts/smoke_test.py"
+  }
+}
