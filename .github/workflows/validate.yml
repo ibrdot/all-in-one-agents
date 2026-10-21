@@ -15,3 +15,5 @@ jobs:
           python-version: "3.12"
       - name: Validate skills
         run: python3 scripts/validate.py
+      - name: Smoke test skill scripts
+        run: python3 scripts/smoke_test.py
