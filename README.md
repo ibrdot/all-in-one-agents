@@ -24,9 +24,9 @@
 
 Most skill collections are a pile of prompts. This is a **system**: an orchestration
 kernel, hash-checked multi-file editing, test-first loops, and explicit verification
-- wired for 15 agent harnesses (+ custom targets) and proven by 66 regression tests.
+- ships cross-agent adapters with 158 passing local regression tests; runtime compatibility varies by host.
 
-> **140 skills · 73 agents · 97 commands · 15 harnesses (+ custom targets) · 1 philosophy**
+> **140 skills · 73 agents · 97 commands · cross-agent adapters · 1 philosophy**
 
 ## 🧭 What it solves
 
@@ -67,7 +67,7 @@ cd all-in-one-agents
 ./install.sh /your/custom/path  # skills/, agents/, commands/
 ```
 
-12 manifest targets supported - see [per-harness setup](docs/INSTALL.md).
+Adapter files are included; native runtime support is not proven by their presence. See [compatibility evidence and limits](docs/COMPATIBILITY-EVIDENCE.md) and [setup instructions](docs/INSTALL.md).
 No installer? Use [MASTER-PROMPT.md](MASTER-PROMPT.md) as portable guidance, or
 [MASTER-PROMPT.min.md](MASTER-PROMPT.min.md) for the compact version.
 A manifest or prompt alone does not create tool permissions or executable gates.
@@ -129,7 +129,7 @@ Concrete multi-edit commands and migration scenarios: [coding workflow guide](do
 | [`commands/`](commands/) | 97 slash commands |
 | [`hooks/`](hooks/) | Executable SessionStart hook and written guidance |
 | [`docs/`](docs/) | Setup, workflows, methodology, provenance |
-| [`tests/`](tests/) | 66 structural and behavioral regression tests |
+| [`tests/`](tests/) | 158 structural and behavioral regression tests |
 | [`evals/`](evals/) | 7 behavioral evaluation scenarios |
 | [`examples/experimental/`](examples/experimental/) | Opt-in experimental skills |
 

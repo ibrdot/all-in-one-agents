@@ -58,3 +58,7 @@ After 3 dead hypotheses, step back: re-read the actual error (not your summary o
 - Root cause identified and stated in one sentence
 - Fix verified with command output
 - A regression test exists proving the bug is dead
+
+## Applied case
+
+See [worked case and failure analysis](references/worked-case.md) for concrete experiments, acceptance checks, and recovery rules.

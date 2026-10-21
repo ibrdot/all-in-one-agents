@@ -66,3 +66,7 @@ Rules:
 - Every task has evidence + review on record
 - The plan file shows all tasks checked
 - The final diff has passed independent review
+
+## Applied case
+
+See [worked case and failure analysis](references/worked-case.md) for concrete experiments, acceptance checks, and recovery rules.

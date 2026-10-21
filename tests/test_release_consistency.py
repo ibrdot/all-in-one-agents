@@ -51,3 +51,18 @@ def test_plugin_manifests_do_not_list_markdown_as_hooks():
             assert not any(h.endswith(".md") for h in hooks), f"{p}: markdown listed as hook"
         elif isinstance(hooks, str):
             assert hooks.endswith(".json"), f"{p}: hooks must point at JSON config"
+
+
+def test_package_and_distribution_versions_agree():
+    import glob
+    expected = json.load(open(os.path.join(ROOT, 'package.json')))['version']
+    paths = glob.glob(os.path.join(ROOT, '.*-plugin', '*.json')) + [
+        os.path.join(ROOT, '.pi', 'plugin.json'),
+        os.path.join(ROOT, '.gemini', 'extension.json'),
+        os.path.join(ROOT, 'gemini-extension.json')]
+    for path in paths:
+        data = json.load(open(path))
+        if 'version' in data:
+            assert data['version'] == expected, path
+        for plugin in data.get('plugins', []):
+            assert plugin['version'] == expected, path

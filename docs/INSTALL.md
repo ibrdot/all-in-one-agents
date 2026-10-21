@@ -1,3 +1,5 @@
+> Compatibility status: consult [tested behavior and unverified integrations](COMPATIBILITY-EVIDENCE.md) before treating an adapter as native host support.
+
 # Installation by harness
 
 Pick your harness. The installer wires the SessionStart kernel hook for Claude Code.

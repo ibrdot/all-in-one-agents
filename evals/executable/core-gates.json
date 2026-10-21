@@ -1,0 +1,7 @@
+{
+  "checks": [
+    {"id": "installer-behavior", "command": ["python3", "-m", "pytest", "tests/test_install_behavior.py", "-q"], "timeout": 60},
+    {"id": "tooling-regressions", "command": ["python3", "-m", "pytest", "tests/test_executable_tooling.py", "-q"], "timeout": 60},
+    {"id": "bootstrap-payload", "command": ["python3", "-m", "pytest", "tests/test_session_start_hook.py", "-q"], "timeout": 30}
+  ]
+}

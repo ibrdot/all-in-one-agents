@@ -59,3 +59,7 @@ The test stays forever as the guard that the bug can never return silently.
 - Every new behavior has a test that was observed failing before it passed
 - The full suite runs green — output shown, exit code 0
 - No assertion was weakened to get there
+
+## Applied case
+
+See [worked case and failure analysis](references/worked-case.md) for concrete experiments, acceptance checks, and recovery rules.
