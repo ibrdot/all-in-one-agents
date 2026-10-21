@@ -168,3 +168,8 @@ When creating or updating a test-registry artifact, adapt `templates/TESTS.examp
 5. only the highest-priority next test actions.
 
 Inventory tasks modify governance documentation only by default. Do not change production code, delete tests, or silently implement missing behavior without separate authorization.
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
