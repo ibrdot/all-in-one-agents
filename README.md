@@ -6,7 +6,7 @@
 
 *Understand the task. Plan the change. Edit with care. Verify with evidence.*
 
-[![Tests](https://github.com/ibrdot/all-in-one-agents/actions/workflows/ci.yml/badge.svg)](https://github.com/ibrdot/all-in-one-agents/actions/workflows/ci.yml)
+[![Tests](https://github.com/ibrdot/all-in-one-agents/actions/workflows/validate.yml/badge.svg)](https://github.com/ibrdot/all-in-one-agents/actions/workflows/validate.yml)
 [![Release](https://img.shields.io/github/v/release/ibrdot/all-in-one-agents?style=flat-square&color=8b5cf6)](https://github.com/ibrdot/all-in-one-agents/releases)
 [![Skills](https://img.shields.io/badge/skills-140-2563eb?style=flat-square)](INDEX.md)
 [![Agents](https://img.shields.io/badge/agents-73-0ea5e9?style=flat-square)](INDEX.md)
@@ -14,7 +14,7 @@
 [![License](https://img.shields.io/badge/license-MIT-16a34a?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-ff69b4?style=flat-square)](CONTRIBUTING.md)
 
-[Get started](#-get-started) · [Skill catalog](INDEX.md) · [Install](docs/INSTALL.md) · [Workflows](docs/CODING-WORKFLOWS.md) · [Release notes](RELEASE-NOTES.md)
+[Get started](#-get-started) · [Skill catalog](INDEX.md) · [Install](docs/INSTALL.md) · [Workflows](docs/CODING-WORKFLOWS.md) · [Release notes](RELEASE-NOTES.md) · [Runtime](docs/RUNTIME.md) · [Objective evaluations](docs/OBJECTIVE-EVALUATION.md)
 
 </div>
 
@@ -24,7 +24,7 @@
 
 Most skill collections are a pile of prompts. This is a **system**: an orchestration
 kernel, hash-checked multi-file editing, test-first loops, and explicit verification
-- ships cross-agent adapters with 185 passing local regression tests; runtime compatibility varies by host.
+- ships cross-agent adapters with 269 passing local regression tests; runtime compatibility varies by host.
 
 > **140 skills · 73 agents · 97 commands · cross-agent adapters · 1 philosophy**
 
@@ -88,7 +88,7 @@ UNDERSTAND ──▶ PLAN ──▶ EXECUTE ──▶ VERIFY ──▶ DELIVER
 6. Show real results with [verification-before-completion](skills/verification-before-completion/SKILL.md)
 7. Ship through [finishing-a-development-branch](skills/finishing-a-development-branch/SKILL.md)
 
-## 🧩 Just merged: 50 new skills
+## 🧩 Engineering and reasoning toolkit
 
 <details>
 <summary><b>Engineering workflow</b> - 20 skills for spec-to-PR discipline</summary>

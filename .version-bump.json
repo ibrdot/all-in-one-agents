@@ -1,4 +1,6 @@
 {
-  "files": ["package.json", ".claude-plugin/plugin.json"],
-  "field": "version"
+  "tool": "scripts/release_metadata.py",
+  "discovery": ["package.json", "gemini-extension.json", ".*-plugin/*.json", ".gemini/*.json", ".pi/*.json"],
+  "fields": ["version", "plugins[].version"],
+  "publication": "explicit commit, single annotated tag, GitHub release"
 }

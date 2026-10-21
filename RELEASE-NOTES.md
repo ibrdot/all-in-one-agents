@@ -1,44 +1,65 @@
-# Release Notes — v1.1.0
+# Release notes - v1.5.0
 
-**all-in-one-agents v1.1.0** — the pack goes from 83 to 133 skills.
+## Runtime, objective evaluation and safer installs
 
-## Highlights
+This release packages the changes since published v1.2.0. It includes 140 skills,
+73 agents, 97 commands, a connected Python runtime and 269 passing local checks.
 
-- 🧠 **50 new skills** — 133 total: full engineering workflow (spec to PR), 28 on-demand reasoning models, and document co-authoring
-- 🔀 **Stronger coding core** — code-review with parallel standards/spec axes, refactoring plans, bug reproduction, git guardrails
-- 🧩 **Reasoning on tap** — first-principles, OODA, pre-mortem, red-team, systems, TRIZ, and 22 more thinking skills
-- 📚 **Docs & catalog refreshed** — INDEX, routing map, and counts regenerated; all tests green (66/66)
-- 🪝 Same install, same 12 harnesses, same orchestration kernel
+### Highlights
 
-## Upgrade
+- Semantic skill indexing and persistent memory retrieval; explicit configurable
+  HTTP chat/embedding adapters, cost estimates and budgeted critique council.
+- Evidence manifests and reviewed evaluation-led skill improvement with rollback.
+- 50 offline runtime contracts, plus 50 objective coding/infra microtasks with
+  provider generation and separate replay grading. No invented live-model scores.
+- Executable DOCX/XLSX/PDF/PPTX reporting, tested by reopening each native format.
+- Installer preflight blocks symlink writes and preserves modified installed
+  content unless replacement is explicitly requested with --force.
+- Stronger coding playbooks, synchronized plugin versions and safer release tools.
 
-```bash
-git pull && ./install.sh claude
+### Upgrade
+
+```sh
+git fetch origin --tags
+git checkout v1.5.0
+./install.sh claude --dry-run
+./install.sh claude
 ```
 
-Nothing breaks: all v1.0.0 skills, agents, and commands keep their names.
+If installation reports modified files, back them up and review differences
+before using `./install.sh claude --force`. Do not overwrite local customizations
+blindly. Other adapters retain host-specific evidence limits documented below.
 
----
+Optional native document dependencies:
 
-# Release Notes — v1.0.0
-
-## Highlights
-
-- 🧠 **Orchestration kernel** — every task runs UNDERSTAND → PLAN → EXECUTE → VERIFY → DELIVER with hard gates; unverified work cannot be delivered
-- 🪝 **Hooks that survive compaction** — SessionStart hook reloads the kernel and resumes from the on-disk plan
-- 🔌 **12 harness manifests** — install as a plugin in Claude Code, Cursor, Codex, Gemini, OpenCode, Copilot CLI, and more
-- ✅ **Tested** — pytest suite + script smoke tests + CodeQL, all enforced in CI
-- 📦 **One command install** — `git clone … && ./install.sh`
-
-## Install
-
-```bash
-git clone https://github.com/ibrdot/all-in-one-agents.git
-cd all-in-one-agents
-./install.sh            # Claude Code
-./install.sh opencode   # OpenCode
+```sh
+pip install -r requirements-documents.txt
 ```
 
-## Contents
+### Verification
 
-70 skills (default path) · 73 agents · 97 commands · 11 experimental skills
+- Full local suite: 269 passed.
+- Skill validation: 140 valid; script smoke checks and generated catalog pass.
+- Runtime contract benchmark: 50/50, no baseline regressions.
+- Author-reference objective-task calibration: 50/50 (NOT model performance).
+- Release source archives are built from the tagged commit; SHA256SUMS accompanies
+  the tar.gz and zip assets. Verification receipt records the exact commit.
+
+### Boundaries
+
+No real-provider quality score, native CLI/desktop rendering proof, official
+marketplace listing or commercial service is established by this release. Task
+Python execution is opt-in and must run in a separate restricted environment:
+resource limits are not a sandbox. Estimated chat budgets exclude embeddings.
+Remote CI status is independent of these local verification results.
+
+See [runtime guide](docs/RUNTIME.md), [objective evaluation](docs/OBJECTIVE-EVALUATION.md),
+[compatibility evidence](docs/COMPATIBILITY-EVIDENCE.md) and
+[blueprint status](docs/BLUEPRINT-STATUS.md) for commands and exact limits.
+
+### Rollback
+
+Keep the previous installation and local customizations backed up. To inspect the
+previous published source use `git checkout v1.2.0`; restore your installation
+backup rather than assuming an older copy will remove newer installed files.
+Runtime databases and operator-owned output are not migrated by the installer.
