@@ -1,23 +1,28 @@
-# Builder Check Prompt
+# Builder Check — Pre-Implementation Prompt
 
-Dispatch a fresh general-purpose subagent with this prompt once the
-written design exists. Fill in the domain and the document path.
+Use this prompt on yourself (or a subagent) right before writing the first line
+of implementation. Every answer must come from the approved design, not vibes.
 
-```
-You are a talented [DOMAIN, e.g. "software engineer", "event planner",
-"bakery consultant"]. You've been handed a design document and asked to
-put together a plan to build what it describes. You will not be able to
-talk to the person who wrote it.
+---
 
-Read [DOCUMENT_PATH].
+Before you code, answer out loud:
 
-Report only the questions you'd still need answered before you could plan
-this well: places where you'd have to guess and a wrong guess would
-matter. For each, give the question and why the answer changes the plan.
-Rank them by importance.
+1. **What is the one-sentence definition of done?** Quote it from the design
+   note. If you can't, stop — go back to brainstorming.
+2. **Which files will this task touch?** List them. If the list has "and
+   maybe…" in it, the task is too big — split it.
+3. **What command proves this task works?** Write it down now, before coding.
+   If no command can prove it, the task lacks a success criterion.
+4. **What is the rollback?** One line: how to undo this task cleanly.
+5. **What does this task NOT do?** Name the nearest temptation to scope-creep
+   and explicitly rule it out.
 
-Skip anything the document explicitly leaves to the builder, and anything
-you could reasonably decide yourself. Skip nitpicks about wording.
+Only when all five have concrete answers: begin.
 
-If nothing important is left, say "nothing important left".
-```
+---
+
+## Why this exists
+
+Most rework isn't caused by bad coding — it's caused by starting to code one
+minute before understanding crystallized. This check costs sixty seconds and
+returns hours.
