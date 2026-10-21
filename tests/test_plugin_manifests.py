@@ -10,7 +10,7 @@ MANIFESTS = sorted(glob.glob(os.path.join(ROOT, ".*-plugin", "*.json"))) + [
 REQUIRED = {"name", "version", "description"}
 
 def test_manifests_exist():
-    assert len(MANIFESTS) >= 12, f"only {len(MANIFESTS)} manifests found"
+    assert len(MANIFESTS) >= 16, f"only {len(MANIFESTS)} manifests found"
 
 def test_valid_json():
     for p in MANIFESTS:

@@ -28,6 +28,9 @@ TARGET="${TARGET:-claude}"
 case "$TARGET" in
   claude)   DEST="$HOME/.claude" ;;
   opencode) DEST="$HOME/.config/opencode" ;;
+  grok)     DEST="$HOME/.grok" ;;
+  qwen)     DEST="$HOME/.qwen" ;;
+  factory)  DEST="$HOME/.factory" ;;
   *)        DEST="$TARGET" ;;
 esac
 

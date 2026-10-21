@@ -24,9 +24,9 @@
 
 Most skill collections are a pile of prompts. This is a **system**: an orchestration
 kernel, hash-checked multi-file editing, test-first loops, and explicit verification
-- wired for 12 agent harnesses and proven by 66 regression tests.
+- wired for 16 agent harnesses and proven by 66 regression tests.
 
-> **140 skills · 73 agents · 97 commands · 12 harnesses · 1 philosophy**
+> **140 skills · 73 agents · 97 commands · 16 harnesses · 1 philosophy**
 
 ## 🧭 What it solves
 
