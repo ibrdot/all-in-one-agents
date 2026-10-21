@@ -157,3 +157,14 @@ Original material is under [LICENSE](LICENSE).
 **⭐ If this pack makes your agent measurably better, star the repo.**
 
 </div>
+
+---
+
+## Community
+
+- **Bugs aur skill requests:** [issue templates](.github/ISSUE_TEMPLATE) use karo - `skill-request` naya skill propose karne ke liye
+- **Ideas aur Q&A:** GitHub Discussions (repo sidebar mein "Discussions" tab)
+- **Security issues:** sirf private - [SECURITY.md](.github/SECURITY.md) dekho
+- **Contribute:** [CONTRIBUTING.md](CONTRIBUTING.md) - naya skill PR ka format, tests, aur review process wahan hai
+
+Good first issues `good-first-issue` label ke saath milenge - naya contributor ho to wahan se shuru karo.
