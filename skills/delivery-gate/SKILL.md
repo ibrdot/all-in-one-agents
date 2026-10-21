@@ -127,3 +127,8 @@ This code went through 4 rounds of automated code review (CodeRabbit + Greptile)
 - `self-audit` — Reasoning quality gate (completeness/consistency/groundedness/honesty)
 - `verification-loop` — Code quality checks (build/type/lint/test)
 - `gateguard` — PreToolUse safety gate
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
