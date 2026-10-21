@@ -206,6 +206,13 @@ Then run **`agent-self-evaluation`** — rate your own output on 5 axes: accurac
 | Regression fear in large repo | `module-regression` |
 | Repo looks unmaintained | `repo-polish` |
 | Commit hygiene | `commit-craft` |
+| Production broken / alert fired | `incident-response` |
+| Instrument a service | `production-observability` |
+| Change live schema | `database-migrations` |
+| Flaky / race / deadlock | `concurrency-debugging` |
+| Build or fix an LLM feature | `prompt-engineering` |
+| Long agent session | `context-window-management` |
+| High-stakes technical decision | `deep-research` |
 
 ### Meta & Learning
 

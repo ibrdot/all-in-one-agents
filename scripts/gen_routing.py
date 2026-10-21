@@ -61,6 +61,13 @@ CATS = {
         ("module-regression", "Regression fear in large repo"),
         ("repo-polish", "Repo looks unmaintained"),
         ("commit-craft", "Commit hygiene"),
+        ("incident-response", "Production broken / alert fired"),
+        ("production-observability", "Instrument a service"),
+        ("database-migrations", "Change live schema"),
+        ("concurrency-debugging", "Flaky / race / deadlock"),
+        ("prompt-engineering", "Build or fix an LLM feature"),
+        ("context-window-management", "Long agent session"),
+        ("deep-research", "High-stakes technical decision"),
     ],
     "Meta & Learning": [
         ("writing-skills", "Author a new skill"),
