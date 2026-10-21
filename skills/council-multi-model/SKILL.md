@@ -165,3 +165,8 @@ truth. Do not create a running review log.
 - `council` - required base workflow.
 - `santa-method` - verification rather than decision critique.
 - `architecture-decision-records` - preserve a durable decision when warranted.
+
+## Done when
+
+- The skill's scripts run without errors on their documented inputs
+- The output matches the format the skill promises
