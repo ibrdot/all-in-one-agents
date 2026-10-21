@@ -65,3 +65,8 @@ If context was compacted: re-read this SKILL.md, check the plan file for the fir
 2. Never skip UNDERSTAND on a vague request
 3. One task at a time — no parallel edits to the same file
 4. The plan file is source of truth, not memory
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
