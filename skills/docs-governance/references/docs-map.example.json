@@ -1,0 +1,8 @@
+{
+  "overview": "README.md",
+  "architecture": "docs/ARCHITECTURE.md",
+  "context": "CONTEXT.md",
+  "decisions": "docs/decisions/",
+  "tests": "TESTS.md",
+  "changelog": "CHANGELOG.md"
+}

@@ -43,8 +43,21 @@ class RegistryFailClosedTests(unittest.TestCase):
             )
 
     def test_no_network_modules_imported(self):
-        for mod in ("fal_client", "requests", "http.client", "urllib.request"):
-            self.assertNotIn(mod, sys.modules, f"{mod} must not be imported by tasteforge")
+        # Run in a clean interpreter: pytest and sibling suites legitimately
+        # import http.client/urllib themselves, so a global sys.modules check
+        # only works in isolation.
+        import subprocess
+
+        code = (
+            "import sys;"
+            f"sys.path.insert(0, {str(REPO_ROOT)!r});"
+            "import tasteforge.providers;"
+            "bad=[m for m in ('fal_client','requests','http.client','urllib.request')"
+            " if m in sys.modules];"
+            "assert not bad, f'network modules imported: {bad}'"
+        )
+        proc = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True)
+        self.assertEqual(proc.returncode, 0, proc.stderr)
 
 
 if __name__ == "__main__":

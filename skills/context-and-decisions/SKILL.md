@@ -10,7 +10,7 @@ Govern “what these business terms mean” separately from “why this option w
 
 ## Domain Context Artifact: Domain Language Only
 
-When terms require repeated explanation, one term has multiple meanings, or unclear language causes module-boundary errors, first reuse the repository's existing glossary/domain-model document or the `context` role in `.governance/docs-map.json`. Only when no equivalent exists should you lazily create the default `CONTEXT.md` from `templates/context.example.md`.
+When terms require repeated explanation, one term has multiple meanings, or unclear language causes module-boundary errors, first reuse the repository's existing glossary/domain-model document or the `context` role in `.governance/docs-map.json` (template: `skills/docs-governance/references/docs-map.example.json`). Only when no equivalent exists should you lazily create the default `CONTEXT.md` from `templates/context.example.md`.
 
 Record only:
 

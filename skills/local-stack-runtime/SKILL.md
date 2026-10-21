@@ -10,7 +10,7 @@ Maintain the shared configuration and launch plumbing across Vite/static develop
 ## Workflow
 
 1. Read `references/guide.md` before changing launchers, runtime service metadata, version pins, Docker composition, auth generation, or process management.
-2. Treat `config/defaults.json` and the injected `<RUNTIME_SERVICES>` block as authoritative.
+2. Treat the target project's `config/defaults.json` and the injected `<RUNTIME_SERVICES>` block as authoritative.
 3. Preserve coordinated process-tree shutdown and fail fast on missing prerequisites.
 4. Keep Agent Server and automation versions compatible and authentication keys correctly scoped.
 5. Update documentation and version-drift tests when changing pins or launch commands.

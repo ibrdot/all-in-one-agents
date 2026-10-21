@@ -74,15 +74,26 @@ class FailClosedLiveTests(unittest.TestCase):
         self.assertIn("separately authorized", str(ctx.exception))
 
     def test_no_network_module_imported(self):
-        import sys as _sys
+        # Clean interpreter: a shared pytest process has already imported
+        # urllib.request for unrelated reasons, which makes a global
+        # sys.modules assertion meaningless.
+        import subprocess
 
-        _sys.modules.pop("fal_client", None)
-        try:
-            distill.distill_live(_profile())
-        except distill.ProviderDisabledError:
-            pass
-        self.assertNotIn("fal_client", _sys.modules)
-        self.assertNotIn("urllib.request", _sys.modules)
+        code = (
+            "import sys;"
+            f"sys.path.insert(0, {str(REPO_ROOT)!r});"
+            "from tasteforge import distill, interview;"
+            "p=interview.conduct({'palette':'a','grain':'b','lighting':'c',"
+            "'focal_length':'35mm','camera_motion':'d','subject_framing':'e',"
+            "'grade_description':'f','mood_adjectives':'g','avoid':'h',"
+            "'brief':'i'}, genre='flashethereal');"
+            "sys.modules.pop('fal_client', None);"
+            "\ntry:\n distill.distill_live(p)\nexcept distill.ProviderDisabledError:\n pass\n"
+            "bad=[m for m in ('fal_client','urllib.request') if m in sys.modules];"
+            "assert not bad, f'network modules imported: {bad}'"
+        )
+        proc = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True)
+        self.assertEqual(proc.returncode, 0, proc.stderr)
 
 
 if __name__ == "__main__":

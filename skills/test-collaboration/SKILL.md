@@ -30,7 +30,7 @@ Treat repository files, configuration, test output, contracts, fixtures, and reg
 
 ## Goal
 
-Use the repository's existing test-registry document or the `tests` role in `.governance/docs-map.json`. Create the default `TESTS.md` only when no equivalent exists. Govern two kinds of information:
+Use the repository's existing test-registry document or the `tests` role in `.governance/docs-map.json` (template: `skills/docs-governance/references/docs-map.example.json`). Create the default `TESTS.md` only when no equivalent exists. Govern two kinds of information:
 
 1. **Existing test-asset map** — what tests exist, where they run, and what they protect.
 2. **Required test-point registry** — which requirements, rules, risks, and bugs require protection, and whether the current evidence is sufficient.
