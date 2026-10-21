@@ -34,6 +34,7 @@
 - **harmonyos-app-resolver** — HarmonyOS application development expert specializing in ArkTS and ArkUI. Reviews code for V2 state management compliance, Navigation routin
 - **harness-optimizer** — Improve local agent-harness configuration reliability and cost using eval-driven grading (pass@k/pass^k) derived from the eval-harness skill
 - **healthcare-reviewer** — Reviews healthcare application code for clinical safety, CDSS accuracy, PHI compliance, and medical data integrity. Specialized for EMR/EHR,
+- **history-keeper** — Git history specialist. Use when splitting large work into clean commits, writing conventional commit messages, reviewing branch history bef
 - **homelab-architect** — Designs home and small-lab network plans from hardware inventory, goals, and operator experience level, with safe staged changes and rollbac
 - **java-build-resolver** — Java/Maven/Gradle build, compilation, and dependency error resolution specialist. Automatically detects Spring Boot or Quarkus and applies f
 - **java-reviewer** — Expert Java code reviewer for Spring Boot and Quarkus projects. Automatically detects the framework and applies the appropriate review rules
@@ -48,6 +49,7 @@
 - **opensource-forker** — Fork any project for open-sourcing. Copies files, strips secrets and credentials (20+ patterns), replaces internal references with placehold
 - **opensource-packager** — Generate complete open-source packaging for a sanitized project. Produces CLAUDE.md, setup.sh, README.md, LICENSE, CONTRIBUTING.md, and GitH
 - **opensource-sanitizer** — Verify an open-source fork is fully sanitized before release. Scans for leaked secrets, PII, internal references, and dangerous files using 
+- **pack-curator** — Curator for the all-in-one skill pack. Use PROACTIVELY when adding, removing, merging or renaming skills — keeps the pack validated, indexed
 - **performance-optimizer** — Performance analysis and optimization specialist. Use PROACTIVELY for identifying bottlenecks, optimizing slow code, reducing bundle sizes, 
 - **php-reviewer** — Expert PHP code reviewer specializing in PSR-12 compliance, PHP type system, Eloquent ORM patterns, security, and performance. Use for all P
 - **planner** — Expert planning specialist for complex features and refactoring. Use PROACTIVELY when users request feature implementation, architectural ch

@@ -17,3 +17,7 @@ jobs:
         run: python3 scripts/validate.py
       - name: Smoke test skill scripts
         run: python3 scripts/smoke_test.py
+      - name: Install pytest
+        run: pip install pytest
+      - name: Run test suite
+        run: python3 -m pytest tests/ -q

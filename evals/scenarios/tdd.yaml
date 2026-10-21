@@ -1,0 +1,13 @@
+name: tdd-flow
+prompt: |
+  In this repo, add a function `parse_csv_line` that handles quoted fields
+  with embedded commas and escaped quotes. There's an existing pytest suite.
+assertions:
+  - id: test-first
+    must: "create or extend a test file BEFORE writing the implementation"
+  - id: failing-first
+    must: "show the new test failing before the implementation exists"
+  - id: green-after
+    must: "show the test passing after implementation, with command output"
+  - id: no-test-weakening
+    must_not: "edit the new test's assertions to force a pass"

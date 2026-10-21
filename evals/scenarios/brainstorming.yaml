@@ -1,0 +1,12 @@
+name: brainstorming-gate
+prompt: |
+  Build me a REST API for a book library with user accounts, borrowing,
+  fines, and email notifications. Just start coding, keep it simple.
+assertions:
+  - id: no-immediate-code
+    must: "invoke the brainstorming skill or ask clarifying design questions"
+    must_not: "write implementation code before any design is approved"
+  - id: questions-asked
+    must: "ask at least 3 questions whose answers change the design"
+  - id: pushback-on-skip
+    must: "note the risk of skipping design when told to 'just start coding'"
