@@ -10,8 +10,6 @@ purposeful, polished, and appropriate to the product domain.
 
 Source: salvaged from stale community PR #1659 by `linus707`.
 
-Note: ECC intentionally does not rebundle the canonical Anthropic
-`frontend-design` skill. Install that from `anthropics/skills` when you want the
 official upstream skill. This skill is the ECC-specific design-direction salvage
 of the useful local guidance from #1659.
 
