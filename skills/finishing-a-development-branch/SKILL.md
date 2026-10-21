@@ -39,3 +39,8 @@ git worktree remove ../<project>-<feature>
 ```
 
 Remove scratch files, kill stray processes, close the loop. A finished branch leaves no trace except its commits.
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
