@@ -19,3 +19,8 @@ Maintain the shared configuration and launch plumbing across Vite/static develop
 ## Reference
 
 - **`references/guide.md`** — Runtime-services schema and prompt plumbing, launcher environment variables, ingress routes, version synchronization, security, Docker build architecture, README synchronization, and spec-tag conventions.
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
