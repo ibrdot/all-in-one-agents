@@ -19,3 +19,8 @@ Keep Canvas as a typed consumer of Agent Server and Cloud contracts. Preserve re
 ## Reference
 
 - **`references/guide.md`** — API transport rules, allowed exceptions, published-client constraints, compatibility conventions, backend registry and auth behavior, settings/secrets persistence, backend UI invariants, and Cloud resume gating.
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
