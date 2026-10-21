@@ -96,3 +96,8 @@ Use this skill before or inside:
 - cold or warm outbound across X, LinkedIn, and email
 
 If another skill already has a partial voice capture section, this skill is the canonical source of truth.
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
