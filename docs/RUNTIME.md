@@ -115,3 +115,23 @@ The 50 golden contracts execute actual assertion-bearing tests, not 50 invented
 responses. The weekly workflow runs offline, needs no model secrets, and uploads
 its report. It is a software-regression benchmark, **not** a general agent-quality
 benchmark. See [blueprint status](BLUEPRINT-STATUS.md) for exact remaining work.
+
+## Explicit local memory management
+
+`python3 -m runtime.memory --help` provides put/search/delete without network or
+provider credentials. Input records contain `id`, `text`, `embedding`,
+`embedding_model`, and optional object `metadata`. Embeddings must be computed
+by your chosen embedding model; do not make up vectors for real semantic use.
+
+```sh
+python3 -m runtime.memory put --database private-memory.db --input reviewed-entry.json
+python3 -m runtime.memory search --database private-memory.db \
+  --embedding query-embedding.json --embedding-model your-embedding-space
+python3 -m runtime.memory delete --database private-memory.db --id reviewed-lesson
+```
+
+Search opens an existing database read-only and never creates a missing one.
+New databases have private file permissions; SQLite is not encrypted. Symlinked
+paths are refused. Do not run concurrent untrusted writers. Search outputs include
+stored text, so keep terminals/logs private. Deletion removes a logical row, not
+forensic remnants from disk/backups. Connect it using runtime `--memory`.

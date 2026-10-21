@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Explicit local memory CLI with validated put, read-only semantic search and
+  delete. New databases use private permissions; no network or automatic capture.
+- Published v1.5.0 assets downloaded again and all three SHA256 checks passed.
+
 ## [1.5.0] - 2026-10-21
 
 ### Added
