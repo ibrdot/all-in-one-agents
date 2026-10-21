@@ -11,3 +11,5 @@ node_modules/
 .superpowers/
 .aio/
 .DS_Store
+
+*.log

@@ -153,7 +153,7 @@ material are kept in [NOTICE](NOTICE).
 
 <div align="center">
 
-[Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Changelog](CHANGELOG.md) · [Code of Conduct](CODE_OF_CONDUCT.md)
+[Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Changelog](CHANGELOG.md) · [Philosophy](docs/PHILOSOPHY.md) · [Command catalog](docs/COMMANDS.md) · [Code of Conduct](CODE_OF_CONDUCT.md)
 
 **⭐ If this pack makes your agent measurably better, star the repo.**
 
