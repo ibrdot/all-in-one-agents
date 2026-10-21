@@ -3,7 +3,7 @@
 ## Runtime, objective evaluation and safer installs
 
 This release packages the changes since published v1.2.0. It includes 140 skills,
-73 agents, 97 commands, a connected Python runtime and 269 passing local checks.
+73 agents, 97 commands, a connected Python runtime and 272 passing local checks.
 
 ### Highlights
 
@@ -38,7 +38,7 @@ pip install -r requirements-documents.txt
 
 ### Verification
 
-- Full local suite: 269 passed.
+- Full local suite: 272 passed.
 - Skill validation: 140 valid; script smoke checks and generated catalog pass.
 - Runtime contract benchmark: 50/50, no baseline regressions.
 - Author-reference objective-task calibration: 50/50 (NOT model performance).

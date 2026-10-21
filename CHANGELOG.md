@@ -16,7 +16,9 @@
 - Release metadata synchronization checks covering all plugin/extension versions.
 
 ### Changed
-- Inventory is 140 skills, 73 agents and 97 commands; local suite has 269 passing
+- Issue #5: README navigation, technology stack and usage refreshed; added
+  troubleshooting and maintained Markdown link/anchor/SVG regression checks.
+- Inventory is 140 skills, 73 agents and 97 commands; local suite has 272 passing
   checks. Generated inventory, routing and compatibility documentation refreshed.
 - Installer rejects symlink destinations and requires --force to replace modified
   installed content; identical reinstalls remain supported.

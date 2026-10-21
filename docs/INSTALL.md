@@ -33,7 +33,10 @@ Copy `skills/`, `agents/`, `commands/` into your Cursor rules/skills location, o
 
 ## Gemini CLI
 
-This repo ships `gemini-extension.json` + `.gemini/extension.json` at the root — Gemini CLI picks it up as an extension with `GEMINI.md` as context.
+This repository includes `gemini-extension.json`, `.gemini/extension.json` and
+`GEMINI.md` as adapter candidates. Follow your installed Gemini CLI version's
+extension-loading procedure and verify discovery in a real session; local JSON
+validation does not establish native loading.
 
 ## Codex / Copilot CLI / Devin / Hermes / Muse / Kimi Code / Pi / Antigravity
 

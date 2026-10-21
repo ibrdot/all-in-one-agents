@@ -14,19 +14,32 @@
 [![License](https://img.shields.io/badge/license-MIT-16a34a?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-ff69b4?style=flat-square)](CONTRIBUTING.md)
 
-[Get started](#-get-started) · [Skill catalog](INDEX.md) · [Install](docs/INSTALL.md) · [Workflows](docs/CODING-WORKFLOWS.md) · [Release notes](RELEASE-NOTES.md) · [Runtime](docs/RUNTIME.md) · [Objective evaluations](docs/OBJECTIVE-EVALUATION.md)
+[Get started](#quick-start) · [Skill catalog](INDEX.md) · [Install](docs/INSTALL.md) · [Workflows](docs/CODING-WORKFLOWS.md) · [Release notes](RELEASE-NOTES.md) · [Runtime](docs/RUNTIME.md) · [Objective evaluations](docs/OBJECTIVE-EVALUATION.md)
 
 </div>
 
 ---
 
-## ✨ Why this pack
+## Overview
 
-Most skill collections are a pile of prompts. This is a **system**: an orchestration
-kernel, hash-checked multi-file editing, test-first loops, and explicit verification
-- ships cross-agent adapters with 269 passing local regression tests; runtime compatibility varies by host.
+A practical toolkit for AI-assisted engineering: 140 skills, 73 agent definitions,
+97 command definitions, executable workflow helpers and an optional Python runtime.
+Start with a bounded task, load only relevant skills, and verify the result.
 
-> **140 skills · 73 agents · 97 commands · cross-agent adapters · 1 philosophy**
+The pack includes semantic retrieval, peer-critique councils, objective evaluation
+and native document generation. Instructions and adapter files do not create
+host permissions or prove compatibility. See [tested boundaries](docs/COMPATIBILITY-EVIDENCE.md).
+
+## Contents
+
+- [Overview](#overview)
+- [Quick start](#quick-start)
+- [Configuration and usage](#configuration-and-usage)
+- [Technology stack](#technology-stack)
+- [Repository structure](#repository-structure)
+- [Validation](#validation)
+- [Documentation](#documentation)
+- [Community](#community)
 
 ## 🧭 What it solves
 
@@ -48,7 +61,7 @@ kernel, hash-checked multi-file editing, test-first loops, and explicit verifica
 | 👥 Compare agents | [agent-evaluation](skills/agent-evaluation/SKILL.md) | Reproducible fixtures, independent scoring |
 | ♻️ Resume interrupted work | [checkpoint-recovery](skills/checkpoint-recovery/SKILL.md) | Reconcile files with recorded evidence |
 
-## 🚀 Get started
+## Quick start
 
 Requires Git, Bash, Python 3.10+ (for the edit helper). Review scripts before running them.
 
@@ -73,6 +86,33 @@ No installer? Use [MASTER-PROMPT.md](MASTER-PROMPT.md) as portable guidance, or
 A manifest or prompt alone does not create tool permissions or executable gates.
 
 </details>
+
+## Configuration and usage
+
+The installer copies into the selected destination; Claude installs merge the
+SessionStart configuration without replacing unrelated settings. Back up local
+customizations before upgrades. Replacing changed installed files requires an
+explicit `--force`; preview with `--dry-run` first.
+
+Give the agent a concrete outcome and acceptance checks, for example:
+
+> Add input validation to this API. Reproduce the invalid-input failure first,
+> preserve unrelated changes, implement the smallest fix, then show test results.
+
+Optional runtime configuration uses explicit provider/model settings and an
+environment-based credential, not a key committed to the repository. Follow the
+[runtime guide](docs/RUNTIME.md) before enabling potentially billed requests.
+
+## Technology stack
+
+| Component | Implementation |
+|---|---|
+| Skill/agent/command definitions | Markdown with skill metadata |
+| Runtime, validators and regression tests | Python 3.10+; pytest |
+| Installation and hook helpers | Bash and host configuration JSON |
+| Selected skill helpers | Python, JavaScript and shell; inspect per-skill dependencies |
+| Optional native reports | python-docx, openpyxl, ReportLab, python-pptx, pypdf |
+| Automation | GitHub Actions; remote execution status reported separately |
 
 ## 🔁 The engineering loop
 
@@ -120,7 +160,7 @@ Spec-to-ticket-to-PR discipline, refactoring plans, bug reproduction, repo wayfi
 
 Concrete multi-edit commands and migration scenarios: [coding workflow guide](docs/CODING-WORKFLOWS.md).
 
-## 🗺️ Repository map
+## Repository structure
 
 | Path | Contents |
 |---|---|
@@ -128,18 +168,22 @@ Concrete multi-edit commands and migration scenarios: [coding workflow guide](do
 | [`agents/`](agents/) | 73 agent definitions |
 | [`commands/`](commands/) | 97 slash commands |
 | [`hooks/`](hooks/) | Executable SessionStart hook and written guidance |
+| [`runtime/`](runtime/) | Optional semantic routing, council, evaluation and document pipeline |
+| [`scripts/`](scripts/) | Install, validation, release metadata and documentation checks |
 | [`docs/`](docs/) | Setup, workflows, methodology, provenance |
-| [`tests/`](tests/) | 185 structural and behavioral regression tests |
-| [`evals/`](evals/) | 7 behavioral evaluation scenarios |
+| [`tests/`](tests/) | 272 passing local regression checks |
+| [`evals/`](evals/) | Behavioral scenarios, 50 runtime contracts and 50 objective microtasks |
 | [`examples/experimental/`](examples/experimental/) | Opt-in experimental skills |
 
-## ✅ Validate a checkout
+## Validation
 
 ```bash
 python3 scripts/validate.py
 python3 scripts/smoke_test.py
 python3 -m pytest tests/ -q
 python3 scripts/sync_catalog.py --check
+python3 scripts/release_metadata.py --check
+python3 scripts/check_docs.py
 git diff --check
 ```
 
@@ -160,14 +204,23 @@ Original material is under [LICENSE](LICENSE).
 
 ---
 
+## Documentation
+
+| Goal | Guide |
+|---|---|
+| First installation | [Getting started](docs/GETTING-STARTED.md) |
+| Host-specific setup | [Installation and compatibility](docs/INSTALL.md) |
+| Fix common setup problems | [Troubleshooting](docs/TROUBLESHOOTING.md) |
+| Run semantic routing and councils | [Runtime](docs/RUNTIME.md) |
+| Evaluate tasks or generate documents | [Objective evaluation](docs/OBJECTIVE-EVALUATION.md) |
+| Check implemented vs remaining work | [Blueprint status](docs/BLUEPRINT-STATUS.md) |
+| Prepare a release | [Release procedure](docs/RELEASING.md) |
+
 ## Community
 
-- **Bugs aur skill requests:** [issue templates](.github/ISSUE_TEMPLATE) use karo - `skill-request` naya skill propose karne ke liye
-- **Ideas aur Q&A:** GitHub Discussions (repo sidebar mein "Discussions" tab)
-- **Security issues:** sirf private - [SECURITY.md](.github/SECURITY.md) dekho
-- **Contribute:** [CONTRIBUTING.md](CONTRIBUTING.md) - naya skill PR ka format, tests, aur review process wahan hai
-
-Good first issues `good-first-issue` label ke saath milenge - naya contributor ho to wahan se shuru karo.
+Use the [issue templates](.github/ISSUE_TEMPLATE) for reproducible bugs and focused
+skill requests. Follow [CONTRIBUTING.md](CONTRIBUTING.md) for tests, licensing and
+review expectations. Report security concerns privately using [SECURITY.md](SECURITY.md).
 
 ## Executable runtime foundation
 

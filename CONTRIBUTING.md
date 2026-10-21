@@ -54,3 +54,13 @@ git diff --check
 
 Review trigger quality, overlap, safe defaults, practical reproducibility,
 license compatibility, and whether the documented commands actually run.
+
+## Documentation and assets
+
+Use clear headings, working relative links, accessible image text and scoped
+commands. Run `python3 scripts/check_docs.py` for maintained project Markdown,
+heading anchors and local SVG structure; external URLs are listed but not
+certified by the offline checker. Imported skill corpora and archived plans need
+separate source-specific review. Do not fabricate SVG assets or native-host
+support to satisfy a checklist. Follow [release procedure](docs/RELEASING.md) for
+version consistency, artifacts and verification receipts.
