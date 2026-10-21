@@ -1,16 +1,4 @@
 {
   "schema_version": 1,
-  "imports": [
-    {
-      "upstream": "https://github.com/obra/superpowers",
-      "commit": "b739a8af570e10a95898f2bdf6cec97467fa6c12",
-      "source": "skills/receiving-code-review",
-      "destination": "skills/receiving-code-review",
-      "license": "MIT",
-      "files": {
-        "skills/receiving-code-review/LICENSE": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
-        "skills/receiving-code-review/SKILL.md": "091df1629510af1b92fc4abd6f96732ebedb4cb2c0f3457e8f2740b0504a2438"
-      }
-    }
-  ]
+  "imports": []
 }
