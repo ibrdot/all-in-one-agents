@@ -1,29 +1,33 @@
-# AGENTS.md — Repo Map (for agents)
+# Repository guide for coding agents
 
-You are in **all-in-one-agents**, an installable agent skill framework.
+## Load in order
 
-## Start here
+1. Read `skills/using-all-in-one-agents/SKILL.md` for bootstrap instructions.
+2. Read `skills/pack-kernel/SKILL.md` for the engineering loop.
+3. Use `INDEX.md` to load only task-relevant skills.
+4. For coordinated code changes, consult `docs/CODING-WORKFLOWS.md`.
 
-1. Load `skills/using-all-in-one-agents/SKILL.md` — the bootstrap (workflow + rules)
-2. Load `skills/pack-kernel/SKILL.md` — the orchestration loop when planning
-3. Consult `INDEX.md` to find a domain skill for the task
+## Map
 
-## Layout
-
-| Path | What |
+| Path | Responsibility |
 |---|---|
-| `skills/` | 81 skills, each a folder with `SKILL.md` |
-| `agents/` | 73 agent definitions |
-| `commands/` | 97 slash commands |
-| `hooks/` | SessionStart / Stop / PostToolUse enforcement hooks |
-| `.*-plugin/` | per-harness plugin manifests |
-| `scripts/` | validate.py, smoke_test.py, install tooling |
-| `tests/` | pytest suite — run before every commit |
-| `evals/` | behavioral scenarios |
-| `docs/` | install, philosophy, telemetry, catalogs |
+| `skills/` | 79 skills; instructions and optional resources |
+| `agents/` | 73 role definitions |
+| `commands/` | 97 command definitions |
+| `hooks/` | Executable SessionStart hook; other Markdown is guidance |
+| `scripts/` | Validation, inventory, installation, routing generation |
+| `tests/` | Regression tests; run before committing |
+| `docs/` | Installation, workflows, provenance |
 
-## Rules of this repo
+## Change rules
 
-- Tests green before any commit: `python3 -m pytest tests/ -q`
-- No third-party attribution in files — original content only
-- Conventional commits, one idea per commit
+- Preserve unrelated work; avoid destructive cleanup and forced pushes.
+- Prefer original skills. Import third-party content only with reviewed license,
+  retained copyright/notice, pinned revision, and an attribution record.
+- Never remove legally required attribution or claim imported work as original.
+- Reconcile API producers, consumers, tests, and docs in one reviewed plan.
+- After inventory changes run `python3 scripts/sync_catalog.py` and
+  `python3 scripts/gen_routing.py`; inspect both generated diffs.
+- Run validation, smoke tests, pytest, catalog check, and `git diff --check`.
+- Use conventional commits. Describe AI-assisted authorship accurately; a Git
+  author name alone does not attest to autonomy or verification.

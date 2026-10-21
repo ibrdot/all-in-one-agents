@@ -45,3 +45,10 @@ Until then treat those skills as unreviewed third-party content.
 Everything not listed above — including `taste`, `taste-application`,
 `taste-distillation`, `skill-comply`, `verify-openhands`, `pack-kernel`,
 `agent-self-evaluation`, `rules-distill`, and the agent/command definitions.
+
+## Additional reviewed import
+
+`skills/receiving-code-review` is imported unchanged from obra/superpowers
+commit `b739a8af570e10a95898f2bdf6cec97467fa6c12` (MIT). Its upstream license is retained alongside the skill.
+File-level SHA-256 hashes are recorded in [docs/import-manifest.json](docs/import-manifest.json).
+The seven coding workflow skills added with this change are original to this pack.

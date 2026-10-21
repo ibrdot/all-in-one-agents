@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+- Add seven original coding workflows: multi-file editing, AST-aware refactoring,
+  API migration, dependency upgrades, codebase context, agent evaluation, and recovery.
+- Import receiving-code-review from a pinned MIT-licensed upstream with notices.
+- Add a dry-run-first, hash-checked exact-text edit helper and regression coverage.
+- Refresh README, contributor and agent guidance, installation, and getting started.
+- Add deterministic catalog synchronization and import-integrity checks.
+
 ## [1.0.0] — 2026-10-21
 
 First stable release. The pack is now an installable framework, not a catalog.

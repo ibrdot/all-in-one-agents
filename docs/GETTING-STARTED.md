@@ -1,48 +1,50 @@
-# Getting Started — 5 minutes to your first autonomous run
+# Getting started
 
-## 1. Install (1 min)
+[Home](../README.md) | [Installation details](INSTALL.md) | [Coding workflows](CODING-WORKFLOWS.md)
+
+## 1. Clone and preview
 
 ```bash
 git clone https://github.com/ibrdot/all-in-one-agents.git
 cd all-in-one-agents
-./install.sh            # or ./install.sh opencode
+./install.sh claude --dry-run
 ```
 
-## 2. Verify (30 sec)
+Read the installer and back up existing same-name skills. The installer copies
+files into the selected destination; it is not an isolated package manager.
+
+## 2. Install and validate
 
 ```bash
-python3 scripts/validate.py && python3 -m pytest tests/ -q
+./install.sh claude
+python3 -m pip install pytest
+python3 scripts/validate.py
+python3 scripts/smoke_test.py
+python3 -m pytest tests/ -q
 ```
 
-Both green = install healthy.
+Use `./install.sh opencode` for a plain OpenCode copy. Other harnesses have
+[separate setup instructions](INSTALL.md); do not assume Claude hooks work there.
 
-## 3. Start a session (30 sec)
+## 3. Give the agent a bounded task
 
-Open your harness in any project. The SessionStart hook loads
-`using-all-in-one-agents` — you'll see the kernel announce itself.
+> Add a --verbose flag to the build script. First locate the entrypoint and tests,
+> preserve existing changes, then implement and show the verification commands.
 
-## 4. Give it real work (3 min)
+The intended loop is understand -> plan -> execute -> verify -> deliver.
+Ask questions only when a material unknown cannot be resolved from the project.
+For multiple files, load the [multi-edit workflow](CODING-WORKFLOWS.md).
 
-Pick something small but real, e.g.:
+## 4. Check what actually happened
 
-> "Add a --verbose flag to the build script with tests."
+Inspect the diff and actual test output. Loaded instructions do not prove
+compliance; Markdown gates do not mechanically block a tool call. The Claude
+SessionStart hook emits bootstrap context, but continuity still depends on the
+harness and a current task record.
 
-Watch the loop happen:
+## 5. Resume carefully
 
-1. **UNDERSTAND** — it asks 2–3 questions instead of coding immediately
-2. **PLAN** — you get an atomic task list with verify commands
-3. **EXECUTE** — tasks land one by one, each with test evidence
-4. **VERIFY** — the diff is reviewed before merge
-5. **DELIVER** — suite runs green, you're offered merge/PR options
-
-## 5. Interrupt it (optional)
-
-Close the session mid-run, reopen, say "continue". The SessionStart hook
-reloads the kernel, finds the plan file, and resumes at the first
-unchecked task. That is the compaction-recovery guarantee.
-
-## Next
-
-- Browse `INDEX.md` for domain skills
-- Read `docs/PHILOSOPHY.md` for the why
-- Run a behavioral scenario from `evals/scenarios/` to see the gates hold
+Before interrupting, record the revision, changed files, verified steps, and next
+command. On resume, use [checkpoint-recovery](../skills/checkpoint-recovery/SKILL.md)
+to compare that record with the current worktree. Do not assume automatic recovery
+or replay an edit plan whose hashes no longer match.

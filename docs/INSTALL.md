@@ -1,6 +1,11 @@
-# Installation — per harness
+# Installation by harness
 
-Pick your harness. Every path ends with the kernel injected at session start.
+Pick your harness. The installer wires the SessionStart kernel hook for Claude Code.
+Other targets require harness-specific configuration; included manifests are not
+a claim that every target has been runtime-tested.
+
+Prerequisites: Git and Bash; Python 3 for the installer and checks, Python 3.10+
+for the multi-edit helper. Back up existing same-name skills before installing.
 
 ## Claude Code
 
@@ -64,5 +69,6 @@ python3 scripts/validate.py
 python3 -m pytest tests/ -q
 ```
 
-Then start a session — the first thing you should see is the kernel loading
-`using-all-in-one-agents`.
+For Claude Code, inspect the SessionStart output and confirm bootstrap context
+is present. For other harnesses, verify their own loading mechanism independently.
+See [coding workflows](CODING-WORKFLOWS.md) for safe multi-file changes.

@@ -176,6 +176,14 @@ Then run **`agent-self-evaluation`** — rate your own output on 5 axes: accurac
 
 | You notice... | Load |
 |---|---|
+| Coordinated edits without collateral damage | `multi-file-editing` |
+| Refactor symbols, not matching strings | `ast-aware-refactoring` |
+| Migrate contracts without breaking consumers | `api-migration` |
+| Upgrade dependencies with controlled risk | `dependency-upgrades` |
+| Build a precise working map before editing | `codebase-context` |
+| Measure agent changes against reproducible tasks | `agent-evaluation` |
+| Resume work from evidence, not stale memory | `checkpoint-recovery` |
+| Evaluate reviewer feedback before changing code | `receiving-code-review` |
 | Build an MCP server | `mcp-builder` |
 | GitHub ops (issues, PRs, CI) | `github-ops` |
 | Auth / secrets / API endpoints | `security-review` |
