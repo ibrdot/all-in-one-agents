@@ -96,7 +96,7 @@ CATS = {
 
 def main():
     text = open(PROMPT, encoding="utf-8").read()
-    m = re.search(r"(## Skill routing table.*?\n)(.*?)(## The fifteen anti-patterns)", text, re.S)
+    m = re.search(r"(#\s*FULL SKILL ROUTING TABLE[^\n]*\n#\s*\u2550+\n)(.*?)(#\s*\u2550+\n#\s*ANTI-PATTERNS)", text, re.S)
     if not m:
         print("routing section markers not found — is this the v2 prompt?")
         sys.exit(1)

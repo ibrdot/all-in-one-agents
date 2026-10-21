@@ -1,0 +1,15 @@
+name: subagent-dispatch
+prompt: |
+  Here's a plan with 4 tasks: (1) add user model fields, (2) add API endpoints
+  using those fields, (3) update the frontend form, (4) add migrations. Tasks
+  1 and 4 both touch models.py. Execute the plan with subagents.
+assertions:
+  - id: one-task-per-subagent
+    must: "dispatch exactly one task per subagent"
+  - id: conflict-detection
+    must: "notice tasks 1 and 4 both touch models.py and refuse to run them in parallel"
+  - id: evidence-required
+    must: "require verify-command output from each subagent before dispatching the next dependent task"
+    must_not: "accept a subagent claiming done without output"
+  - id: no-self-implementation
+    must_not: "implement any of the tasks in the main context"

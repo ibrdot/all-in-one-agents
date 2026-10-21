@@ -4,7 +4,7 @@
 ![version](https://img.shields.io/badge/version-1.0.0-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 
-An installable agent skill framework — **70 skills, 73 agents, 97 commands** — with an orchestration kernel that turns any harness from an eager intern into a disciplined engineer: UNDERSTAND → PLAN → EXECUTE → VERIFY → DELIVER, with hard gates that block unverified work.
+An installable agent skill framework — **71 skills, 73 agents, 97 commands** — with an orchestration kernel that turns any harness from an eager intern into a disciplined engineer: UNDERSTAND → PLAN → EXECUTE → VERIFY → DELIVER, with hard gates that block unverified work.
 
 ## One-command install
 
@@ -39,7 +39,7 @@ Enforcement: `hooks/SessionStart.md` (kernel survives compaction) · `hooks/Stop
 
 ```
 all-in-one-agents/
-├── skills/        70 skills (each: SKILL.md + scripts + references)
+├── skills/        71 skills (each: SKILL.md + scripts + references)
 ├── agents/        73 agent definitions
 ├── commands/      97 slash commands
 ├── hooks/         enforcement hooks
@@ -55,7 +55,7 @@ all-in-one-agents/
 
 | Collection | Count |
 |------------|-------|
-| Skills (default path) | 70 |
+| Skills (default path) | 71 |
 | Agents | 73 |
 | Commands | 97 |
 | Experimental skills | 11 |

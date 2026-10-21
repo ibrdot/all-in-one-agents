@@ -7,40 +7,62 @@ description: Drive implementation by dispatching a fresh subagent per plan task,
 
 The orchestrator keeps the map; subagents walk one step each.
 
+## Why this pattern exists
+
+Long implementations fail in predictable ways: the agent's context fills with
+yesterday's decisions, it starts pattern-matching to its own earlier mistakes,
+and review quality collapses because the reviewer wrote the code. Fresh
+subagents per task solve all three: clean context, no sunk-cost attachment,
+and genuine independent review.
+
 ## Roles
 
-- **You (orchestrator):** hold the plan, dispatch tasks, review results, never implement in the main context
-- **Subagent:** receives ONE task block + scope boundary, implements, verifies, returns evidence
+- **You (orchestrator):** hold the plan, dispatch tasks, review evidence,
+  decide go/no-go between tasks. You NEVER implement in the main context —
+  your context is the scarcest resource in the system.
+- **Subagent:** receives ONE task block + scope boundary, implements,
+  verifies, returns evidence. Disposable by design.
 
 ## Dispatch template
 
 ```
-Task: <paste exact task block from the plan>
+Task: <paste the exact task block from the plan — files, code, verify, rollback>
 Scope: touch ONLY these files: <list>
-Rules: implement as specified; run the verify command; return the
-       command output verbatim. If the task is impossible as written,
-       STOP and explain — do not improvise a redesign.
+Rules:
+- Implement exactly as specified
+- Run the verify command; return the output verbatim
+- If the task is impossible as written, STOP and explain —
+  do not improvise a redesign, do not expand scope
 ```
 
-## Between tasks
+## Between every task
 
-1. Check the subagent's evidence (real output, exit code)
-2. Run `requesting-code-review` on the diff
-3. Critical issues → dispatch a fix subagent for the same task
-4. Green → check off the task, dispatch the next
+1. **Evidence check** — real output? exit code 0? criteria mapped?
+2. **Review** — load `requesting-code-review` on the diff
+3. **Decide:**
+   - Green + clean review → check off, dispatch next
+   - Green + critical review issue → fix subagent for the SAME task
+   - Red → loop through `systematic-debugging`, then retry the task
 
-## Why fresh subagents
+## Context economics
 
-- No accumulated confusion from a long context
-- Review of task N isn't biased by having written task N
-- Context budget stays flat regardless of plan length
+- Each subagent prompt is self-contained — never "continue from where we were"
+- The plan file is the shared state; subagents read tasks from it, write
+  results back through you
+- Your own context should hold: the plan, task statuses, and open issues —
+  nothing else
 
 ## Never
 
-- Two subagents on overlapping files at once (use `dispatching-parallel-agents` qualification first)
-- Accepting "done" without the verify output
+- Two subagents on overlapping files simultaneously (qualify parallelism with
+  `dispatching-parallel-agents` first)
+- Accepting "done" without verify output
+- Implementing "just this small task" yourself — that road ends with you
+  holding ten tasks of context and reviewing your own work
+- Letting a subagent redefine the task to match what it built
 
 ## Done when
 
-- The skill's scripts run without errors on their documented inputs
-- The output matches the format the skill promises
+- Every task has evidence + review on record
+- The plan file shows all tasks checked
+- The final diff has passed independent review

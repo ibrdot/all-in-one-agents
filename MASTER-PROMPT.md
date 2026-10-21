@@ -150,90 +150,101 @@ Then run **`agent-self-evaluation`** — rate your own output on 5 axes: accurac
 #  FULL SKILL ROUTING TABLE — TASK SMELL → SKILL
 # ═══════════════════════════════════════════════════════════════
 
-When you notice any of these, load the matching skill BEFORE acting.
+### Core & Orchestration
 
-## Core & Orchestration
 | You notice... | Load |
 |---|---|
 | Vague / brief-less request | `brainstorming` |
-| Multi-step build | `writing-plans` + `executing-plans` |
+| Multi-step build | `writing-plans` |
 | Plan exists, work to proceed | `executing-plans` |
 | Multi-task plan with subagents | `subagent-driven-development` |
 | Independent parallel tasks | `dispatching-parallel-agents` |
-| Long session / context compaction | re-read `using-all-in-one-agents`, resume plan file |
-| Repeated domain terms across sessions | `context-and-decisions` |
-| Regression fear in large repo | `module-regression` |
-| Debug the framework itself | `diagnosing-the-pack` |
-| Ambiguous decision needing multi-model critique | `council-multi-model` |
-| Persistent per-project memory needed | `ck` (Context Keeper) |
-
-## Engineering Discipline
-| You notice... | Load |
-|---|---|
-| Bug with unknown cause | `systematic-debugging` |
-| "Just a quick fix" urge | `delivery-gate` (slow down) |
-| TDD red/green/refactor | `test-driven-development` |
-| Pre-merge review needed | `requesting-code-review` |
-| Receiving review feedback | `requesting-code-review` (review protocol applies both ways) |
-| Branch cleanup / merge / PR | `finishing-a-development-branch` |
-| Clean git commits | `commit-craft` |
-| Hard "done" gate before claim | `verification-before-completion` |
-| Self-rate output quality | `agent-self-evaluation` |
-| Audit repo professionalism | `repo-polish` |
-| Inventory/govern test assets | `test-collaboration` |
-
-## Skill Framework (Meta)
-| You notice... | Load |
-|---|---|
-| Need to author a new skill | `writing-skills` + `skill-creator` |
-| Validate pack integrity | `skill-pack-manager` + `skill-stocktake` |
-| Extract cross-cutting rules | `rules-distill` |
-| Visualize skill compliance | `skill-comply` |
-| Continuous learning hooks | `continuous-learning` + `continuous-learning-v2` |
+| Approved design, code next | `using-git-worktrees` |
+| Any behavior change | `test-driven-development` |
+| Bug, cause unknown | `systematic-debugging` |
+| About to claim "done" | `verification-before-completion` |
+| Ready to merge / PR / discard | `finishing-a-development-branch` |
+| Diff needs independent eyes | `requesting-code-review` |
+| "Quick fix" temptation | `delivery-gate` |
+| Long session / compaction | `using-all-in-one-agents` |
+| Framework itself misbehaves | `diagnosing-the-pack` |
 | Deep phase-loop guidance | `pack-kernel` |
+| Identity re-anchor needed | `the-oath` |
+| Session state must survive | `ck` |
 
-## Documents & Media
-| You notice... | Load |
-|---|---|
-| Word document (.docx) | `docx` |
-| PDF file | `pdf` |
-| Spreadsheet (.xlsx) | `xlsx` |
-| PowerPoint (.pptx) | `pptx` |
-| Animation-rich HTML slides | `frontend-slides` |
-| Algorithmic / generative art | `algorithmic-art` + `canvas-design` |
-| Theme/style artifacts | `theme-factory` |
-| iOS app icons | `ios-icon-gen` |
-| Manim explainer video | `manim-video` |
-| Remotion React video | `remotion-video-creation` |
-| Video editing pipeline | `video-editing` + `videodb` |
-| Style pack from reference video | `taste-distillation` → `taste-application` |
-| Creative direction (music video / short-form) | `taste` |
-| Slack-optimized GIF | `slack-gif-creator` |
-| Brand identity work | `brand-discovery` + `brand-voice` |
-| Internal communications | `internal-comms` |
-| Docs governance audit | `docs-governance` |
-| PR design doc | `pr-design-doc` |
-| HTML artifacts (claude.ai-style) | `web-artifacts-builder` |
+### Engineering & DevOps
 
-## Engineering & DevOps
 | You notice... | Load |
 |---|---|
 | Build an MCP server | `mcp-builder` |
 | GitHub ops (issues, PRs, CI) | `github-ops` |
 | Auth / secrets / API endpoints | `security-review` |
-| PostHog / tracking events | `telemetry-analytics` |
+| Tracking / analytics events | `telemetry-analytics` |
 | Angular project | `angular-developer` |
-| Frontend UI/UX work | `frontend-development` + `frontend-design-direction` |
-| Frontend↔backend contract | `frontend-api-contracts` |
+| Frontend UI/UX work | `frontend-development` |
+| Frontend direction unclear | `frontend-design-direction` |
+| Frontend-backend contract | `frontend-api-contracts` |
 | Electron desktop app | `desktop-electron` |
 | Local dev stack / services | `local-stack-runtime` |
-| E2E testing (OpenHands) | `openhands-e2e-testing` + `verify-openhands` |
+| E2E testing (desktop app) | `openhands-e2e-testing` |
+| Feature verification passes | `verify-openhands` |
 | Playwright webapp testing | `webapp-testing` |
-| Story/epic/sprint lifecycle | `story-lifecycle` |
-| Claude API reference | `claude-api` |
-| Open executable in visible terminal | `terminal-opener` |
+| HTML artifacts | `web-artifacts-builder` |
+| Story / epic / sprint lifecycle | `story-lifecycle` |
+| LLM API question | `claude-api` |
+| Regression fear in large repo | `module-regression` |
+| Repo looks unmaintained | `repo-polish` |
+| Commit hygiene | `commit-craft` |
+| Terminal / session chores | `terminal-opener` |
 
----
+### Meta & Learning
+
+| You notice... | Load |
+|---|---|
+| Author a new skill | `writing-skills` |
+| Scaffold a new skill | `skill-creator` |
+| Validate pack integrity | `skill-pack-manager` |
+| Inventory the pack | `skill-stocktake` |
+| Extract cross-cutting rules | `rules-distill` |
+| Skill compliance check | `skill-comply` |
+| Same mistake repeating | `continuous-learning` |
+| Process improvement | `continuous-learning-v2` |
+| Multi-model critique needed | `council-multi-model` |
+| Repeated domain terms | `context-and-decisions` |
+| Agent grading itself | `agent-self-evaluation` |
+| Test strategy with humans | `test-collaboration` |
+| Taste / quality bar question | `taste` |
+
+### Documents & Media
+
+| You notice... | Load |
+|---|---|
+| Word document | `docx` |
+| PDF file | `pdf` |
+| Spreadsheet | `xlsx` |
+| PowerPoint deck | `pptx` |
+| Animation-rich HTML slides | `frontend-slides` |
+| Generative art | `algorithmic-art` |
+| Visual design | `canvas-design` |
+| Theme / style artifacts | `theme-factory` |
+| iOS app icons | `ios-icon-gen` |
+| Manim explainer video | `manim-video` |
+| Remotion React video | `remotion-video-creation` |
+| Video editing pipeline | `video-editing` |
+| Video library / search | `videodb` |
+| Style pack from reference | `taste-distillation` |
+| Apply a distilled style pack | `taste-application` |
+| Slack-optimized GIF | `slack-gif-creator` |
+| Brand identity discovery | `brand-discovery` |
+| Brand voice work | `brand-voice` |
+
+### Comms & Governance
+
+| You notice... | Load |
+|---|---|
+| Internal announcement / memo | `internal-comms` |
+| Docs governance / freshness | `docs-governance` |
+| PR needs a design doc | `pr-design-doc` |
 
 # ═══════════════════════════════════════════════════════════════
 #  ANTI-PATTERNS — RECOGNIZE AND REFUSE
