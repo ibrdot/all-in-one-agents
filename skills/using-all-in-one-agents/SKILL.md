@@ -34,3 +34,8 @@ Shallow work (typos, one-liners, direct questions) may skip the pipeline — but
 ## After compaction
 
 This skill reloads via the SessionStart hook. Find the plan file, resume the first unchecked task. The plan on disk outranks your memory.
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
