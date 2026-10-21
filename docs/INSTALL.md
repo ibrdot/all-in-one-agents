@@ -1,41 +1,60 @@
-# Installation
+# Installation — per harness
 
-This pack works with any agent harness that reads `SKILL.md`-style skills.
+Pick your harness. Every path ends with the kernel loaded and hooks armed.
 
-## Quick install (any harness)
+## Claude Code
 
 ```bash
 git clone https://github.com/ibrdot/all-in-one-agents.git
+cd all-in-one-agents
+./install.sh            # installs to ~/.claude
 ```
 
-Then copy or symlink what you need:
+Then add the SessionStart hook to `~/.claude/settings.json` (the installer prints the exact snippet). Marketplace manifest: `.claude-plugin/plugin.json`.
+
+## OpenCode
 
 ```bash
-# a single skill
-cp -r all-in-one-agents/skills/pdf ~/.config/your-harness/skills/
-
-# everything
-cp -r all-in-one-agents/skills/* ~/.config/your-harness/skills/
+./install.sh opencode   # installs to ~/.config/opencode
 ```
 
-## Per-harness locations
+See `.opencode/INSTALL.md`.
 
-| Harness | Skills directory |
+## Cursor
+
+Copy `skills/`, `agents/`, `commands/` into your Cursor rules/skills location, or use the marketplace manifest `.cursor-plugin/plugin.json` where supported.
+
+## Gemini CLI
+
+This repo ships `gemini-extension.json` + `.gemini/extension.json` at the root — Gemini CLI picks it up as an extension with `GEMINI.md` as context.
+
+## Codex / Copilot CLI / Devin / Hermes / Muse / Kimi Code / Pi / Antigravity
+
+Each harness has its manifest in the repo root:
+
+| Harness | Manifest |
 |---|---|
-| Claude Code | `~/.claude/skills/` |
-| OpenCode | `~/.config/opencode/skills/` or `.opencode/skills/` in project |
-| Cursor | `.cursor/rules/` (paste SKILL.md body) |
-| Codex / others | follow the harness's skill/plugin folder convention |
+| Codex | `.codex-plugin/plugin.json` |
+| GitHub Copilot CLI | `.github-plugin/plugin.json` |
+| Devin | `.devin-plugin/plugin.json` |
+| Hermes | `.hermes-plugin/plugin.json` |
+| Muse | `.muse-plugin/plugin.json` |
+| Kimi Code | `.kimi-plugin/plugin.json` |
+| Pi | `.pi/plugin.json` |
+| Antigravity | `.antigravity-plugin/manifest.json` |
 
-## Agents & commands
+## Custom location
 
-- `agents/` — drop into your harness's agents directory (e.g. `~/.claude/agents/`)
-- `commands/` — drop into your harness's commands directory (e.g. `~/.claude/commands/`) and invoke as `/name`
+```bash
+./install.sh /path/to/anywhere   # creates skills/ agents/ commands/ inside
+```
 
-## Verify
+## Verify your install
 
 ```bash
 python3 scripts/validate.py
+python3 -m pytest tests/ -q
 ```
 
-All skills should report valid frontmatter.
+Then start a session — the first thing you should see is the kernel loading
+`using-all-in-one-agents`.
