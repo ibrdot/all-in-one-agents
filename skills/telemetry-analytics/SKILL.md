@@ -18,3 +18,8 @@ Preserve Canvas's single-client telemetry architecture, consent ownership, ident
 ## Reference
 
 - **`references/guide.md`** — Telemetry architecture, consent and identity invariants, event creation workflow, Cloud funnel headers, onboarding event dictionary, and analytics environment variables.
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
