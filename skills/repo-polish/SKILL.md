@@ -34,3 +34,8 @@ First impressions on GitHub happen in 5 seconds. This audit makes a repo pass th
 
 ## Verify
 Open the repo in an incognito tab: can a stranger understand what it is in 5 seconds? If not, keep polishing.
+
+## Done when
+
+- The procedure's stated outcome is observable and checked
+- The user can verify the result without trusting the agent's word
