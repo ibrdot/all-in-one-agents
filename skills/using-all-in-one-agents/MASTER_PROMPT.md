@@ -200,6 +200,7 @@ Then run **`agent-self-evaluation`** — rate your own output on 5 axes: accurac
 | E2E testing (desktop app) | `openhands-e2e-testing` |
 | Feature verification passes | `verify-openhands` |
 | Playwright webapp testing | `webapp-testing` |
+| Operate a real browser for web tasks | `browser-use` |
 | Native desktop app or OS UI | `computer-use` |
 | HTML artifacts | `web-artifacts-builder` |
 | Story / epic / sprint lifecycle | `story-lifecycle` |
