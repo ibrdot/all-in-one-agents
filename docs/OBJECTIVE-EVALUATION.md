@@ -1,5 +1,19 @@
 # Objective task evaluation and native documents
 
+## ⏱️ 30-second TL;DR
+
+- **50 microtasks** in `evals/tasks/tasks.json`: 35 coding (boundary cases included) + 15 infrastructure (Kubernetes, IAM, Redis, Postgres, CI perms). A starting suite, not a comprehensive quality claim.
+- **Generate → grade → calibrate** is a three-step split: generation sends only public task prompts (never check payloads), grading runs in your isolated sandbox, calibration verifies the graders themselves.
+- **Native documents**: `runtime.documents` generates DOCX/XLSX/PDF/PPTX and CI reopens all four formats to verify content. Proves generation/readback, not desktop rendering.
+- **Honesty**: private-to-prompt checks are not secret from same-user candidate code. File hashes bind bytes only. A public task suite is not a secure hidden benchmark.
+
+> **Safety**: never run unknown candidate code on a personal workstation. Use an
+> isolated sandbox with no secrets, no network, restricted filesystem, separate
+> UID. Built-in subprocess limits are time/memory/file + env scrubbing — **not
+> security isolation**.
+
+---
+
 ## What now exists
 
 `evals/tasks/tasks.json` contains 50 distinct microtasks: 35 coding tasks with
@@ -21,6 +35,9 @@ Each check gets fresh local source files to avoid accidental state contamination
 
 ## Generate answers explicitly
 
+<details>
+<summary><b>Generate responses from a provider</b></summary>
+
 ```sh
 python3 -m runtime.taskgenerate --base-url "$PROVIDER_BASE_URL" \
   --model "$MODEL_ID" --max-calls 50 --max-output-tokens 2048 \
@@ -35,7 +52,12 @@ protection. Generation never executes returned source code. A partial run saves
 successful responses and error classes, then exits 1; no failure becomes a
 fabricated model answer. Output is created exclusively with 0600 mode.
 
+</details>
+
 ## Grade separately
+
+<details>
+<summary><b>Grade saved responses (replay, no network)</b></summary>
 
 Inside your disposable isolated grading environment:
 
@@ -52,7 +74,12 @@ reports are not tamper-proof or third-party certified. Baseline comparison check
 suite fingerprints, identical task IDs and source category; never compare author
 references to model responses as if they were the same population.
 
+</details>
+
 ## Calibrate the graders, not model intelligence
+
+<details>
+<summary><b>Verify the graders themselves</b></summary>
 
 `reference-responses.json` contains author-written solutions/configurations.
 Correct references establish that checks are executable and internally
@@ -66,6 +93,8 @@ python3 -m runtime.taskbench --responses evals/tasks/reference-responses.json \
 The existing `runtime.benchmark` remains a separate 50-contract software suite.
 Do not add these counts and call them 100 live model tasks. Held-out evaluations
 for skill promotion still require caller-selected evaluators and review.
+
+</details>
 
 ## Native document execution
 
@@ -91,3 +120,12 @@ The mandatory CI job installs pinned optional dependencies and runs round trips.
 - Broader real-world repository tasks, document visual graders and host-native
   CLI sessions remain additional evaluation work.
 - A public task suite is not a secure hidden benchmark or proof of "strongest".
+
+---
+
+## Next
+
+- [Blueprint status](BLUEPRINT-STATUS.md) — delivered vs remaining layers
+- [Runtime](RUNTIME.md) — executable contracts and connected execution
+- [Measured inventory](MEASURED-INVENTORY.md) — test counts and inventory numbers
+- [Coding workflows](CODING-WORKFLOWS.md) — multi-edit, refactoring, migration patterns
