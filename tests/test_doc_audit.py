@@ -24,3 +24,16 @@ def test_missing_paths_anchors_and_bad_svg_detected(tmp_path):
 
 def test_github_duplicate_heading_anchors():
     assert audit().anchors('# Hello world\n## Hello world\n## Usage & setup')=={'hello-world','hello-world-1','usage--setup'}
+
+
+def test_heading_level_skip_detected(tmp_path):
+    docs=tmp_path/'docs';docs.mkdir()
+    (tmp_path/'README.md').write_text('# Home\n\n## Section\n\n#### Skipped level\n')
+    errors=audit().check(tmp_path)['errors']
+    assert any('heading level skip' in e for e in errors)
+
+
+def test_heading_decrease_is_allowed(tmp_path):
+    docs=tmp_path/'docs';docs.mkdir()
+    (tmp_path/'README.md').write_text('# Home\n\n### Deep\n\n## Back up\n')
+    assert audit().check(tmp_path)['errors']==[]
