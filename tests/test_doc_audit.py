@@ -35,5 +35,5 @@ def test_heading_level_skip_detected(tmp_path):
 
 def test_heading_decrease_is_allowed(tmp_path):
     docs=tmp_path/'docs';docs.mkdir()
-    (tmp_path/'README.md').write_text('# Home\n\n### Deep\n\n## Back up\n')
+    (tmp_path/'README.md').write_text('# Home\n\n## Section\n\n### Deep\n\n## Back up\n')
     assert audit().check(tmp_path)['errors']==[]
