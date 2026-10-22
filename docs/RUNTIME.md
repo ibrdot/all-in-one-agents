@@ -3,6 +3,19 @@
 This is standard-library Python code, not another prompt-only skill. It is a
 foundation, not a finished autonomous platform or a superiority benchmark.
 
+## ⏱️ 30-second TL;DR
+
+- **Run now** (offline): `python3 examples/runtime/demo.py` then the runtime tests + workflow gate. Fixture vectors and mock responses exercise wiring without pretending real models ran.
+- **Implemented contracts**: Memory, route_skills, verify_evidence, select_model, council, evaluate, propose_improvement — each with explicit limits (see [Implemented contracts](#implemented-contracts)).
+- **Connected execution** (new): `python3 -m runtime --help` exposes a real network adapter. Credentials come from a named env var, never a CLI token. HTTPS, bounded timeouts, no redirects, disabled env proxies.
+- **Provider boundary**: pass a real provider callable only after reviewing its adapter, credentials, timeouts, logging, billing. No live provider, automatic retry, or automatic spend is bundled.
+
+> **Security**: storage is local plaintext, not an encrypted vault. Transcripts
+> can contain confidential data — store and redact under your own retention
+> policy. Prompt instructions are not a security boundary.
+
+---
+
 ## Run now
 
 ```sh
@@ -16,24 +29,15 @@ wiring without pretending that real models ran.
 
 ## Implemented contracts
 
-- `runtime.core.Memory`: explicit SQLite saves, deletion, persistent cosine
-  retrieval. Embedding space ids and vector dimensions must match. Caller owns
-  obtaining real embeddings. Storage is local plaintext, not an encrypted vault.
-- `route_skills`: rank supplied embeddings, enforce caller-provided token costs,
-  limit selection, abstain when nothing fits. This is vector routing, not an LLM
-  planner or a learned context classifier. Use a separate skill-only index.
-- `verify_evidence`: check local file digests and reject outside-root paths.
-  Hashes establish byte identity, not factual accuracy or trustworthy authorship.
-- `select_model`: choose the cheapest explicitly priced capability-compatible
-  model under an estimated budget. Does not infer difficulty, quality, or prices.
-- `runtime.council.council`: parallel proposals, peer critique, synthesis with
-  retained stage outputs. A failed critique cannot be called a completed debate.
-  Provider callable signature is `(model_id, messages) -> nonempty string`.
-- `runtime.evaluation.evaluate`: exact/required/forbidden-text checks with baseline
-  regression detection. These narrow checks do not judge general intelligence.
-- `propose_improvement`: attribute failures to a skill and return a candidate
-  carrying the original SHA256. Never silently overwrite a skill after a single
-  failed run; review, repeat evaluation, and rollback remain required.
+| Contract | What it does | Explicit limits |
+|---|---|---|
+| `runtime.core.Memory` | SQLite saves, deletion, persistent cosine retrieval | Embedding space ids + vector dims must match. Caller owns obtaining real embeddings. Local plaintext storage, not an encrypted vault. |
+| `route_skills` | Rank supplied embeddings, enforce token costs, limit selection, abstain when nothing fits | Vector routing, not an LLM planner or learned context classifier. Use a separate skill-only index. |
+| `verify_evidence` | Check local file digests, reject outside-root paths | Hashes establish byte identity, not factual accuracy or trustworthy authorship. |
+| `select_model` | Choose cheapest explicitly priced capability-compatible model under estimated budget | Does not infer difficulty, quality, or prices. |
+| `runtime.council.council` | Parallel proposals, peer critique, synthesis with retained stage outputs | A failed critique cannot be called a completed debate. Provider signature: `(model_id, messages) -> nonempty string`. |
+| `runtime.evaluation.evaluate` | Exact/required/forbidden-text checks with baseline regression detection | Narrow checks, not general intelligence judgment. |
+| `propose_improvement` | Attribute failures to a skill, return a candidate carrying original SHA256 | Never silently overwrite after a single failed run; review, repeat, rollback remain required. |
 
 ## Provider boundary
 
@@ -62,13 +66,26 @@ The endpoint and embedding model must be chosen explicitly. Configure your key i
 your local environment or secret manager; do not paste it into a chat or commit.
 `PROVIDER_BASE_URL` must be your reviewed HTTPS endpoint including its API prefix.
 
+<details>
+<summary><b>Index the skills</b></summary>
+
 ```sh
 python3 -m runtime --base-url "$PROVIDER_BASE_URL" --embedding-model "$EMBEDDING_MODEL" \
   --allow-network index --skills skills --database skills-v1.db
+```
+
+</details>
+
+<details>
+<summary><b>Run a task</b></summary>
+
+```sh
 python3 -m runtime --base-url "$PROVIDER_BASE_URL" --embedding-model "$EMBEDDING_MODEL" \
   --allow-network run --database skills-v1.db --models models.json \
   --task 'Review validation boundaries' --budget 0.10 --output .aio/run-001
 ```
+
+</details>
 
 `models.json` is a list with `id`, `capabilities` (e.g. `text`),
 `input_per_million` and `output_per_million`. Supply current explicit provider
@@ -123,6 +140,9 @@ provider credentials. Input records contain `id`, `text`, `embedding`,
 `embedding_model`, and optional object `metadata`. Embeddings must be computed
 by your chosen embedding model; do not make up vectors for real semantic use.
 
+<details>
+<summary><b>Put / search / delete memory records</b></summary>
+
 ```sh
 python3 -m runtime.memory put --database private-memory.db --input reviewed-entry.json
 python3 -m runtime.memory search --database private-memory.db \
@@ -130,8 +150,19 @@ python3 -m runtime.memory search --database private-memory.db \
 python3 -m runtime.memory delete --database private-memory.db --id reviewed-lesson
 ```
 
+</details>
+
 Search opens an existing database read-only and never creates a missing one.
 New databases have private file permissions; SQLite is not encrypted. Symlinked
 paths are refused. Do not run concurrent untrusted writers. Search outputs include
 stored text, so keep terminals/logs private. Deletion removes a logical row, not
 forensic remnants from disk/backups. Connect it using runtime `--memory`.
+
+---
+
+## Next
+
+- [Blueprint status](BLUEPRINT-STATUS.md) — what is delivered vs remaining
+- [Objective evaluation](OBJECTIVE-EVALUATION.md) — 50 microtasks and native document pipeline
+- [Measured inventory](MEASURED-INVENTORY.md) — test counts and inventory numbers
+- [Coding workflows](CODING-WORKFLOWS.md) — multi-edit, refactoring, migration patterns

@@ -2,6 +2,23 @@
 
 Status is based on executable checks, not line counts or imported marketing claims.
 
+## ⏱️ 30-second TL;DR
+
+The runtime ships real contracts — embedding adapter, persisted skill index,
+cosine rank, token budget, council debate, memory, improvement pipeline, 50
+golden contracts, 50 objective microtasks, native document round-trips. What
+remains is **real model quality evaluation, real-world golden tasks, official
+distribution approval, and enterprise service** — none of which can be claimed
+from wiring alone.
+
+> **Honesty rule**: byte identity is not proof the answer is correct; manifest
+> hashes are not externally signed; a public task suite is not a secure hidden
+> benchmark; calibration results are not live model scores.
+
+---
+
+## Status by layer
+
 | Requested layer | Delivered in repository | Remaining / evidence boundary |
 |---|---|---|
 | Disciplined coding core | Bootstrap, TDD/debugging/subagent skills, workflow gates, regression tests | Not a byte-for-byte Superpowers fork; core now has dispatch/two-pass review, experiment ledgers and boundary-testing references. No equivalence to its complete per-harness suite claimed |
@@ -39,4 +56,13 @@ proof. Neither commit establishes "world's strongest" or production readiness.
 See [objective evaluation and documents](OBJECTIVE-EVALUATION.md) for executable
 commands and limits. Installer preflight now refuses symlink destinations and
 modified installed files unless explicit `--force` is supplied. Test-file counts
-are measured in `MEASURED-INVENTORY.md`, not used as a quality score.
+are measured in [MEASURED-INVENTORY.md](MEASURED-INVENTORY.md), not used as a quality score.
+
+---
+
+## Next
+
+- [Runtime](RUNTIME.md) — executable contracts and connected execution
+- [Objective evaluation](OBJECTIVE-EVALUATION.md) — 50 microtasks and native documents
+- [Measured inventory](MEASURED-INVENTORY.md) — test counts and inventory numbers
+- [Compatibility evidence](COMPATIBILITY-EVIDENCE.md) — tested vs unverified integrations
