@@ -22,7 +22,7 @@ from wiring alone.
 | Requested layer | Delivered in repository | Remaining / evidence boundary |
 |---|---|---|
 | Disciplined coding core | Bootstrap, TDD/debugging/subagent skills, workflow gates, regression tests | Not a byte-for-byte Superpowers fork; core now has dispatch/two-pass review, experiment ledgers and boundary-testing references. No equivalence to its complete per-harness suite claimed |
-| Breadth | 140 skills, reasoning/document/frontend/infra guides, 73 agents, 97 commands | DOCX/XLSX/PDF/PPTX now have generation + native-file readback tests. Visual desktop rendering and native host sessions remain |
+| Breadth | 142 skills, reasoning/document/frontend/infra guides, 73 agents, 97 commands | DOCX/XLSX/PDF/PPTX now have generation + native-file readback tests. Visual desktop rendering and native host sessions remain |
 | Skill router | Real embedding adapter + persisted skill index + cosine rank + token budget + task CLI | Embedding-model quality and ranking must be evaluated with real tasks; no learned context classifier |
 | Evidence | Run artifacts, SHA256 manifest, verified file boundaries | Byte identity is not proof the answer is correct; manifest is not externally signed |
 | Council debate | Parallel proposals, peer critique, judge synthesis, stage failures block completion; integrated cost reservations | Real model quality and adversarial debate evaluation remain |

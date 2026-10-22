@@ -54,7 +54,7 @@
 
 ## Overview
 
-A practical toolkit for AI-assisted engineering: **141 skills, 73 agent definitions,
+A practical toolkit for AI-assisted engineering: **142 skills, 73 agent definitions,
 97 command definitions**, executable workflow helpers and an optional Python runtime.
 Start with a bounded task, load only relevant skills, and verify the result.
 
