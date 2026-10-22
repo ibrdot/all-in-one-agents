@@ -27,8 +27,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- bump ?v= on each deploy that changes assets (Pages caches ~10 min) -->
-  <link rel="stylesheet" href="assets/style.css?v=3">
-  <script src="assets/script.js?v=3" defer></script>
+  <link rel="stylesheet" href="assets/style.css?v=4">
+  <script src="assets/script.js?v=4" defer></script>
   <noscript>
     <style>
       .reveal, .feature-card, .loop-node { opacity: 1 !important; transform: none !important; }
@@ -61,6 +61,7 @@
 </head>
 <body>
   <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="mouse-glow" aria-hidden="true"></div>
   <div class="cursor-dot" aria-hidden="true"></div>
   <div class="cursor-ring" aria-hidden="true"></div>
 
@@ -102,6 +103,7 @@
 
     <!-- ============ 2. HERO ============ -->
     <section class="hero" id="hero">
+      <p class="hero-pill mono"><span class="pulse-dot" aria-hidden="true"></span> v1.5.0 · latest release</p>
       <p class="hero-eyebrow mono" id="hero-eyebrow"><span class="accent">$</span> open-source · MIT · zero install friction</p>
       <h1>The complete AI coding engineering pack.<span class="blink accent">_</span></h1>
       <p class="hero-sub">From idea to production, from legacy rescue to cost control — 140 skills, 73 agents, 97 commands, one engineering loop.</p>
@@ -116,6 +118,14 @@
         <div class="stat" role="listitem"><span class="stat-num mono">97</span><span class="stat-label">commands</span></div>
       </div>
     </section>
+
+    <!-- skills marquee (decorative) -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track mono">
+        <span>codebase-context</span><i>·</i><span>multi-file-editing</span><i>·</i><span>ast-aware-refactoring</span><i>·</i><span>api-migration</span><i>·</i><span>dependency-upgrades</span><i>·</i><span>performance-profiling</span><i>·</i><span>test-design</span><i>·</i><span>release-engineering</span><i>·</i><span>docs-accuracy</span><i>·</i><span>thinking-first-principles</span><i>·</i><span>wayfinder</span><i>·</i><span>code-review</span><i>·</i><span>receiving-code-review</span><i>·</i><span>agent-evaluation</span><i>·</i><span>checkpoint-recovery</span><i>·</i>
+        <span>codebase-context</span><i>·</i><span>multi-file-editing</span><i>·</i><span>ast-aware-refactoring</span><i>·</i><span>api-migration</span><i>·</i><span>dependency-upgrades</span><i>·</i><span>performance-profiling</span><i>·</i><span>test-design</span><i>·</i><span>release-engineering</span><i>·</i><span>docs-accuracy</span><i>·</i><span>thinking-first-principles</span><i>·</i><span>wayfinder</span><i>·</i><span>code-review</span><i>·</i><span>receiving-code-review</span><i>·</i><span>agent-evaluation</span><i>·</i><span>checkpoint-recovery</span><i>·</i>
+      </div>
+    </div>
 
     <!-- ============ 3. ENGINEERING LOOP ============ -->
     <section class="section reveal" id="loop">
@@ -239,10 +249,10 @@
           <span class="terminal-title mono">terminal</span>
           <button class="copy-btn mono" id="copy-install" type="button" aria-label="Copy install commands">copy</button>
         </div>
-        <pre class="mono"><code id="install-cmd">git clone https://github.com/ibrorg/all-in-one-agents.git
-cd all-in-one-agents
-./install.sh claude --dry-run   <span class="comment"># preview</span>
-./install.sh claude             <span class="comment"># install</span></code></pre>
+        <pre class="mono"><code id="install-cmd"><span class="prompt">$ </span>git clone https://github.com/ibrorg/all-in-one-agents.git
+<span class="prompt">$ </span>cd all-in-one-agents
+<span class="prompt">$ </span>./install.sh claude --dry-run   <span class="comment"># preview</span>
+<span class="prompt">$ </span>./install.sh claude             <span class="comment"># install</span></code></pre>
       </div>
       <p class="quickstart-note">Requires Git, Bash and Python 3.10+. See the <a href="https://github.com/ibrorg/all-in-one-agents#quick-start" target="_blank" rel="noopener">README</a> for other harnesses and details.</p>
     </section>
@@ -300,6 +310,7 @@ cd all-in-one-agents
         <p>Built with <a class="accent" href="https://github.com/ibrorg/all-in-one-agents" target="_blank" rel="noopener">all-in-one-agents</a></p>
       </div>
     </div>
+    <div class="footer-watermark" aria-hidden="true">AGENTS</div>
     <p class="footer-copy">© 2026 ibrorg · MIT License</p>
   </footer>
 

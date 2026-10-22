@@ -86,7 +86,9 @@
   if (copyBtn) {
     var resetTimer = null;
     copyBtn.addEventListener("click", function () {
-      var text = document.getElementById("install-cmd").innerText;
+      var codeEl = document.getElementById("install-cmd");
+      // dataset.copy holds the prompt-free command text (prompts are visual only)
+      var text = (codeEl.dataset && codeEl.dataset.copy) ? codeEl.dataset.copy : codeEl.innerText;
       copyText(text).then(function () {
         copyBtn.textContent = "copied!";
         copyBtn.classList.add("copied");
@@ -175,6 +177,7 @@
   /* ---------- custom terminal cursor: accent dot + lagging ring ---------- */
   var dot = document.querySelector(".cursor-dot");
   var ring = document.querySelector(".cursor-ring");
+  var glow = document.querySelector(".mouse-glow");
 
   if (finePointer && !reduceMotion && dot && ring) {
     var tx = -100, ty = -100, rx = -100, ry = -100, shown = false;
@@ -182,12 +185,26 @@
     document.addEventListener("mousemove", function (e) {
       tx = e.clientX;
       ty = e.clientY;
+      if (glow) {
+        glow.style.setProperty("--mx", tx + "px");
+        glow.style.setProperty("--my", ty + "px");
+        glow.classList.add("is-on");
+      }
       if (!shown) {
         shown = true;
         rx = tx; ry = ty;
         dot.classList.add("cursor-visible");
         ring.classList.add("cursor-visible");
       }
+    }, { passive: true });
+
+    // spotlight position inside hovered cards
+    document.addEventListener("mousemove", function (e) {
+      var card = e.target.closest && e.target.closest(".feature-card, .loop-node");
+      if (!card) return;
+      var r = card.getBoundingClientRect();
+      card.style.setProperty("--cx", (e.clientX - r.left) + "px");
+      card.style.setProperty("--cy", (e.clientY - r.top) + "px");
     }, { passive: true });
 
     document.addEventListener("mouseover", function (e) {
@@ -256,15 +273,19 @@
   /* ---------- terminal typing when quick start scrolls into view ---------- */
   var codeEl = document.getElementById("install-cmd");
   var terminal = document.querySelector(".terminal");
+  var cmdLines = [
+    { t: "git clone https://github.com/ibrorg/all-in-one-agents.git" },
+    { t: "cd all-in-one-agents" },
+    { t: "./install.sh claude --dry-run   ", c: "# preview" },
+    { t: "./install.sh claude             ", c: "# install" }
+  ];
+
+  if (codeEl) {
+    // prompt-free text for the copy button (prompts are typed visually only)
+    codeEl.dataset.copy = cmdLines.map(function (l) { return l.t + (l.c ? l.c : ""); }).join("\n");
+  }
 
   if (codeEl && terminal && !reduceMotion && hasIO) {
-    var cmdLines = [
-      { t: "git clone https://github.com/ibrorg/all-in-one-agents.git" },
-      { t: "cd all-in-one-agents" },
-      { t: "./install.sh claude --dry-run   ", c: "# preview" },
-      { t: "./install.sh claude             ", c: "# install" }
-    ];
-
     var termObserver = new IntersectionObserver(function (entries) {
       if (!entries[0].isIntersecting) return;
       termObserver.disconnect();
@@ -276,8 +297,17 @@
       codeEl.appendChild(caret);
 
       var li = 0, ch = 0;
-      var lineNode = document.createTextNode("");
-      caret.before(lineNode);
+      var lineNode;
+
+      function startLine() {
+        var prompt = document.createElement("span");
+        prompt.className = "prompt";
+        prompt.textContent = "$ ";
+        caret.before(prompt);
+        lineNode = document.createTextNode("");
+        caret.before(lineNode);
+      }
+      startLine();
 
       function tick() {
         var line = cmdLines[li];
@@ -300,8 +330,7 @@
         caret.before(document.createTextNode("\n"));
         li++;
         ch = 0;
-        lineNode = document.createTextNode("");
-        caret.before(lineNode);
+        startLine();
         setTimeout(tick, 140);
       }
       tick();
