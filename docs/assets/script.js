@@ -3,11 +3,13 @@
   "use strict";
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  var hasIO = "IntersectionObserver" in window;
 
   /* ---------- scroll reveal: add .in-view once, then stop observing ---------- */
   var revealEls = document.querySelectorAll(".reveal");
 
-  if (reduceMotion || !("IntersectionObserver" in window)) {
+  if (reduceMotion || !hasIO) {
     revealEls.forEach(function (el) { el.classList.add("in-view"); });
   } else {
     var scheduled = false;
@@ -36,13 +38,25 @@
     revealEls.forEach(function (el) { observer.observe(el); });
   }
 
-  /* ---------- sticky nav blur after scrolling ---------- */
+  /* ---------- one rAF-throttled scroll handler: nav blur + progress bar ---------- */
   var nav = document.getElementById("site-nav");
+  var progress = document.querySelector(".scroll-progress");
+  var scrollTick = false;
 
   function onScroll() {
     nav.classList.toggle("scrolled", window.scrollY > 8);
+    if (progress) {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var ratio = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+      progress.style.transform = "scaleX(" + ratio + ")";
+    }
   }
-  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("scroll", function () {
+    if (!scrollTick) {
+      scrollTick = true;
+      requestAnimationFrame(function () { scrollTick = false; onScroll(); });
+    }
+  }, { passive: true });
   onScroll();
 
   /* ---------- copy to clipboard (with legacy fallback) ---------- */
@@ -157,4 +171,141 @@
   window.matchMedia("(min-width: 768px)").addEventListener("change", function (e) {
     if (e.matches && isOpen()) closeMenu(false);
   });
+
+  /* ---------- custom terminal cursor: accent dot + lagging ring ---------- */
+  var dot = document.querySelector(".cursor-dot");
+  var ring = document.querySelector(".cursor-ring");
+
+  if (finePointer && !reduceMotion && dot && ring) {
+    var tx = -100, ty = -100, rx = -100, ry = -100, shown = false;
+
+    document.addEventListener("mousemove", function (e) {
+      tx = e.clientX;
+      ty = e.clientY;
+      if (!shown) {
+        shown = true;
+        rx = tx; ry = ty;
+        dot.classList.add("cursor-visible");
+        ring.classList.add("cursor-visible");
+      }
+    }, { passive: true });
+
+    document.addEventListener("mouseover", function (e) {
+      ring.classList.toggle(
+        "cursor-hover",
+        !!(e.target.closest && e.target.closest("a, button"))
+      );
+    }, { passive: true });
+
+    document.documentElement.addEventListener("mouseleave", function () {
+      shown = false;
+      dot.classList.remove("cursor-visible");
+      ring.classList.remove("cursor-visible");
+    });
+
+    (function cursorLoop() {
+      rx += (tx - rx) * 0.16;
+      ry += (ty - ry) * 0.16;
+      dot.style.transform = "translate3d(" + (tx - 4) + "px," + (ty - 4) + "px,0)";
+      var half = ring.offsetWidth / 2;
+      ring.style.transform = "translate3d(" + (rx - half) + "px," + (ry - half) + "px,0)";
+      requestAnimationFrame(cursorLoop);
+    })();
+  }
+
+  /* ---------- hero eyebrow typewriter ---------- */
+  var eyebrow = document.getElementById("hero-eyebrow");
+  if (eyebrow && !reduceMotion) {
+    var finalHTML = eyebrow.innerHTML;
+    var plain = eyebrow.textContent;
+    eyebrow.textContent = "";
+    var tw = 0;
+    var twTimer = setInterval(function () {
+      tw++;
+      eyebrow.textContent = plain.slice(0, tw);
+      if (tw >= plain.length) {
+        clearInterval(twTimer);
+        eyebrow.innerHTML = finalHTML;
+      }
+    }, 26);
+  }
+
+  /* ---------- stats count-up when scrolled into view ---------- */
+  var statNums = Array.prototype.slice.call(document.querySelectorAll(".stat-num"));
+  if (statNums.length && !reduceMotion && hasIO) {
+    var statObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        statObserver.unobserve(entry.target);
+        var el = entry.target;
+        var target = parseInt(el.textContent, 10) || 0;
+        var start = null;
+        function step(ts) {
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / 1200, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(target * eased);
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.4 });
+    statNums.forEach(function (el) { statObserver.observe(el); });
+  }
+
+  /* ---------- terminal typing when quick start scrolls into view ---------- */
+  var codeEl = document.getElementById("install-cmd");
+  var terminal = document.querySelector(".terminal");
+
+  if (codeEl && terminal && !reduceMotion && hasIO) {
+    var cmdLines = [
+      { t: "git clone https://github.com/ibrorg/all-in-one-agents.git" },
+      { t: "cd all-in-one-agents" },
+      { t: "./install.sh claude --dry-run   ", c: "# preview" },
+      { t: "./install.sh claude             ", c: "# install" }
+    ];
+
+    var termObserver = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      termObserver.disconnect();
+
+      codeEl.textContent = "";
+      var caret = document.createElement("span");
+      caret.className = "type-caret";
+      caret.textContent = "▌";
+      codeEl.appendChild(caret);
+
+      var li = 0, ch = 0;
+      var lineNode = document.createTextNode("");
+      caret.before(lineNode);
+
+      function tick() {
+        var line = cmdLines[li];
+        ch++;
+        lineNode.data = line.t.slice(0, ch);
+        if (ch < line.t.length) {
+          setTimeout(tick, 14 + Math.random() * 22);
+          return;
+        }
+        if (line.c) {
+          var comment = document.createElement("span");
+          comment.className = "comment";
+          comment.textContent = line.c;
+          caret.before(comment);
+        }
+        if (li >= cmdLines.length - 1) {
+          caret.remove();
+          return;
+        }
+        caret.before(document.createTextNode("\n"));
+        li++;
+        ch = 0;
+        lineNode = document.createTextNode("");
+        caret.before(lineNode);
+        setTimeout(tick, 140);
+      }
+      tick();
+    }, { threshold: 0.3 });
+    termObserver.observe(terminal);
+  }
 })();
