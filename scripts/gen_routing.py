@@ -55,6 +55,7 @@ CATS = {
         ("openhands-e2e-testing", "E2E testing (desktop app)"),
         ("verify-openhands", "Feature verification passes"),
         ("webapp-testing", "Playwright webapp testing"),
+        ("computer-use", "Native desktop app or OS UI"),
         ("web-artifacts-builder", "HTML artifacts"),
         ("story-lifecycle", "Story / epic / sprint lifecycle"),
         ("claude-api", "LLM API question"),

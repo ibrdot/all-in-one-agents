@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- computer-use skill: native desktop and OS UI automation with an
+  accessibility-first action ladder and observe-act-observe verification.
+  Inventory is now 141 skills, 73 agents, 97 commands.
+
 ## [1.6.0] - 2026-10-22
 
 ### Added
