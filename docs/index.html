@@ -27,8 +27,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- bump ?v= on each deploy that changes assets (Pages caches ~10 min) -->
-  <link rel="stylesheet" href="assets/style.css?v=10">
-  <script src="assets/script.js?v=9" defer></script>
+  <link rel="stylesheet" href="assets/style.css?v=11">
+  <script src="assets/script.js?v=10" defer></script>
   <noscript>
     <style>
       .reveal, .bento-cell, .stage { opacity: 1 !important; transform: none !important; }
@@ -133,6 +133,7 @@
           <span class="terminal-dot terminal-dot-green" aria-hidden="true"></span>
           <span class="terminal-title mono">session — zsh</span>
           <button class="copy-btn mono" id="copy-install" type="button" aria-label="Copy install commands">copy</button>
+          <span id="copy-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></span>
         </div>
         <pre class="mono"><code id="install-cmd"><span class="prompt">$ </span>git clone https://github.com/ibrorg/all-in-one-agents.git
 <span class="prompt">$ </span>cd all-in-one-agents
