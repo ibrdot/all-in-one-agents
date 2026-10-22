@@ -177,6 +177,6 @@ If context was compacted or reset:
 
 ---
 
-**Source framework:** https://github.com/ibrdot/all-in-one-agents
+**Source framework:** https://github.com/ibrorg/all-in-one-agents
 For the full 70-skill library, 73 agents, 97 commands, and enforcement
 hooks, clone the repo and run `./install.sh`.

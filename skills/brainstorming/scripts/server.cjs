@@ -245,7 +245,7 @@ function brandMarkup() {
     : 'Skill Pack v' + version;
   const logo = '';
 
-  return '<div class="brand"><a href="https://github.com/ibrdot/all-in-one-agents">' + logo + '<span class="brand-copy">' + text + '</span></a></div>';
+  return '<div class="brand"><a href="https://github.com/ibrorg/all-in-one-agents">' + logo + '<span class="brand-copy">' + text + '</span></a></div>';
 }
 
 function renderBranding(html) {

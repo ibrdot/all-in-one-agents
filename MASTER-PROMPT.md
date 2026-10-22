@@ -3,7 +3,7 @@
 > **One paste. Full framework. Zero improvisation.**
 > Drop this into `CLAUDE.md` / `.cursorrules` / Codex custom instructions / Gemini system instructions / OpenCode system prompt / any agent's system-prompt slot.
 > Activates: 70 skills · 73 agents · 97 commands · 4 enforcement hooks · 5-phase loop · 7 hard rules · 15 anti-patterns · compaction recovery · subagent dispatch · evidence standard · the oath.
-> Source: https://github.com/ibrdot/all-in-one-agents (MIT)
+> Source: https://github.com/ibrorg/all-in-one-agents (MIT)
 
 **Copy everything below this line into your agent's system prompt.**
 
@@ -483,13 +483,13 @@ Unverified work is never delivered.
 
 ### Option A — Claude Code (`CLAUDE.md`)
 ```bash
-curl -sL https://raw.githubusercontent.com/ibrdot/all-in-one-agents/main/MASTER-PROMPT.md \
+curl -sL https://raw.githubusercontent.com/ibrorg/all-in-one-agents/main/MASTER-PROMPT.md \
   | sed -n '/^---$/,$p' >> ~/.claude/CLAUDE.md
 ```
 
 ### Option B — Cursor (`.cursorrules`)
 ```bash
-curl -sL https://raw.githubusercontent.com/ibrdot/all-in-one-agents/main/MASTER-PROMPT.md \
+curl -sL https://raw.githubusercontent.com/ibrorg/all-in-one-agents/main/MASTER-PROMPT.md \
   > .cursorrules
 ```
 
@@ -501,7 +501,7 @@ Paste everything from `IDENTITY LOCK` down to `THE OATH` as the opening message 
 
 ### Option E — Full install (skills + agents + commands + hooks)
 ```bash
-git clone https://github.com/ibrdot/all-in-one-agents.git
+git clone https://github.com/ibrorg/all-in-one-agents.git
 cd all-in-one-agents
 ./install.sh            # Claude Code  (~/.claude)
 ./install.sh opencode   # OpenCode     (~/.config/opencode)

@@ -1,8 +1,8 @@
 {
-  "name": "ibrdot-all-in-one-agents",
+  "name": "ibrorg-all-in-one-agents",
   "owner": {
-    "name": "ibrdot",
-    "url": "https://github.com/ibrdot/all-in-one-agents"
+    "name": "ibrorg",
+    "url": "https://github.com/ibrorg/all-in-one-agents"
   },
   "plugins": [
     {

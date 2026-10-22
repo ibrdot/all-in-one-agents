@@ -6,8 +6,8 @@
 
 *Understand the task. Plan the change. Edit with care. Verify with evidence.*
 
-[![Tests](https://github.com/ibrdot/all-in-one-agents/actions/workflows/validate.yml/badge.svg)](https://github.com/ibrdot/all-in-one-agents/actions/workflows/validate.yml)
-[![Release](https://img.shields.io/github/v/release/ibrdot/all-in-one-agents?style=flat-square&color=8b5cf6)](https://github.com/ibrdot/all-in-one-agents/releases)
+[![Tests](https://github.com/ibrorg/all-in-one-agents/actions/workflows/validate.yml/badge.svg)](https://github.com/ibrorg/all-in-one-agents/actions/workflows/validate.yml)
+[![Release](https://img.shields.io/github/v/release/ibrorg/all-in-one-agents?style=flat-square&color=8b5cf6)](https://github.com/ibrorg/all-in-one-agents/releases)
 [![Skills](https://img.shields.io/badge/skills-140-2563eb?style=flat-square)](INDEX.md)
 [![Agents](https://img.shields.io/badge/agents-73-0ea5e9?style=flat-square)](INDEX.md)
 [![Commands](https://img.shields.io/badge/commands-97-64748b?style=flat-square)](INDEX.md)
@@ -66,7 +66,7 @@ host permissions or prove compatibility. See [tested boundaries](docs/COMPATIBIL
 Requires Git, Bash, Python 3.10+ (for the edit helper). Review scripts before running them.
 
 ```bash
-git clone https://github.com/ibrdot/all-in-one-agents.git
+git clone https://github.com/ibrorg/all-in-one-agents.git
 cd all-in-one-agents
 ./install.sh claude --dry-run   # preview
 ./install.sh claude             # install

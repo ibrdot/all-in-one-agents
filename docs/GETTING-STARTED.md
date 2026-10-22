@@ -5,7 +5,7 @@
 ## 1. Clone and preview
 
 ```bash
-git clone https://github.com/ibrdot/all-in-one-agents.git
+git clone https://github.com/ibrorg/all-in-one-agents.git
 cd all-in-one-agents
 ./install.sh claude --dry-run
 ```

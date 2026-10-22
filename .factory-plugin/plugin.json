@@ -7,7 +7,7 @@
   "agents": "agents/",
   "commands": "commands/",
   "hooks": "./hooks/hooks.json",
-  "repository": "https://github.com/ibrdot/all-in-one-agents",
+  "repository": "https://github.com/ibrorg/all-in-one-agents",
   "license": "MIT",
   "harness": "factory-droid"
 }

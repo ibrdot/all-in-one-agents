@@ -12,7 +12,7 @@ for the multi-edit helper. Back up existing same-name skills before installing.
 ## Claude Code
 
 ```bash
-git clone https://github.com/ibrdot/all-in-one-agents.git
+git clone https://github.com/ibrorg/all-in-one-agents.git
 cd all-in-one-agents
 ./install.sh            # installs to ~/.claude
 ```

@@ -3,7 +3,7 @@
   "version": "1.5.0",
   "description": "Installable agent skill framework \u2014 140 skills, 73 agents, 97 commands with an orchestration kernel and enforcement hooks.",
   "license": "MIT",
-  "repository": "https://github.com/ibrdot/all-in-one-agents",
+  "repository": "https://github.com/ibrorg/all-in-one-agents",
   "scripts": {
     "test": "python3 -m pytest tests/ -q",
     "validate": "python3 scripts/validate.py && python3 scripts/smoke_test.py"
