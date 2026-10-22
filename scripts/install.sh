@@ -65,7 +65,7 @@ from pathlib import Path
 import sys
 source, target, force, dry = Path(sys.argv[1]), Path(sys.argv[2]), sys.argv[3]=='1', sys.argv[4]=='1'
 conflicts=[]
-for component in ('skills','agents','commands'):
+for component in ('skills','agents','commands','hooks'):
     for item in (source/component).rglob('*'):
         if not item.is_file(): continue
         existing=target/item.relative_to(source)
