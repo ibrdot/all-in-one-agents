@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://ibrdot.github.io/all-in-one-agents/sitemap.xml
+Sitemap: https://ibrorg.github.io/all-in-one-agents/sitemap.xml
