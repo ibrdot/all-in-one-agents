@@ -82,6 +82,7 @@ file-inspectable — if a box cannot be ticked, the PR is not ready.
 - [ ] `python3 -m pytest tests/ -q` shows 0 failures
 - [ ] `python3 scripts/sync_catalog.py --check` exits 0 (catalog is in sync)
 - [ ] `python3 scripts/check_docs.py` reports 0 errors (local links, heading anchors, SVGs)
+- [ ] Heading levels are sequential in edited docs (no skipped levels, e.g. h2 directly to h4)
 - [ ] `git diff --check` is clean (no whitespace damage, no conflict markers)
 - [ ] PR body describes: what changed, verification commands run, remaining limits, AI assistance (accurately)
 - [ ] No invented human review or passing test claimed
