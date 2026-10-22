@@ -98,6 +98,7 @@
   var copyBtn = document.getElementById("copy-install");
   if (copyBtn) {
     var resetTimer = null;
+    var statusEl = document.getElementById("copy-status");
     copyBtn.addEventListener("click", function () {
       var codeEl = document.getElementById("install-cmd");
       // dataset.copy holds the prompt-free command text (prompts are visual only)
@@ -105,10 +106,12 @@
       copyText(text).then(function () {
         copyBtn.textContent = "copied!";
         copyBtn.classList.add("copied");
+        if (statusEl) { statusEl.textContent = "Install commands copied to clipboard"; }
         clearTimeout(resetTimer);
         resetTimer = setTimeout(function () {
           copyBtn.textContent = "copy";
           copyBtn.classList.remove("copied");
+          if (statusEl) { statusEl.textContent = ""; }
         }, 2000);
       });
     });
