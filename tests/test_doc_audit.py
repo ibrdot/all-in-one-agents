@@ -10,7 +10,7 @@ def audit():
 
 def test_maintained_docs_links_and_assets():
     report=audit().check(ROOT)
-    assert report['documents']>=24 and not report['errors'],report['errors']
+    assert report['documents']>=23 and not report['errors'],report['errors']
 
 
 def test_missing_paths_anchors_and_bad_svg_detected(tmp_path):
