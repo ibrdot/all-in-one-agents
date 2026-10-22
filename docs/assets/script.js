@@ -38,13 +38,13 @@
     revealEls.forEach(function (el) { observer.observe(el); });
   }
 
-  /* ---------- one rAF-throttled scroll handler: nav blur + progress bar ---------- */
+  /* ---------- one rAF-throttled scroll handler: topbar blur + progress bar ---------- */
   var nav = document.getElementById("site-nav");
   var progress = document.querySelector(".scroll-progress");
   var scrollTick = false;
 
   function onScroll() {
-    nav.classList.toggle("scrolled", window.scrollY > 8);
+    if (nav) nav.classList.toggle("scrolled", window.scrollY > 8);
     if (progress) {
       var max = document.documentElement.scrollHeight - window.innerHeight;
       var ratio = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
@@ -58,6 +58,31 @@
     }
   }, { passive: true });
   onScroll();
+
+  /* ---------- rail scrollspy: highlight the section in view ---------- */
+  var spyLinks = Array.prototype.slice.call(
+    document.querySelectorAll('.rail-nav a[href^="#"]')
+  );
+  if (spyLinks.length && hasIO) {
+    var linkFor = {};
+    spyLinks.forEach(function (a) { linkFor[a.getAttribute("href").slice(1)] = a; });
+
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkFor[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          spyLinks.forEach(function (a) { a.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-30% 0px -55% 0px" });
+
+    ["loop", "solves", "features", "install", "structure"].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) spy.observe(el);
+    });
+  }
 
   /* ---------- copy to clipboard (with legacy fallback) ---------- */
   function copyText(text) {
@@ -112,6 +137,7 @@
   function openMenu() {
     toggle.setAttribute("aria-expanded", "true");
     menu.hidden = false;
+    document.body.classList.add("menu-open");
     var links = menuLinks();
     if (links.length) links[0].focus();
   }
@@ -119,6 +145,7 @@
   function closeMenu(returnFocus) {
     toggle.setAttribute("aria-expanded", "false");
     menu.hidden = true;
+    document.body.classList.remove("menu-open");
     if (returnFocus) toggle.focus();
   }
 
@@ -169,8 +196,8 @@
     if (e.target.closest("a")) closeMenu(false);
   });
 
-  // leaving mobile breakpoint while open -> reset state
-  window.matchMedia("(min-width: 768px)").addEventListener("change", function (e) {
+  // leaving the mobile breakpoint while open -> reset state
+  window.matchMedia("(min-width: 1100px)").addEventListener("change", function (e) {
     if (e.matches && isOpen()) closeMenu(false);
   });
 
@@ -198,13 +225,13 @@
       }
     }, { passive: true });
 
-    // spotlight position inside hovered cards
+    // spotlight position inside hovered cells/stages
     document.addEventListener("mousemove", function (e) {
-      var card = e.target.closest && e.target.closest(".feature-card, .loop-node");
-      if (!card) return;
-      var r = card.getBoundingClientRect();
-      card.style.setProperty("--cx", (e.clientX - r.left) + "px");
-      card.style.setProperty("--cy", (e.clientY - r.top) + "px");
+      var cell = e.target.closest && e.target.closest(".bento-cell, .stage");
+      if (!cell) return;
+      var r = cell.getBoundingClientRect();
+      cell.style.setProperty("--cx", (e.clientX - r.left) + "px");
+      cell.style.setProperty("--cy", (e.clientY - r.top) + "px");
     }, { passive: true });
 
     document.addEventListener("mouseover", function (e) {
@@ -270,7 +297,7 @@
     statNums.forEach(function (el) { statObserver.observe(el); });
   }
 
-  /* ---------- terminal typing when quick start scrolls into view ---------- */
+  /* ---------- terminal typing when the hero terminal is visible ---------- */
   var codeEl = document.getElementById("install-cmd");
   var terminal = document.querySelector(".terminal");
   var cmdLines = [

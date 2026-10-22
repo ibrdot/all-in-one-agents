@@ -27,11 +27,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- bump ?v= on each deploy that changes assets (Pages caches ~10 min) -->
-  <link rel="stylesheet" href="assets/style.css?v=4">
-  <script src="assets/script.js?v=4" defer></script>
+  <link rel="stylesheet" href="assets/style.css?v=5">
+  <script src="assets/script.js?v=5" defer></script>
   <noscript>
     <style>
-      .reveal, .feature-card, .loop-node { opacity: 1 !important; transform: none !important; }
+      .reveal, .bento-cell, .stage { opacity: 1 !important; transform: none !important; }
     </style>
   </noscript>
 
@@ -65,57 +65,88 @@
   <div class="cursor-dot" aria-hidden="true"></div>
   <div class="cursor-ring" aria-hidden="true"></div>
 
-  <!-- ============ 1. NAV ============ -->
-  <header class="site-nav" id="site-nav">
-    <nav class="nav-inner" role="navigation" aria-label="Main navigation">
-      <a class="nav-logo" href="#top"><span class="accent">&gt;<span class="blink">_</span></span> all-in-one-agents</a>
-
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#loop">Loop</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#quickstart">Quick Start</a></li>
-        <li><a href="#structure">Structure</a></li>
-      </ul>
-
-      <div class="nav-right">
-        <a class="btn btn-nav" href="https://github.com/ibrorg/all-in-one-agents" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-          GitHub
-        </a>
-        <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-        </button>
-      </div>
+  <!-- ============ DESKTOP RAIL (editor activity bar) ============ -->
+  <aside class="rail">
+    <a class="rail-logo mono" href="#top"><span class="accent">&gt;<span class="blink">_</span></span> all-in-one-agents</a>
+    <nav class="rail-nav" aria-label="Sections">
+      <a href="#loop"><span class="rail-num mono">01</span><span>Loop</span></a>
+      <a href="#solves"><span class="rail-num mono">02</span><span>Problems</span></a>
+      <a href="#features"><span class="rail-num mono">03</span><span>Features</span></a>
+      <a href="#install"><span class="rail-num mono">04</span><span>Install</span></a>
+      <a href="#structure"><span class="rail-num mono">05</span><span>Structure</span></a>
     </nav>
-    <!-- Mobile dropdown -->
-    <div class="nav-menu" id="nav-menu" hidden>
-      <a href="#loop">Loop</a>
-      <a href="#features">Features</a>
-      <a href="#quickstart">Quick Start</a>
-      <a href="#structure">Structure</a>
-      <a href="https://github.com/ibrorg/all-in-one-agents" target="_blank" rel="noopener">GitHub ↗</a>
+    <div class="rail-foot">
+      <a class="btn btn-nav mono" href="https://github.com/ibrorg/all-in-one-agents" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        GitHub
+      </a>
+      <p class="rail-status mono"><span class="pulse-dot" aria-hidden="true"></span> v1.5.0 · stable</p>
+    </div>
+  </aside>
+
+  <!-- ============ MOBILE TOPBAR ============ -->
+  <header class="topbar" id="site-nav">
+    <a class="topbar-logo mono" href="#top"><span class="accent">&gt;<span class="blink">_</span></span> all-in-one-agents</a>
+    <div class="topbar-right">
+      <a class="btn btn-nav mono" href="https://github.com/ibrorg/all-in-one-agents" target="_blank" rel="noopener" aria-label="GitHub repository">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
     </div>
   </header>
 
+  <!-- ============ MOBILE FULLSCREEN MENU ============ -->
+  <div class="nav-menu" id="nav-menu" hidden>
+    <nav aria-label="Mobile sections">
+      <a href="#loop"><span class="rail-num mono">01</span> Loop</a>
+      <a href="#solves"><span class="rail-num mono">02</span> Problems</a>
+      <a href="#features"><span class="rail-num mono">03</span> Features</a>
+      <a href="#install"><span class="rail-num mono">04</span> Install</a>
+      <a href="#structure"><span class="rail-num mono">05</span> Structure</a>
+      <a href="https://github.com/ibrorg/all-in-one-agents" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+
   <main id="top">
 
-    <!-- ============ 2. HERO ============ -->
+    <!-- ============ HERO ============ -->
     <section class="hero" id="hero">
-      <p class="hero-pill mono"><span class="pulse-dot" aria-hidden="true"></span> v1.5.0 · latest release</p>
-      <p class="hero-eyebrow mono" id="hero-eyebrow"><span class="accent">$</span> open-source · MIT · zero install friction</p>
-      <h1>The complete AI coding engineering pack.<span class="blink accent">_</span></h1>
-      <p class="hero-sub">From idea to production, from legacy rescue to cost control — 140 skills, 73 agents, 97 commands, one engineering loop.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="https://github.com/ibrorg/all-in-one-agents" target="_blank" rel="noopener">View on GitHub</a>
-        <a class="btn btn-secondary" href="#quickstart">Quick Start</a>
+      <div class="hero-text">
+        <p class="hero-pill mono"><span class="pulse-dot" aria-hidden="true"></span> v1.5.0 · latest release</p>
+        <p class="hero-eyebrow mono" id="hero-eyebrow"><span class="accent">$</span> open-source · MIT · zero install friction</p>
+        <h1>The complete AI coding engineering pack.<span class="blink accent">_</span></h1>
+        <p class="hero-sub">From idea to production, from legacy rescue to cost control — 140 skills, 73 agents, 97 commands, one engineering loop.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary mono" href="https://github.com/ibrorg/all-in-one-agents" target="_blank" rel="noopener">View on GitHub</a>
+          <a class="btn btn-secondary mono" href="#install">Install</a>
+        </div>
       </div>
+
+      <div class="terminal hero-terminal">
+        <div class="terminal-bar">
+          <span class="terminal-dot terminal-dot-red" aria-hidden="true"></span>
+          <span class="terminal-dot terminal-dot-yellow" aria-hidden="true"></span>
+          <span class="terminal-dot terminal-dot-green" aria-hidden="true"></span>
+          <span class="terminal-title mono">session — zsh</span>
+          <button class="copy-btn mono" id="copy-install" type="button" aria-label="Copy install commands">copy</button>
+        </div>
+        <pre class="mono"><code id="install-cmd"><span class="prompt">$ </span>git clone https://github.com/ibrorg/all-in-one-agents.git
+<span class="prompt">$ </span>cd all-in-one-agents
+<span class="prompt">$ </span>./install.sh claude --dry-run   <span class="comment"># preview</span>
+<span class="prompt">$ </span>./install.sh claude             <span class="comment"># install</span></code></pre>
+        <div class="terminal-status mono" aria-hidden="true"><span class="accent">✓</span> 140 skills&nbsp;&nbsp;<span class="accent">✓</span> 73 agents&nbsp;&nbsp;<span class="accent">✓</span> 97 commands</div>
+      </div>
+
       <!-- UPDATE: re-count skills/agents/commands from INDEX.md on each release -->
-      <div class="stats-row" role="list">
-        <div class="stat" role="listitem"><span class="stat-num mono">140</span><span class="stat-label">skills</span></div>
-        <div class="stat" role="listitem"><span class="stat-num mono">73</span><span class="stat-label">agents</span></div>
-        <div class="stat" role="listitem"><span class="stat-num mono">97</span><span class="stat-label">commands</span></div>
+      <div class="stats-strip" role="list">
+        <div class="stat" role="listitem"><span class="stat-num mono">140</span><span class="stat-label mono">skills</span></div>
+        <div class="stat" role="listitem"><span class="stat-num mono">73</span><span class="stat-label mono">agents</span></div>
+        <div class="stat" role="listitem"><span class="stat-num mono">97</span><span class="stat-label mono">commands</span></div>
+        <div class="stat" role="listitem"><span class="stat-num mono">1</span><span class="stat-label mono">loop</span></div>
       </div>
     </section>
 
@@ -127,109 +158,128 @@
       </div>
     </div>
 
-    <!-- ============ 3. ENGINEERING LOOP ============ -->
+    <!-- ============ 01 LOOP — pipeline ============ -->
     <section class="section reveal" id="loop">
-      <h2 class="mono">The engineering loop</h2>
-      <p class="section-sub">Every task runs the same five steps. No free-form wandering.</p>
-      <div class="loop-grid">
-        <div class="loop-node">
-          <span class="loop-num mono">01</span>
-          <svg class="loop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-          <h3 class="mono">UNDERSTAND</h3>
-          <p>Bounded tasks, loads only relevant skills</p>
-        </div>
-        <span class="loop-arrow accent mono" aria-hidden="true">→</span>
-        <div class="loop-node">
-          <span class="loop-num mono">02</span>
-          <svg class="loop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9.5 2a4.5 4.5 0 0 0-4.4 5.6A4.5 4.5 0 0 0 4 16.2 4.5 4.5 0 0 0 9.5 22c.8 0 1.5-.2 2.5-.7V3.5c-1-.9-1.7-1.5-2.5-1.5z"/><path d="M14.5 2a4.5 4.5 0 0 1 4.4 5.6A4.5 4.5 0 0 1 20 16.2a4.5 4.5 0 0 1-5.5 5.8c-.8 0-1.5-.2-2.5-.7"/></svg>
-          <h3 class="mono">PLAN</h3>
-          <p>Architect changes before touching code</p>
-        </div>
-        <span class="loop-arrow accent mono" aria-hidden="true">→</span>
-        <div class="loop-node">
-          <span class="loop-num mono">03</span>
-          <svg class="loop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 1 5.6 5.6l-8.5 8.5a2 2 0 0 1-2.8 0l-4.4-4.4a2 2 0 0 1 0-2.8z"/><path d="M13 8l-9.5 9.5"/><path d="M16 5l3 3"/></svg>
-          <h3 class="mono">EXECUTE</h3>
-          <p>Edit with care, multi-file safe</p>
-        </div>
-        <span class="loop-arrow accent mono" aria-hidden="true">→</span>
-        <div class="loop-node">
-          <span class="loop-num mono">04</span>
-          <svg class="loop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><path d="M22 4 12 14l-3-3"/></svg>
-          <h3 class="mono">VERIFY</h3>
-          <p>Evidence, tests, regression checks</p>
-        </div>
-        <span class="loop-arrow accent mono" aria-hidden="true">→</span>
-        <div class="loop-node">
-          <span class="loop-num mono">05</span>
-          <svg class="loop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.8-.8-.7-2-.7-3 0z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.9A12.9 12.9 0 0 1 22 2c0 2.7-.9 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.6-3 2-4c1.6-1.1 5 0 5 0"/><path d="M12 15v5s3-.6 4-2c1.1-1.6 0-5 0-5"/></svg>
-          <h3 class="mono">DELIVER</h3>
-          <p>Cut releases, accurate docs</p>
-        </div>
+      <header class="section-head">
+        <p class="section-index mono">[01] ~/loop</p>
+        <h2 class="mono">The engineering loop</h2>
+        <p class="section-sub">Every task runs the same five stages. No free-form wandering — a packet of work travels the pipe and comes out verified.</p>
+      </header>
+      <div class="pipeline">
+        <div class="pipeline-base" aria-hidden="true"></div>
+        <div class="pipeline-pulse" aria-hidden="true"></div>
+        <ol class="pipeline-stages">
+          <li class="stage">
+            <span class="stage-led" aria-hidden="true"></span>
+            <span class="stage-num mono">01</span>
+            <svg class="stage-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <h3 class="mono">UNDERSTAND</h3>
+            <p>Bounded tasks, loads only relevant skills</p>
+          </li>
+          <li class="stage">
+            <span class="stage-led" aria-hidden="true"></span>
+            <span class="stage-num mono">02</span>
+            <svg class="stage-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9.5 2a4.5 4.5 0 0 0-4.4 5.6A4.5 4.5 0 0 0 4 16.2 4.5 4.5 0 0 0 9.5 22c.8 0 1.5-.2 2.5-.7V3.5c-1-.9-1.7-1.5-2.5-1.5z"/><path d="M14.5 2a4.5 4.5 0 0 1 4.4 5.6A4.5 4.5 0 0 1 20 16.2a4.5 4.5 0 0 1-5.5 5.8c-.8 0-1.5-.2-2.5-.7"/></svg>
+            <h3 class="mono">PLAN</h3>
+            <p>Architect changes before touching code</p>
+          </li>
+          <li class="stage">
+            <span class="stage-led" aria-hidden="true"></span>
+            <span class="stage-num mono">03</span>
+            <svg class="stage-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 1 5.6 5.6l-8.5 8.5a2 2 0 0 1-2.8 0l-4.4-4.4a2 2 0 0 1 0-2.8z"/><path d="M13 8l-9.5 9.5"/><path d="M16 5l3 3"/></svg>
+            <h3 class="mono">EXECUTE</h3>
+            <p>Edit with care, multi-file safe</p>
+          </li>
+          <li class="stage">
+            <span class="stage-led" aria-hidden="true"></span>
+            <span class="stage-num mono">04</span>
+            <svg class="stage-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><path d="M22 4 12 14l-3-3"/></svg>
+            <h3 class="mono">VERIFY</h3>
+            <p>Evidence, tests, regression checks</p>
+          </li>
+          <li class="stage">
+            <span class="stage-led" aria-hidden="true"></span>
+            <span class="stage-num mono">05</span>
+            <svg class="stage-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.8-.8-.7-2-.7-3 0z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.9A12.9 12.9 0 0 1 22 2c0 2.7-.9 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.6-3 2-4c1.6-1.1 5 0 5 0"/><path d="M12 15v5s3-.6 4-2c1.1-1.6 0-5 0-5"/></svg>
+            <h3 class="mono">DELIVER</h3>
+            <p>Cut releases, accurate docs</p>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <!-- ============ 4. WHAT IT SOLVES ============ -->
+    <!-- ============ 02 PROBLEMS ============ -->
     <section class="section reveal" id="solves">
-      <h2 class="mono">What it solves</h2>
-      <p class="section-sub">Real problems, mapped to the skill that starts fixing them.</p>
+      <header class="section-head">
+        <p class="section-index mono">[02] ~/problems</p>
+        <h2 class="mono">What it solves</h2>
+        <p class="section-sub">Real problems, mapped to the skill that starts fixing them.</p>
+      </header>
       <!-- Content mirrored from README "What it solves" table — keep in sync -->
-      <div class="solves-table" role="table" aria-label="Problems and solutions">
-        <div class="solves-row solves-head" role="row">
-          <span role="columnheader">Problem</span><span role="columnheader">Solution</span>
-        </div>
-        <div class="solves-row" role="row"><span role="cell">Unfamiliar codebase</span><span role="cell" class="accent">Code understanding skills</span></div>
-        <div class="solves-row" role="row"><span role="cell">Risky multi-file edits</span><span role="cell" class="accent">Safe multi-file editing</span></div>
-        <div class="solves-row" role="row"><span role="cell">Stale dependencies</span><span role="cell" class="accent">Dependency upgrades</span></div>
-        <div class="solves-row" role="row"><span role="cell">Slow performance</span><span role="cell" class="accent">Performance profiling</span></div>
-        <div class="solves-row" role="row"><span role="cell">Weak test coverage</span><span role="cell" class="accent">Test design</span></div>
-        <div class="solves-row" role="row"><span role="cell">Manual release process</span><span role="cell" class="accent">Release engineering</span></div>
-        <div class="solves-row" role="row"><span role="cell">Outdated docs</span><span role="cell" class="accent">Documentation accuracy</span></div>
-        <div class="solves-row" role="row"><span role="cell">Shallow reasoning</span><span role="cell" class="accent">Reasoning toolkit</span></div>
+      <div class="solves-table">
+        <a class="solves-row" href="https://github.com/ibrorg/all-in-one-agents/blob/main/INDEX.md" target="_blank" rel="noopener"><span class="solves-idx mono">001</span><span class="solves-problem">Unfamiliar codebase</span><span class="solves-solution">Code understanding skills</span><span class="solves-arrow" aria-hidden="true">→</span></a>
+        <a class="solves-row" href="https://github.com/ibrorg/all-in-one-agents/blob/main/INDEX.md" target="_blank" rel="noopener"><span class="solves-idx mono">002</span><span class="solves-problem">Risky multi-file edits</span><span class="solves-solution">Safe multi-file editing</span><span class="solves-arrow" aria-hidden="true">→</span></a>
+        <a class="solves-row" href="https://github.com/ibrorg/all-in-one-agents/blob/main/INDEX.md" target="_blank" rel="noopener"><span class="solves-idx mono">003</span><span class="solves-problem">Stale dependencies</span><span class="solves-solution">Dependency upgrades</span><span class="solves-arrow" aria-hidden="true">→</span></a>
+        <a class="solves-row" href="https://github.com/ibrorg/all-in-one-agents/blob/main/INDEX.md" target="_blank" rel="noopener"><span class="solves-idx mono">004</span><span class="solves-problem">Slow performance</span><span class="solves-solution">Performance profiling</span><span class="solves-arrow" aria-hidden="true">→</span></a>
+        <a class="solves-row" href="https://github.com/ibrorg/all-in-one-agents/blob/main/INDEX.md" target="_blank" rel="noopener"><span class="solves-idx mono">005</span><span class="solves-problem">Weak test coverage</span><span class="solves-solution">Test design</span><span class="solves-arrow" aria-hidden="true">→</span></a>
+        <a class="solves-row" href="https://github.com/ibrorg/all-in-one-agents/blob/main/INDEX.md" target="_blank" rel="noopener"><span class="solves-idx mono">006</span><span class="solves-problem">Manual release process</span><span class="solves-solution">Release engineering</span><span class="solves-arrow" aria-hidden="true">→</span></a>
+        <a class="solves-row" href="https://github.com/ibrorg/all-in-one-agents/blob/main/INDEX.md" target="_blank" rel="noopener"><span class="solves-idx mono">007</span><span class="solves-problem">Outdated docs</span><span class="solves-solution">Documentation accuracy</span><span class="solves-arrow" aria-hidden="true">→</span></a>
+        <a class="solves-row" href="https://github.com/ibrorg/all-in-one-agents/blob/main/INDEX.md" target="_blank" rel="noopener"><span class="solves-idx mono">008</span><span class="solves-problem">Shallow reasoning</span><span class="solves-solution">Reasoning toolkit</span><span class="solves-arrow" aria-hidden="true">→</span></a>
       </div>
     </section>
 
-    <!-- ============ 5. FEATURE GRID ============ -->
+    <!-- ============ 03 FEATURES — bento ============ -->
     <section class="section reveal" id="features">
-      <h2 class="mono">Feature grid</h2>
-      <p class="section-sub">Eight capability packs, one install.</p>
-      <div class="feature-grid">
-        <div class="feature-card">
+      <header class="section-head">
+        <p class="section-index mono">[03] ~/features</p>
+        <h2 class="mono">Eight capability packs</h2>
+        <p class="section-sub">One install. Each pack ships skills, agents and commands that work the loop.</p>
+      </header>
+      <div class="bento">
+        <div class="bento-cell bento-feature">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
           <h3 class="mono">Code Understanding</h3>
-          <p>Bounded map of source, tests, contracts and unknowns.</p>
+          <p>Bounded map of source, tests, contracts and unknowns — before a single edit.</p>
+          <pre class="bento-art mono" aria-hidden="true">src/
+├── api/       12 files
+├── core/       8 files
+└── tests/     21 files
+<span class="accent">✓ mapped in 0.4s</span></pre>
         </div>
-        <div class="feature-card">
+        <div class="bento-cell">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6M9 11h2"/></svg>
           <h3 class="mono">Safe Multi-file Editing</h3>
           <p>Hash-checked previews, exact match counts, explicit apply.</p>
+          <pre class="bento-art mono" aria-hidden="true"><span class="comment">- old_name</span>
+<span class="accent">+ new_name</span>  <span class="comment">· 3 files</span></pre>
         </div>
-        <div class="feature-card">
+        <div class="bento-cell">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 3v12"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
           <h3 class="mono">Refactoring</h3>
           <p>Syntax-aware renames with fixtures and consumer checks.</p>
         </div>
-        <div class="feature-card">
+        <div class="bento-cell">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
           <h3 class="mono">Dependency Upgrades</h3>
           <p>Controlled lockfile and runtime changes, rollback ready.</p>
         </div>
-        <div class="feature-card">
+        <div class="bento-cell bento-wide">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 14l4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0z"/></svg>
           <h3 class="mono">Performance Profiling</h3>
           <p>Profiled, measured, revertible optimization.</p>
+          <svg class="bento-spark" viewBox="0 0 120 32" fill="none" aria-hidden="true"><polyline points="0,28 15,24 30,26 45,18 60,20 75,12 90,14 105,6 120,4" stroke="currentColor" stroke-width="1.5"/></svg>
         </div>
-        <div class="feature-card">
+        <div class="bento-cell">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 2v7.5a2 2 0 0 1-.2.9L4.7 20.5a1 1 0 0 0 .9 1.5h12.8a1 1 0 0 0 .9-1.5L14.2 10.4a2 2 0 0 1-.2-.9V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
           <h3 class="mono">Test Design</h3>
           <p>Behavior-asserted, non-flaky regression coverage.</p>
         </div>
-        <div class="feature-card">
+        <div class="bento-cell">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
           <h3 class="mono">Release Engineering</h3>
           <p>Clean build, staged rollout, rollback path.</p>
         </div>
-        <div class="feature-card">
+        <div class="bento-cell">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
           <h3 class="mono">Documentation Accuracy</h3>
           <p>Every documented command actually runs.</p>
@@ -237,30 +287,57 @@
       </div>
     </section>
 
-    <!-- ============ 6. QUICK START ============ -->
-    <section class="section reveal" id="quickstart">
-      <h2 class="mono">Quick start</h2>
-      <p class="section-sub">From zero to installed in four commands.</p>
-      <div class="terminal">
-        <div class="terminal-bar">
-          <span class="terminal-dot terminal-dot-red" aria-hidden="true"></span>
-          <span class="terminal-dot terminal-dot-yellow" aria-hidden="true"></span>
-          <span class="terminal-dot terminal-dot-green" aria-hidden="true"></span>
-          <span class="terminal-title mono">terminal</span>
-          <button class="copy-btn mono" id="copy-install" type="button" aria-label="Copy install commands">copy</button>
+    <!-- ============ 04 INSTALL ============ -->
+    <section class="section reveal" id="install">
+      <header class="section-head">
+        <p class="section-index mono">[04] ~/install</p>
+        <h2 class="mono">Get running in minutes</h2>
+        <p class="section-sub">Four commands, one dry-run, zero magic.</p>
+      </header>
+      <div class="install-grid">
+        <div class="install-reqs">
+          <p class="req-title mono">// requirements</p>
+          <div class="req-chips">
+            <span class="req-chip mono">Git</span>
+            <span class="req-chip mono">Bash</span>
+            <span class="req-chip mono">Python 3.10+</span>
+          </div>
+          <p class="req-note">Claude installs merge SessionStart config without replacing unrelated settings. Preview with <code class="mono">--dry-run</code> first; replacing changed files needs an explicit <code class="mono">--force</code>.</p>
+          <a class="req-link" href="https://github.com/ibrorg/all-in-one-agents#quick-start" target="_blank" rel="noopener">Other harnesses and details → README</a>
         </div>
-        <pre class="mono"><code id="install-cmd"><span class="prompt">$ </span>git clone https://github.com/ibrorg/all-in-one-agents.git
-<span class="prompt">$ </span>cd all-in-one-agents
-<span class="prompt">$ </span>./install.sh claude --dry-run   <span class="comment"># preview</span>
-<span class="prompt">$ </span>./install.sh claude             <span class="comment"># install</span></code></pre>
+        <ol class="install-steps">
+          <li>
+            <span class="step-num mono">01</span>
+            <div class="step-body">
+              <h4 class="mono">Clone the repo</h4>
+              <p class="mono step-cmd">git clone https://github.com/ibrorg/all-in-one-agents.git</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num mono">02</span>
+            <div class="step-body">
+              <h4 class="mono">Preview the install</h4>
+              <p class="mono step-cmd">./install.sh claude --dry-run</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num mono">03</span>
+            <div class="step-body">
+              <h4 class="mono">Install for your harness</h4>
+              <p class="mono step-cmd">./install.sh claude <span class="comment"># or: opencode · /your/custom/path</span></p>
+            </div>
+          </li>
+        </ol>
       </div>
-      <p class="quickstart-note">Requires Git, Bash and Python 3.10+. See the <a href="https://github.com/ibrorg/all-in-one-agents#quick-start" target="_blank" rel="noopener">README</a> for other harnesses and details.</p>
     </section>
 
-    <!-- ============ 7. REPO STRUCTURE ============ -->
+    <!-- ============ 05 STRUCTURE ============ -->
     <section class="section reveal" id="structure">
-      <h2 class="mono">Repo structure</h2>
-      <p class="section-sub">Everything is a file. Nothing is magic.</p>
+      <header class="section-head">
+        <p class="section-index mono">[05] ~/structure</p>
+        <h2 class="mono">Repo structure</h2>
+        <p class="section-sub">Everything is a file. Nothing is magic.</p>
+      </header>
       <!-- Keep in sync with repo root on each release -->
       <pre class="tree mono" aria-label="Repository directory tree">all-in-one-agents/
 ├── <span class="tree-dir">agents/</span>          <span class="comment"># 73 agent definitions</span>
@@ -281,19 +358,20 @@
 └── package.json</pre>
     </section>
 
-    <!-- ============ 8. CTA STRIP ============ -->
+    <!-- ============ CTA ============ -->
     <section class="cta-strip reveal" id="contribute">
+      <p class="cta-cmd mono"><span class="prompt">$</span> contribute --repo ibrorg/all-in-one-agents</p>
       <h2 class="mono">Get involved</h2>
       <div class="cta-buttons">
-        <a class="btn btn-secondary" href="https://github.com/ibrorg/all-in-one-agents/stargazers" target="_blank" rel="noopener">★ Star the repo</a>
-        <a class="btn btn-secondary" href="https://github.com/ibrorg/all-in-one-agents/issues" target="_blank" rel="noopener">Open an issue</a>
-        <a class="btn btn-secondary" href="https://github.com/ibrorg/all-in-one-agents/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contribute</a>
+        <a class="btn btn-secondary mono" href="https://github.com/ibrorg/all-in-one-agents/stargazers" target="_blank" rel="noopener">★ Star the repo</a>
+        <a class="btn btn-secondary mono" href="https://github.com/ibrorg/all-in-one-agents/issues" target="_blank" rel="noopener">Open an issue</a>
+        <a class="btn btn-secondary mono" href="https://github.com/ibrorg/all-in-one-agents/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contribute</a>
       </div>
     </section>
 
   </main>
 
-  <!-- ============ 9. FOOTER ============ -->
+  <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
     <div class="footer-grid">
       <div class="footer-col">
@@ -311,7 +389,10 @@
       </div>
     </div>
     <div class="footer-watermark" aria-hidden="true">AGENTS</div>
-    <p class="footer-copy">© 2026 ibrorg · MIT License</p>
+    <div class="footer-bottom mono">
+      <p class="footer-status"><span class="accent">●</span> all systems operational</p>
+      <p class="footer-copy">© 2026 ibrorg · MIT License</p>
+    </div>
   </footer>
 
 </body>
