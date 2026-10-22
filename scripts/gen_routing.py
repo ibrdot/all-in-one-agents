@@ -120,6 +120,7 @@ CATS = {
         ("wayfinder", "Lost in an unfamiliar repo"),
         ("wizard", "Guided multi-step task setup"),
         ("tdd", "Red-green-refactor cycle"),
+        ("commit-message-discipline", "Draft a conventional commit from the staged diff"),
         ("git-guardrails", "Protect main / force-push risk"),
         ("setup-pre-commit", "Add pre-commit hooks"),
         ("doc-coauthoring", "Draft a document together"),

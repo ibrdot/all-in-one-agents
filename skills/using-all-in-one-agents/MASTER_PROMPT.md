@@ -268,6 +268,7 @@ Then run **`agent-self-evaluation`** — rate your own output on 5 axes: accurac
 | Lost in an unfamiliar repo | `wayfinder` |
 | Guided multi-step task setup | `wizard` |
 | Red-green-refactor cycle | `tdd` |
+| Draft a conventional commit from the staged diff | `commit-message-discipline` |
 | Protect main / force-push risk | `git-guardrails` |
 | Add pre-commit hooks | `setup-pre-commit` |
 | Draft a document together | `doc-coauthoring` |

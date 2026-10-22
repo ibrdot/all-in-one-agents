@@ -13,7 +13,7 @@
 [![License](https://img.shields.io/badge/license-MIT-16a34a?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-ff69b4?style=flat-square)](CONTRIBUTING.md)
 
-[![Skills](https://img.shields.io/badge/skills-142-2563eb?style=flat-square)](INDEX.md)
+[![Skills](https://img.shields.io/badge/skills-143-2563eb?style=flat-square)](INDEX.md)
 [![Agents](https://img.shields.io/badge/agents-73-0ea5e9?style=flat-square)](INDEX.md)
 [![Commands](https://img.shields.io/badge/commands-97-64748b?style=flat-square)](INDEX.md)
 [![Tests passing](https://img.shields.io/badge/tests-272-22c55e?style=flat-square)](tests/)
@@ -54,7 +54,7 @@
 
 ## Overview
 
-A practical toolkit for AI-assisted engineering: **141 skills, 73 agent definitions,
+A practical toolkit for AI-assisted engineering: **143 skills, 73 agent definitions,
 97 command definitions**, executable workflow helpers and an optional Python runtime.
 Start with a bounded task, load only relevant skills, and verify the result.
 
@@ -239,7 +239,7 @@ environment-based credential, **not a key committed to the repository**. Follow 
 
 | Path | Contents |
 |---|---|
-| [`skills/`](skills/) | 142 skills, each with a `SKILL.md` entrypoint |
+| [`skills/`](skills/) | 143 skills, each with a `SKILL.md` entrypoint |
 | [`agents/`](agents/) | 73 agent definitions |
 | [`commands/`](commands/) | 97 slash commands |
 | [`hooks/`](hooks/) | Executable SessionStart hook and written guidance |

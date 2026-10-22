@@ -18,7 +18,7 @@ No current competitor comparison is asserted without a pinned audit.
 
 | Dimension | all-in-one-agents |
 |---|---:|
-| Skills | 142 |
+| Skills | 143 |
 | Agents | 73 |
 | Slash commands | 97 |
 | Test files | 29 |

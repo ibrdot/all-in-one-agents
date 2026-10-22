@@ -1,7 +1,7 @@
 {
   "name": "all-in-one-agents",
   "version": "1.6.0",
-  "description": "Installable agent skill framework \u2014 142 skills, 73 agents, 97 commands with an orchestration kernel, enforcement hooks, and TDD-first methodology.",
+  "description": "Installable agent skill framework \u2014 143 skills, 73 agents, 97 commands with an orchestration kernel, enforcement hooks, and TDD-first methodology.",
   "contextFileName": "GEMINI.md",
   "repository": "https://github.com/ibrorg/all-in-one-agents"
 }
