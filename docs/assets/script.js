@@ -372,17 +372,23 @@
     var startY = window.scrollY;
     var delta = targetY - startY;
     if (delta === 0) return;
-    var start = null;
+    var start = null, done = false;
     function ease(t) {
       return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
     }
     function frame(ts) {
-      if (!start) start = ts;
+      if (done) return;
+      if (start === null) start = ts;
       var p = Math.min((ts - start) / duration, 1);
       window.scrollTo(0, Math.round(startY + delta * ease(p)));
       if (p < 1) requestAnimationFrame(frame);
+      else done = true;
     }
     requestAnimationFrame(frame);
+    // if rAF is stalled (embedded webviews, some power-save modes), jump
+    setTimeout(function () {
+      if (!done && start === null) { done = true; window.scrollTo(0, targetY); }
+    }, 140);
   }
 
   document.addEventListener("click", function (e) {
