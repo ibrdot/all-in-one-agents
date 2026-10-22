@@ -2,6 +2,12 @@
 
 Help make agent workflows useful, specific, and verifiable.
 
+## Coordination
+
+Questions, task claims and work-in-progress notes belong in the
+[Discussions hub](https://github.com/ibrorg/all-in-one-agents/discussions/9).
+Small, focused pull requests - one theme per PR - review fastest.
+
 ## Before adding a skill
 
 Search [INDEX.md](INDEX.md) for overlapping triggers. Improve an existing skill
@@ -60,7 +66,9 @@ license compatibility, and whether the documented commands actually run.
 Use clear headings, working relative links, accessible image text and scoped
 commands. Run `python3 scripts/check_docs.py` for maintained project Markdown,
 heading anchors and local SVG structure; external URLs are listed but not
-certified by the offline checker. Imported skill corpora and archived plans need
+certified by the offline checker. For documentation-only pull requests that
+check is the required gate; keep heading levels sequential with no skipped
+levels. Imported skill corpora and archived plans need
 separate source-specific review. Do not fabricate SVG assets or native-host
 support to satisfy a checklist. Follow [release procedure](docs/RELEASING.md) for
 version consistency, artifacts and verification receipts.
