@@ -27,8 +27,9 @@
 * { margin: 0; }
 /* author display rules below override the UA [hidden] style without this */
 [hidden] { display: none !important; }
-html { scroll-behavior: smooth; }
-/* keep anchored sections clear of the mobile topbar */
+/* anchor scrolling is JS-driven (native smooth scroll is unreliable in
+   some embedded webviews); section offset handled by the tween */
+html { scroll-behavior: auto; }
 section[id] { scroll-margin-top: 80px; }
 
 body {

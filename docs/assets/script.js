@@ -364,4 +364,45 @@
     }, { threshold: 0.3 });
     termObserver.observe(terminal);
   }
+
+  /* ---------- JS-driven smooth anchor scrolling ----------
+     Native CSS/API smooth scrolling is cancelled instantly by some
+     embedded webviews, so anchor clicks are tweened manually. */
+  function smoothScrollTo(targetY, duration) {
+    var startY = window.scrollY;
+    var delta = targetY - startY;
+    if (delta === 0) return;
+    var start = null;
+    function ease(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+    function frame(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      window.scrollTo(0, Math.round(startY + delta * ease(p)));
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute("href").slice(1);
+    if (!id) return;
+    var target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    // 80px offset mirrors section[id] scroll-margin-top
+    var top = Math.max(target.getBoundingClientRect().top + window.scrollY - 80, 0);
+    if (reduceMotion) {
+      window.scrollTo(0, top);
+    } else {
+      smoothScrollTo(top, 600);
+    }
+    history.pushState(null, "", "#" + id);
+    // move focus to the section for keyboard/AT users without scrolling again
+    target.setAttribute("tabindex", "-1");
+    target.focus({ preventScroll: true });
+  });
 })();
