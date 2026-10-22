@@ -8,7 +8,7 @@
 
 [![Tests](https://github.com/ibrorg/all-in-one-agents/actions/workflows/validate.yml/badge.svg)](https://github.com/ibrorg/all-in-one-agents/actions/workflows/validate.yml)
 [![Release](https://img.shields.io/github/v/release/ibrorg/all-in-one-agents?style=flat-square&color=8b5cf6)](https://github.com/ibrorg/all-in-one-agents/releases)
-[![Skills](https://img.shields.io/badge/skills-140-2563eb?style=flat-square)](INDEX.md)
+[![Skills](https://img.shields.io/badge/skills-141-2563eb?style=flat-square)](INDEX.md)
 [![Agents](https://img.shields.io/badge/agents-73-0ea5e9?style=flat-square)](INDEX.md)
 [![Commands](https://img.shields.io/badge/commands-97-64748b?style=flat-square)](INDEX.md)
 [![License](https://img.shields.io/badge/license-MIT-16a34a?style=flat-square)](LICENSE)
@@ -22,7 +22,7 @@
 
 ## Overview
 
-A practical toolkit for AI-assisted engineering: 140 skills, 73 agent definitions,
+A practical toolkit for AI-assisted engineering: 141 skills, 73 agent definitions,
 97 command definitions, executable workflow helpers and an optional Python runtime.
 Start with a bounded task, load only relevant skills, and verify the result.
 
@@ -158,7 +158,7 @@ Concrete multi-edit commands and migration scenarios: [coding workflow guide](do
 
 | Path | Contents |
 |---|---|
-| [`skills/`](skills/) | 140 skills, each with a `SKILL.md` entrypoint |
+| [`skills/`](skills/) | 141 skills, each with a `SKILL.md` entrypoint |
 | [`agents/`](agents/) | 73 agent definitions |
 | [`commands/`](commands/) | 97 slash commands |
 | [`hooks/`](hooks/) | Executable SessionStart hook and written guidance |
