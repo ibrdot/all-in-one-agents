@@ -25,7 +25,11 @@
 /* ---------- reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
+/* author display rules below override the UA [hidden] style without this */
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
+/* keep anchored sections clear of the sticky nav */
+section[id] { scroll-margin-top: 80px; }
 
 body {
   background: var(--bg);
