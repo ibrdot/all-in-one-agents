@@ -169,13 +169,24 @@ Then run **`agent-self-evaluation`** — rate your own output on 5 axes: accurac
 | Long session / compaction | `using-all-in-one-agents` |
 | Framework itself misbehaves | `diagnosing-the-pack` |
 | Deep phase-loop guidance | `pack-kernel` |
-| Identity re-anchor needed | `the-oath` |
 | Session state must survive | `ck` |
 
 ### Engineering & DevOps
 
 | You notice... | Load |
 |---|---|
+| Coordinated edits without collateral damage | `multi-file-editing` |
+| Refactor symbols, not matching strings | `ast-aware-refactoring` |
+| Migrate contracts without breaking consumers | `api-migration` |
+| Upgrade dependencies with controlled risk | `dependency-upgrades` |
+| Optimize from measurements, not guesses | `performance-profiling` |
+| Design tests that catch real regressions | `test-design` |
+| Ship releases that can be rolled back | `release-engineering` |
+| Keep documentation matching the code | `docs-accuracy` |
+| Build a precise working map before editing | `codebase-context` |
+| Measure agent changes against reproducible tasks | `agent-evaluation` |
+| Resume work from evidence, not stale memory | `checkpoint-recovery` |
+| Evaluate reviewer feedback before changing code | `receiving-code-review` |
 | Build an MCP server | `mcp-builder` |
 | GitHub ops (issues, PRs, CI) | `github-ops` |
 | Auth / secrets / API endpoints | `security-review` |
@@ -195,7 +206,13 @@ Then run **`agent-self-evaluation`** — rate your own output on 5 axes: accurac
 | Regression fear in large repo | `module-regression` |
 | Repo looks unmaintained | `repo-polish` |
 | Commit hygiene | `commit-craft` |
-| Terminal / session chores | `terminal-opener` |
+| Production broken / alert fired | `incident-response` |
+| Instrument a service | `production-observability` |
+| Change live schema | `database-migrations` |
+| Flaky / race / deadlock | `concurrency-debugging` |
+| Build or fix an LLM feature | `prompt-engineering` |
+| Long agent session | `context-window-management` |
+| High-stakes technical decision | `deep-research` |
 
 ### Meta & Learning
 
@@ -207,13 +224,80 @@ Then run **`agent-self-evaluation`** — rate your own output on 5 axes: accurac
 | Inventory the pack | `skill-stocktake` |
 | Extract cross-cutting rules | `rules-distill` |
 | Skill compliance check | `skill-comply` |
-| Same mistake repeating | `continuous-learning` |
 | Process improvement | `continuous-learning-v2` |
 | Multi-model critique needed | `council-multi-model` |
 | Repeated domain terms | `context-and-decisions` |
 | Agent grading itself | `agent-self-evaluation` |
 | Test strategy with humans | `test-collaboration` |
-| Taste / quality bar question | `taste` |
+| Review a branch or WIP diff | `code-review` |
+| New module, structure unclear | `codebase-design` |
+| Bug report, reproduce first | `diagnosing-bugs` |
+| Model a business domain | `domain-modeling` |
+| Stress-test a design doc | `grill-with-docs` |
+| Execute a scoped task | `implement` |
+| Implement from a written spec | `implement-spec` |
+| Refactor for structure | `improve-codebase-architecture` |
+| Open or polish a pull request | `pr` |
+| Spike before committing | `prototype` |
+| Investigate before deciding | `research` |
+| Close out a work cycle | `retro` |
+| Turn notes into a spec | `to-spec` |
+| Split a spec into tickets | `to-tickets` |
+| UI accessibility pass | `accessibility-wcag` |
+| Design or version an API | `api-design-patterns` |
+| Login, sessions, tokens | `authentication-patterns` |
+| AWS architecture decisions | `aws-cloud-patterns` |
+| Build or fix CI/CD | `ci-cd-pipelines` |
+| Slow queries, DB bottleneck | `database-optimization` |
+| Dockerfile work | `docker-best-practices` |
+| GraphQL schema / resolvers | `graphql-design` |
+| K8s deploy or debugging | `kubernetes-operations` |
+| Ship LLM features | `llm-integration` |
+| Service split decisions | `microservices-design` |
+| Postgres tuning | `postgres-optimization` |
+| Redis cache/queue patterns | `redis-patterns` |
+| Realtime features | `websocket-realtime` |
+| Idea to deployed service | `zero-to-production` |
+| Inherited legacy codebase | `legacy-rescue` |
+| Review AI-written code | `ai-code-audit` |
+| Spend too high / growing | `cost-optimization` |
+| Big refactor, short deadline | `speed-run-refactor` |
+| New issue needs routing | `triage` |
+| Lost in an unfamiliar repo | `wayfinder` |
+| Guided multi-step task setup | `wizard` |
+| Red-green-refactor cycle | `tdd` |
+| Protect main / force-push risk | `git-guardrails` |
+| Add pre-commit hooks | `setup-pre-commit` |
+| Draft a document together | `doc-coauthoring` |
+| Check judgment before acting | `discernment-nudge` |
+| Reasoning aid: bounded rationality | `thinking-bounded-rationality` |
+| Reasoning aid: circle of competence | `thinking-circle-of-competence` |
+| Reasoning aid: cynefin | `thinking-cynefin` |
+| Reasoning aid: effectuation | `thinking-effectuation` |
+| Reasoning aid: first principles | `thinking-first-principles` |
+| Reasoning aid: five whys plus | `thinking-five-whys-plus` |
+| Reasoning aid: jobs to be done | `thinking-jobs-to-be-done` |
+| Reasoning aid: kepner tregoe | `thinking-kepner-tregoe` |
+| Reasoning aid: lindy effect | `thinking-lindy-effect` |
+| Reasoning aid: map territory | `thinking-map-territory` |
+| Reasoning aid: margin of safety | `thinking-margin-of-safety` |
+| Reasoning aid: model combination | `thinking-model-combination` |
+| Reasoning aid: model router | `thinking-model-router` |
+| Reasoning aid: ooda | `thinking-ooda` |
+| Reasoning aid: opportunity cost | `thinking-opportunity-cost` |
+| Reasoning aid: pre mortem | `thinking-pre-mortem` |
+| Reasoning aid: probabilistic | `thinking-probabilistic` |
+| Reasoning aid: red team | `thinking-red-team` |
+| Reasoning aid: reversibility | `thinking-reversibility` |
+| Reasoning aid: scientific method | `thinking-scientific-method` |
+| Reasoning aid: second order | `thinking-second-order` |
+| Reasoning aid: socratic | `thinking-socratic` |
+| Reasoning aid: steel manning | `thinking-steel-manning` |
+| Reasoning aid: systems | `thinking-systems` |
+| Reasoning aid: theory of constraints | `thinking-theory-of-constraints` |
+| Reasoning aid: thought experiment | `thinking-thought-experiment` |
+| Reasoning aid: triz | `thinking-triz` |
+| Reasoning aid: via negativa | `thinking-via-negativa` |
 
 ### Documents & Media
 
@@ -223,26 +307,11 @@ Then run **`agent-self-evaluation`** — rate your own output on 5 axes: accurac
 | PDF file | `pdf` |
 | Spreadsheet | `xlsx` |
 | PowerPoint deck | `pptx` |
-| Animation-rich HTML slides | `frontend-slides` |
-| Generative art | `algorithmic-art` |
-| Visual design | `canvas-design` |
-| Theme / style artifacts | `theme-factory` |
-| iOS app icons | `ios-icon-gen` |
-| Manim explainer video | `manim-video` |
-| Remotion React video | `remotion-video-creation` |
-| Video editing pipeline | `video-editing` |
-| Video library / search | `videodb` |
-| Style pack from reference | `taste-distillation` |
-| Apply a distilled style pack | `taste-application` |
-| Slack-optimized GIF | `slack-gif-creator` |
-| Brand identity discovery | `brand-discovery` |
-| Brand voice work | `brand-voice` |
 
 ### Comms & Governance
 
 | You notice... | Load |
 |---|---|
-| Internal announcement / memo | `internal-comms` |
 | Docs governance / freshness | `docs-governance` |
 | PR needs a design doc | `pr-design-doc` |
 
@@ -414,13 +483,13 @@ Unverified work is never delivered.
 
 ### Option A — Claude Code (`CLAUDE.md`)
 ```bash
-curl -sL https://raw.githubusercontent.com/ibrorg/all-in-one-agents/main/MASTER-PROMPT.md \
+curl -sL https://raw.githubusercontent.com/ibrorg/all-in-one-agents/main/skills/using-all-in-one-agents/MASTER_PROMPT.md \
   | sed -n '/^---$/,$p' >> ~/.claude/CLAUDE.md
 ```
 
 ### Option B — Cursor (`.cursorrules`)
 ```bash
-curl -sL https://raw.githubusercontent.com/ibrorg/all-in-one-agents/main/MASTER-PROMPT.md \
+curl -sL https://raw.githubusercontent.com/ibrorg/all-in-one-agents/main/skills/using-all-in-one-agents/MASTER_PROMPT.md \
   > .cursorrules
 ```
 

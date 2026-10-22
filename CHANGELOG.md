@@ -2,9 +2,30 @@
 
 ## Unreleased
 
+## [1.6.0] - 2026-10-22
+
+### Added
+- GitHub Pages landing site served from /docs: pure-black console aesthetic with a
+  fixed section rail and scrollspy, pipeline engineering-loop diagram, bento
+  feature grid, typed terminal hero artifact, custom cursor, and
+  reduced-motion/no-JS fallbacks. SEO, Open Graph, JSON-LD, sitemap, robots,
+  favicon and social image included.
 - Explicit local memory CLI with validated put, read-only semantic search and
   delete. New databases use private permissions; no network or automatic capture.
 - Published v1.5.0 assets downloaded again and all three SHA256 checks passed.
+
+### Changed
+- Project identity moved to the ibrorg organization: LICENSE copyright, plugin
+  and extension manifests, README badges, install docs and site URLs.
+- MASTER-PROMPT.md and MASTER-PROMPT.min.md removed from the repository root;
+  the portable master prompt now lives at
+  skills/using-all-in-one-agents/MASTER_PROMPT.md. gen_routing.py and the
+  integrity tests target that path.
+- "Option C — system prompt only" install path removed from docs/INSTALL.md
+  following the prompt move.
+
+### Fixed
+- docs/INSTALL.md local-link validation failure after the prompt removal.
 
 ## [1.5.0] - 2026-10-21
 

@@ -1,27 +1,32 @@
-# Release notes - v1.5.0
+# Release notes - v1.6.0
 
-## Runtime, objective evaluation and safer installs
+## Organization move and the new landing site
 
-This release packages the changes since published v1.2.0. It includes 140 skills,
-73 agents, 97 commands, a connected Python runtime and 272 passing local checks.
+This release moves the project to the ibrorg organization and ships the new
+GitHub Pages site. It includes 140 skills, 73 agents, 97 commands and the same
+Python runtime as v1.5.0.
 
 ### Highlights
 
-- Semantic skill indexing and persistent memory retrieval; explicit configurable
-  HTTP chat/embedding adapters, cost estimates and budgeted critique council.
-- Evidence manifests and reviewed evaluation-led skill improvement with rollback.
-- 50 offline runtime contracts, plus 50 objective coding/infra microtasks with
-  provider generation and separate replay grading. No invented live-model scores.
-- Executable DOCX/XLSX/PDF/PPTX reporting, tested by reopening each native format.
-- Installer preflight blocks symlink writes and preserves modified installed
-  content unless replacement is explicitly requested with --force.
-- Stronger coding playbooks, synchronized plugin versions and safer release tools.
+- New landing site at https://ibrorg.github.io/all-in-one-agents/ — pure-black
+  console design, typed terminal hero artifact, pipeline engineering-loop
+  diagram, bento feature grid, section rail with scrollspy, custom cursor, and
+  accessible reduced-motion and no-JS fallbacks. Zero build step, served from /docs.
+- Project identity is now ibrorg: LICENSE copyright, plugin and extension
+  manifests, README badges, install instructions and all site URLs.
+- The portable master prompt lives at
+  skills/using-all-in-one-agents/MASTER_PROMPT.md. The root MASTER-PROMPT.md and
+  MASTER-PROMPT.min.md were removed; gen_routing.py and the integrity tests now
+  target the skill path, and docs/INSTALL.md no longer offers a prompt-only
+  install path.
+- Explicit local memory CLI with validated put, read-only semantic search and
+  delete; new databases use private permissions.
 
 ### Upgrade
 
 ```sh
 git fetch origin --tags
-git checkout v1.5.0
+git checkout v1.6.0
 ./install.sh claude --dry-run
 ./install.sh claude
 ```
@@ -38,10 +43,10 @@ pip install -r requirements-documents.txt
 
 ### Verification
 
-- Full local suite: 272 passed.
-- Skill validation: 140 valid; script smoke checks and generated catalog pass.
-- Runtime contract benchmark: 50/50, no baseline regressions.
-- Author-reference objective-task calibration: 50/50 (NOT model performance).
+- Full local suite passing (pytest), skill validation, smoke checks and the
+  generated catalog check; release metadata synchronized across all
+  plugin/extension manifests.
+- Markdown local-link, heading-anchor and SVG checks pass after the prompt move.
 - Release source archives are built from the tagged commit; SHA256SUMS accompanies
   the tar.gz and zip assets. Verification receipt records the exact commit.
 
@@ -60,6 +65,6 @@ See [runtime guide](docs/RUNTIME.md), [objective evaluation](docs/OBJECTIVE-EVAL
 ### Rollback
 
 Keep the previous installation and local customizations backed up. To inspect the
-previous published source use `git checkout v1.2.0`; restore your installation
+previous published source use `git checkout v1.5.0`; restore your installation
 backup rather than assuming an older copy will remove newer installed files.
 Runtime databases and operator-owned output are not migrated by the installer.

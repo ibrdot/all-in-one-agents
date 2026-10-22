@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate the routing table section of MASTER-PROMPT.md from skills/.
+"""Regenerate the routing table section of the master prompt skill from skills/.
 
 Keeps the hand-curated category mapping at the top of this file; regenerates
 the table rows so new skills never go unrouted. Run after adding/removing skills.
@@ -7,7 +7,7 @@ the table rows so new skills never go unrouted. Run after adding/removing skills
 import os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROMPT = os.path.join(ROOT, "MASTER-PROMPT.md")
+PROMPT = os.path.join(ROOT, "skills", "using-all-in-one-agents", "MASTER_PROMPT.md")
 
 # Hand-curated: skill -> (category, trigger phrase)
 CATS = {

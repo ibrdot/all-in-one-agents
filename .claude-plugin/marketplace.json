@@ -9,7 +9,7 @@
       "name": "all-in-one-agents",
       "source": "./",
       "description": "140 skills, 73 agents, 97 commands: the complete engineering workflow for AI coding agents.",
-      "version": "1.5.0",
+      "version": "1.6.0",
       "category": "engineering",
       "keywords": [
         "skills",

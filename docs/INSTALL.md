@@ -59,14 +59,6 @@ Each harness has its manifest in the repo root:
 ./install.sh /path/to/anywhere   # creates skills/ agents/ commands/ inside
 ```
 
-## Option C — system prompt only (no install)
-
-For harnesses without hooks (Codex app, some Gemini configs, sandboxed/cloud
-agents, CI), paste **[MASTER-PROMPT.md](../MASTER-PROMPT.md)** into the system
-prompt slot. It carries the same methodology — loop, gates, routing table,
-anti-patterns, oath — as one portable document. It does not replace hooks;
-it is the portable fallback.
-
 ## Verify your install
 
 ```bash

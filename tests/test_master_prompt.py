@@ -1,8 +1,12 @@
-"""MASTER-PROMPT.md integrity: routing table covers every skill and references only real skills."""
+"""Master prompt skill integrity: routing table covers every skill and references only real skills.
+
+The portable master prompt lives at skills/using-all-in-one-agents/MASTER_PROMPT.md
+(the former root MASTER-PROMPT.md and MASTER-PROMPT.min.md were removed).
+"""
 import os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROMPT = os.path.join(ROOT, "MASTER-PROMPT.md")
+PROMPT = os.path.join(ROOT, "skills", "using-all-in-one-agents", "MASTER_PROMPT.md")
 
 def real_skills():
     return {d for d in os.listdir(os.path.join(ROOT, "skills"))
@@ -33,6 +37,3 @@ def test_required_sections():
     text = prompt_text().lower()
     for section in ("rule zero", "understand", "anti-pattern", "compaction", "oath", "evidence"):
         assert section in text, f"missing section: {section}"
-
-def test_min_version_kept():
-    assert os.path.isfile(os.path.join(ROOT, "MASTER-PROMPT.min.md"))
