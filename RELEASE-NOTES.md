@@ -1,32 +1,40 @@
-# Release notes - v1.6.0
+# Release notes - v1.7.0
 
-## Organization move and the new landing site
+## Browser and desktop operation skills, hardened gates, polished docs
 
-This release moves the project to the ibrorg organization and ships the new
-GitHub Pages site. It includes 140 skills, 73 agents, 97 commands and the same
-Python runtime as v1.5.0.
+This release adds two operation-domain skills, closes the gaps found by deep
+accessibility and code-quality passes, and turns the day's lessons into
+mechanical CI gates. It includes 142 skills, 73 agents, 97 commands and the
+same Python runtime as v1.6.0.
 
 ### Highlights
 
-- New landing site at https://ibrorg.github.io/all-in-one-agents/ — pure-black
-  console design, typed terminal hero artifact, pipeline engineering-loop
-  diagram, bento feature grid, section rail with scrollspy, custom cursor, and
-  accessible reduced-motion and no-JS fallbacks. Zero build step, served from /docs.
-- Project identity is now ibrorg: LICENSE copyright, plugin and extension
-  manifests, README badges, install instructions and all site URLs.
-- The portable master prompt lives at
-  skills/using-all-in-one-agents/MASTER_PROMPT.md. The root MASTER-PROMPT.md and
-  MASTER-PROMPT.min.md were removed; gen_routing.py and the integrity tests now
-  target the skill path, and docs/INSTALL.md no longer offers a prompt-only
-  install path.
-- Explicit local memory CLI with validated put, read-only semantic search and
-  delete; new databases use private permissions.
+- **computer-use** — native desktop and OS UI automation: accessibility-first
+  action ladder, observe-act-observe verification, and a bundled
+  `scripts/desktop.py` helper (screenshot, click, drag, type, key, scroll) for
+  hosts without built-in desktop automation.
+- **browser-use** — operating a real browser for web tasks: observe-first over
+  pixels, durable locators, one action per observation cycle, structured
+  recovery. Native apps go to computer-use; test authoring to webapp-testing.
+- **Hardened validation** — `check_docs.py` now fails on heading level skips;
+  a new consistency test fails if skills/agents/commands counts drift from the
+  README badges, INDEX header, site stats or measured inventory.
+- **Installer fix** — the SessionStart hook is now covered by `--force`
+  protection; reinstalls no longer silently overwrite a modified hook.
+- **Site accessibility** — copy status announced via aria-live region (WCAG
+  4.1.3), repo tree exposed correctly with `role="img"`, install-step heading
+  order corrected; keyboard-only navigation verified end to end.
+- **Site performance** — Google Fonts CSS preloaded with an onload swap and a
+  noscript fallback; measured 13% faster FCP and LCP.
+- **Documentation** — all 14 maintained guides refreshed: 30-second TL;DRs,
+  collapsible procedures, harness and command category tables, Next sections;
+  CONTRIBUTING gains an orientation and an 18-box PR-ready checklist.
 
 ### Upgrade
 
 ```sh
 git fetch origin --tags
-git checkout v1.6.0
+git checkout v1.7.0
 ./install.sh claude --dry-run
 ./install.sh claude
 ```
@@ -43,10 +51,13 @@ pip install -r requirements-documents.txt
 
 ### Verification
 
-- Full local suite passing (pytest), skill validation, smoke checks and the
-  generated catalog check; release metadata synchronized across all
-  plugin/extension manifests.
-- Markdown local-link, heading-anchor and SVG checks pass after the prompt move.
+- Full local suite passing: skill validation (142 valid), smoke checks,
+  generated catalog check, release metadata synchronized across all manifests.
+- New regression coverage: installer hooks `--force` behavior, heading-order
+  gate (both directions), inventory-count consistency across four surfaces.
+- Markdown local-link, heading-anchor, heading-order and SVG checks pass.
+- Site verified live: keyboard-only navigation, screen-reader announcements,
+  preload timing improvements measured with Lighthouse.
 - Release source archives are built from the tagged commit; SHA256SUMS accompanies
   the tar.gz and zip assets. Verification receipt records the exact commit.
 
@@ -65,6 +76,6 @@ See [runtime guide](docs/RUNTIME.md), [objective evaluation](docs/OBJECTIVE-EVAL
 ### Rollback
 
 Keep the previous installation and local customizations backed up. To inspect the
-previous published source use `git checkout v1.5.0`; restore your installation
+previous published source use `git checkout v1.6.0`; restore your installation
 backup rather than assuming an older copy will remove newer installed files.
 Runtime databases and operator-owned output are not migrated by the installer.

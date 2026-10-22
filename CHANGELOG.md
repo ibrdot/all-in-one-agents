@@ -2,9 +2,41 @@
 
 ## Unreleased
 
+## [1.7.0] - 2026-10-22
+
+### Added
 - computer-use skill: native desktop and OS UI automation with an
-  accessibility-first action ladder and observe-act-observe verification.
-  Inventory is now 141 skills, 73 agents, 97 commands.
+  accessibility-first action ladder, observe-act-observe verification, and a
+  bundled `scripts/desktop.py` helper (screenshots, click, drag, type, scroll)
+  for hosts without built-in desktop automation.
+- browser-use skill: operating a real browser for web tasks — observe-first
+  page reading, durable locators, one action per observation cycle, recovery
+  rules. Clean boundary: native apps to computer-use, test authoring to
+  webapp-testing. Inventory is now 142 skills, 73 agents, 97 commands.
+- Heading-order gate in `check_docs.py`: maintained docs fail the audit on
+  heading level skips, with regression tests both directions.
+- `tests/test_install_hooks_force.py` and `tests/test_inventory_counts.py`:
+  installer --force coverage for the hooks component, and inventory-count
+  consistency enforcement across README badges, INDEX header, site stats and
+  measured inventory.
+- Site: skills marquee ticker, aria-live copy-status announcements for screen
+  readers (WCAG 4.1.3), `role="img"` on the ASCII repo tree, and font
+  preloading that removes the Google Fonts request from the render-blocking
+  chain (measured −13% FCP/LCP).
+- docs: all 14 maintained guides refreshed — 30-second TL;DRs, collapsible
+  steps, harness and category index tables, Next sections, plus a CONTRIBUTING
+  orientation, 18-box PR-ready checklist and scope guardrails.
+
+### Changed
+- GETTING-STARTED and CONTRIBUTING rewritten around the 30-second orientation
+  and command-verifiable gates.
+
+### Fixed
+- Installer now requires `--force` to replace a modified SessionStart hook —
+  the hooks component previously escaped the conflict guard and was silently
+  overwritten on reinstall.
+- Site: heading order in install steps (h2→h4 skip), missing aria-live status
+  region on the copy button, and invalid aria-label on the repo tree.
 
 ## [1.6.0] - 2026-10-22
 
