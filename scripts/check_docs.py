@@ -31,6 +31,12 @@ def check(root=ROOT):
     root=Path(root).resolve();errors=[];external=set();docs=documents(root)
     for path in docs:
         text=re.sub(r'```.*?```','',path.read_text(),flags=re.S)
+        prev=0
+        for hashes in re.findall(r'^(#{1,6})\s+.+?\s*#*$',text,re.M):
+            lvl=len(hashes)
+            if prev and lvl>prev+1:
+                errors.append(f'{path.relative_to(root)}: heading level skip h{prev} -> h{lvl}')
+            prev=lvl
         for target in re.findall(r'\]\(([^\s)]+)(?:\s+"[^"]*")?\)',text):
             parts=urlsplit(target)
             if parts.scheme in ('http','https','mailto'):external.add(target);continue
