@@ -1,5 +1,30 @@
 # Commands
 
+## ⏱️ 30-second TL;DR
+
+The pack ships **97 slash commands** organized into a flat alphabetical reference
+below. Most commands fall into a handful of categories — pick the right verb,
+then the language or surface:
+
+- **Build**: `*-build` for C++, Flutter, Go, Gradle/Kotlin, React, Rust — incremental, minimal, surgical fixes.
+- **Review**: `*-review` per language + `code-review`, `review-pr`, `santa-loop` (adversarial dual review).
+- **Test**: `*-test` per language (TDD-first) + `test-coverage`.
+- **Orchestration**: `orch-*` for end-to-end feature/MVP/defect/refactor flows with gated commits.
+- **Epic**: `epic-*` for issue decomposition, validation, and unblocking.
+- **Multi-model**: `multi-*` for Codex + Antigravity workflows preserving Claude as the only filesystem writer.
+- **PRP**: `prp-*` for the PRD → plan → implement → commit → PR loop.
+- **Session**: `checkpoint`, `resume-session`, `save-session`, `sessions`.
+- **Instincts/learning**: `instinct-*`, `learn`, `learn-eval`, `evolve`, `promote`, `prune`.
+- **Hookify**: `hookify`, `hookify-*` to prevent unwanted behaviors from conversation analysis.
+
+> Each command's bullet below describes its trigger and one-line scope. Invoke
+> with `/<name>` in your harness; non-Claude harnesses may not support every
+> command — see [INSTALL.md](INSTALL.md) for harness-specific behavior.
+
+---
+
+## Full command reference
+
 - **/aside** — Answer a quick side question without interrupting or losing context from the current task. Resume work automatically after answering.
 - **/astra-review** — Send Claude-written code to GPT-6-Astra (ChatGPT, via Codex CLI) for an independent cross-provider review, then fix what it finds.
 - **/auto-update** — Pull the latest ECC repo changes and reinstall the current managed targets.
@@ -22,7 +47,7 @@
 - **/fastapi-review** — Review a FastAPI application for architecture, async correctness, dependency injection, Pydantic schemas, security, performance, and testabi
 - **/feature-dev** — Guided feature development with codebase understanding and architecture focus
 - **/flutter-build** — Fix Dart analyzer errors and Flutter build failures incrementally. Invokes the dart-build-resolver agent for minimal, surgical fixes.
-- **/flutter-review** — Review Flutter/Dart code for idiomatic patterns, widget best practices, state management, performance, accessibility, and security. Invokes 
+- **/flutter-review** — Review Flutter/Dart code for idiomatic patterns, widget best practices, state management, performance, accessibility, and security. Invokes
 - **/flutter-test** — Run Flutter/Dart tests, report failures, and incrementally fix test issues. Covers unit, widget, golden, and integration tests.
 - **/gan-build** — Run a generator/evaluator build loop for implementation tasks with bounded iterations and scoring.
 - **/gan-design** — Run a generator/evaluator design loop for frontend or visual work with bounded iterations and scoring.
@@ -77,7 +102,7 @@
 - **/quality-gate** — Run the ECC formatter quality gate for a single file and report remediation steps.
 - **/react-build** — Fix React build failures (Vite, webpack, Next.js, CRA, Parcel, esbuild, Bun) incrementally — JSX/TSX compile errors, hydration mismatches, s
 - **/react-review** — Comprehensive React/JSX code review for hook correctness, render performance, server/client component boundaries, accessibility, and React-s
-- **/react-test** — Enforce TDD workflow for React. Write React Testing Library tests first (behavior-focused, accessibility-first), then implement components. 
+- **/react-test** — Enforce TDD workflow for React. Write React Testing Library tests first (behavior-focused, accessibility-first), then implement components.
 - **/refactor-clean** — Safely identify and remove dead code with verification after each change.
 - **/resume-session** — Load the most recent session file from ~/.claude/session-data/ and resume work with full context from where the last session ended.
 - **/review-pr** — Comprehensive PR review using specialized agents (code-reviewer, comment-analyzer, pr-test-analyzer, silent-failure-hunter, type-design-anal
@@ -97,3 +122,12 @@
 - **/update-codemaps** — Scan project structure and generate token-lean architecture codemaps.
 - **/update-docs** — Sync documentation from source-of-truth files such as scripts, schemas, routes, and exports.
 - **/vue-review** — Comprehensive Vue.js code review for Composition API correctness, reactivity, composable patterns, template security, accessibility, and Vue
+
+---
+
+## Next
+
+- [Skill catalog](../INDEX.md) — full 141-skill index with trigger conditions
+- [Installation by harness](INSTALL.md) — per-harness command support
+- [Coding workflows](CODING-WORKFLOWS.md) — multi-edit, refactoring, migration patterns
+- [Runtime](RUNTIME.md) — executable contracts and connected execution
