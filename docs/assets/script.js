@@ -12,27 +12,15 @@
   if (reduceMotion || !hasIO) {
     revealEls.forEach(function (el) { el.classList.add("in-view"); });
   } else {
-    var scheduled = false;
-    var pending = [];
-
-    function flush() {
-      scheduled = false;
-      pending.forEach(function (el) { el.classList.add("in-view"); });
-      pending = [];
-    }
-
+    // apply immediately — gating content visibility on requestAnimationFrame
+    // leaves sections permanently hidden where rAF is stalled
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           observer.unobserve(entry.target);
-          pending.push(entry.target);
+          entry.target.classList.add("in-view");
         }
       });
-      // batch class writes into one animation frame
-      if (pending.length && !scheduled) {
-        scheduled = true;
-        requestAnimationFrame(flush);
-      }
     }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
 
     revealEls.forEach(function (el) { observer.observe(el); });
