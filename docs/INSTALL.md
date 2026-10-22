@@ -6,8 +6,39 @@ Pick your harness. The installer wires the SessionStart kernel hook for Claude C
 Other targets require harness-specific configuration; included manifests are not
 a claim that every target has been runtime-tested.
 
-Prerequisites: Git and Bash; Python 3 for the installer and checks, Python 3.10+
-for the multi-edit helper. Back up existing same-name skills before installing.
+## ⏱️ 30-second TL;DR
+
+```bash
+git clone https://github.com/ibrorg/all-in-one-agents.git
+cd all-in-one-agents
+./install.sh claude --dry-run   # preview
+./install.sh claude             # install to ~/.claude
+python3 scripts/validate.py && python3 -m pytest tests/ -q
+```
+
+For non-Claude harnesses, see the [harness table](#pick-your-harness) below — the
+installer supports OpenCode and a custom path directly; other harnesses use their
+adapter manifest in the repo root.
+
+> **Prerequisites**: Git and Bash; Python 3 for the installer and checks,
+> Python 3.10+ for the multi-edit helper. **Back up existing same-name skills
+> before installing.** The installer is not an isolated package manager — it
+> copies files into the selected destination.
+
+---
+
+## Pick your harness
+
+| Harness | Install command / manifest | Notes |
+|---|---|---|
+| [Claude Code](#claude-code) | `./install.sh claude` | SessionStart hook auto-merged into `~/.claude/settings.json` |
+| [OpenCode](#opencode) | `./install.sh opencode` | Plain copy to `~/.config/opencode` |
+| [Cursor](#cursor) | Copy `skills/`, `agents/`, `commands/` | Or use `.cursor-plugin/plugin.json` where supported |
+| [Gemini CLI](#gemini-cli) | Adapter candidates in repo | Verify discovery in a real session |
+| [Codex / Copilot CLI / Devin / Hermes / Muse / Kimi / Pi / Antigravity](#other-harnesses) | Per-harness manifest in repo root | See table below |
+| [Custom location](#custom-location) | `./install.sh /path/to/anywhere` | Creates `skills/`, `agents/`, `commands/` inside |
+
+---
 
 ## Claude Code
 
@@ -38,7 +69,7 @@ This repository includes `gemini-extension.json`, `.gemini/extension.json` and
 extension-loading procedure and verify discovery in a real session; local JSON
 validation does not establish native loading.
 
-## Codex / Copilot CLI / Devin / Hermes / Muse / Kimi Code / Pi / Antigravity
+## Other harnesses
 
 Each harness has its manifest in the repo root:
 
@@ -59,6 +90,8 @@ Each harness has its manifest in the repo root:
 ./install.sh /path/to/anywhere   # creates skills/ agents/ commands/ inside
 ```
 
+---
+
 ## Verify your install
 
 ```bash
@@ -78,3 +111,12 @@ pack, installation stops and lists conflicts; back up local changes and use
 `--force` only when replacement is intended. `--dry-run` lists conflicts without
 writing. Run installation without concurrent untrusted writers; preflight is
 not a cross-process lock.
+
+---
+
+## Next
+
+- [Getting started](GETTING-STARTED.md) — the 30-second first-time path
+- [Troubleshooting](TROUBLESHOOTING.md) — common install and runtime failures
+- [Coding workflows](CODING-WORKFLOWS.md) — safe multi-file changes
+- [Compatibility evidence](COMPATIBILITY-EVIDENCE.md) — tested vs unverified integrations
