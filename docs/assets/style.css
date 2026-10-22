@@ -603,7 +603,7 @@ ol, ul { list-style: none; padding: 0; }
 .install-steps li:first-child { padding-top: 0; }
 .install-steps li:last-child { border-bottom: 0; }
 .step-num { color: var(--accent); font-size: 0.85rem; padding-top: 2px; flex: 0 0 auto; }
-.step-body h4 { font-size: 0.95rem; margin-bottom: var(--s2); }
+.step-body h3 { font-size: 0.95rem; margin-bottom: var(--s2); }
 .step-cmd { color: var(--text-dim); font-size: 0.82rem; word-break: break-all; }
 
 /* ---------- repo structure tree ---------- */
